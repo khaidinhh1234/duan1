@@ -7,7 +7,6 @@
 	<title>Local index - HTTrack Website Copier</title>
   <!-- Mirror and index made by HTTrack Website Copier/3.49-2 [XR&CO'2014] -->
 	<link rel="stylesheet" href="./view/assets/css/style2.css">
-
 </head>
 
 <table width="76%" border="0" align="center" cellspacing="0" cellpadding="3" class="tableWidth">
@@ -35,7 +34,7 @@
 		<TR>
 			<TD BACKGROUND="fade.gif">
 				&middot;
-					<A HREF="view/QLphim.php">
+					<A HREF="demo.hasthemes.com/adomx-preview/light/index.html">
 						Adomx - Responsive Bootstrap 4 Admin Template
 					</A>		
 			</TD>

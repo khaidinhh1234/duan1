@@ -1,61 +1,63 @@
 <?php
 
-include "./header.php";
+include "./home/header.php";
 
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
         case "QLphim":
-            include "./QLphim.php";
+            include "./phim/QLphim.php";
             break;
         case "QLcarou":
-            include "./QLcarou.php";
+            include "./phim/QLcarou.php";
             break;
         case "rapchieu":
-            include "./rapchieu.php";
+            include "./rapchieu/rapchieu.php";
             break;
         case "QLbv":
-            include "./QLbv.php";
+            include "./baiviet/QLbv.php";
             break;
         case "QTvien":
-            include "./QTvien.php";
+            include "./user/QTvien.php";
             break;
         case "khachhang":
-            include "./khachhang.php";
+            include "./user/khachhang.php";
             break;
         case "DTdh":
-            include "./DTdh.php";
+            include "./danhthu/DTdh.php";
             break;
         case "DTthang":
-            include "./DTthang.php";
+            include "./danhthu/DTthang.php";
             break;
         case "DTphim":
-            include "./DTphim.php";
+            include "./danhthu/DTphim.php";
             break;
         case "voucher":
-            include "./voucher.php";
+            include "./voucher/voucher.php";
             break;
         case "timeline":
-            include "./timeline.php";
+            include "./voucher/timeline.php";
             break;
         case "chitiethoadon":
-            include "./chitiethoadon.php";
+            include "./vephim/chitiethoadon.php";
             break;
         case "order-list":
-            include "./order-list.php";
+            include "./vephim/order-list.php";
             break;
         case "QLfeed":
-            include "./QLfeed.php";
+            include "./feedblack/QLfeed.php";
             break;
         case "lichchieu":
-            include "./lichchieu.php";
+            include "./suatchieu/lichchieu.php";
             break;
+        case "QLsuatchieu":
+            include "./suatchieu/QLsuatchieu.php";  
         default:
-            include "./QLphim.php";
+            include "./phim/QLphim.php";
             break;
     }
 } else {
-    include "./QLphim.php";
+    include "./phim/QLphim.php";
 }
 
-include "./footer.php";
+include "./home/footer.php";
