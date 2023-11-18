@@ -10,7 +10,7 @@ include "./view/home/sideheader.php";
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
-                <h3>Loại Phim <span>/ Thêm</span></h3>
+                <h3>Loại Phim <span>/ Thêm Phim</span></h3>
             </div>
         </div><!-- Page Heading End -->
 
@@ -27,12 +27,11 @@ include "./view/home/sideheader.php";
                     <h4 class="title">Thêm  phim</h4>
 
                     <div class="row">
-                        
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Tên Phim" name="tieu_de"></div><br>
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Mô Tả" name="mo_ta"></div><br>
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="date" placeholder="Ngày Phát Hành" name="date"></div><br>
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" placeholder="Thời Lượng" name="thoiluong"></div><br>
-                        <div class="col-lg-6 col-12 mb-30"><input  type="file" placeholder="Hình Ảnh" name="anh"></div><br>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Tên Phim" name="tieu_de"></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Mô Tả" name="mo_ta"></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="date" placeholder="Ngày Phát Hành" name="date"></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" placeholder="Thời Lượng" name="thoiluong"></div>
+                        <div class="col-lg-6 col-12 mb-30"><input  type="file" placeholder="Hình Ảnh" name="anh"></div>
                         <div class="row2 mb10 form_content_container">
                             <label for="">Chọn Loại Phim</label><br>
                             <select name="id_loai" id="">

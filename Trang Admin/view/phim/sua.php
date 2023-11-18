@@ -1,12 +1,12 @@
 <?php
 include "./view/home/sideheader.php";
-if(is_array($loadone_phim)){
+if (is_array($loadone_phim)) {
     extract($loadone_phim);
 }
-$hinh = "../imgavt/".$img;
-if(is_file($hinh)){
-    $hinh = '<img src="'.$hinh.'" alt="">';
-}else{
+$hinh = "../imgavt/" . $img;
+if (is_file($hinh)) {
+    $hinh = '<img src="' . $hinh . '" alt="">';
+} else {
     echo "lôiz";
 }
 ?>
@@ -20,7 +20,7 @@ if(is_file($hinh)){
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
-                <h3> Phim <span>/ Sửa</span></h3>
+                <h3> Phim <span>/ Sửa Phim</span></h3>
             </div>
         </div><!-- Page Heading End -->
 
@@ -34,29 +34,40 @@ if(is_file($hinh)){
 
             <div class="add-edit-product-form">
 
-                <h4 class="title">Sửa  phim</h4>
+                <h4 class="title">Sửa phim</h4>
 
-                <div class="row"><div class="col-lg-6 col-12 mb-30"><input class="form-control" type="hidden" name="id" value="<?=$id?>" ></div>
-                <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Tên Phim" name="tieu_de" value="<?=$tieu_de?>"></div><br>
-                        <div class="col-lg-6 col-12 mb-30"><textarea class="form-control" name="mo_ta" ><?php echo $mo_ta ?></textarea></div>
-                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="date" placeholder="Ngày Phát Hành" name="date" value="<?=$date_phat_hanh?>"></div><br>
-                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" placeholder="Thời Lượng" name="thoiluong" value="<?=$thoi_luong_phim?>"></div><br>
+                <div class="row">
+                    <input  type="hidden" name="id" value="<?= $id ?>">
+
+                    <div class="col-lg-6 col-12 mb-30">
+                    <span class="title">Tên Phim </span><br>
+                    <input class="form-control" type="text"  name="tieu_de" value="<?= $tieu_de ?>"></div><br>
+                    <div class="col-lg-6 col-12 mb-30">
+                    <span class="title">Ngày Phát Hành</span><br>
+                    <input class="form-control" type="date"  name="date" value="<?= $date_phat_hanh ?>"></div><br>
+                    <div class="col-lg-6 col-12 mb-30">
+                    <span class="title">Mô tả </span><br><textarea class="form-control" name="mo_ta"><?php echo $mo_ta ?></textarea></div>
+                    <div class="col-lg-6 col-12 mb-30">
+                    <span class="title">Thời lượng Phim </span><br><input class="form-control" type="number"  name="thoiluong" value="<?= $thoi_luong_phim ?>"></div><br>
                     <div class="col-lg-6 col-12 mb-10">
-                        <label for="">Chọn danh mục</label><br>
-                        <select name="id_loai" id="">
+                    <span class="title">Danh Mục Phim </span><br>
+                        <select name="id_loai" class="form-control">
                             <!--                    <option value="0">chọn</option>-->
-                            <?php foreach ($loadloai as $loai){
+                            <?php foreach ($loadloai as $loai) {
                                 extract($loai);
 
-                                echo '<option value="'.$id.'" selected>'.$name.'</option> ';
+                                echo '<option value="' . $id . '" selected>' . $name . '</option> ';
                             } ?>
                         </select>
                     </div>
-                        <div class="col-lg-6 col-12 mb-30"> <label>Ảnh </label> <br>
-                            <input  type="file" name="anh">
-                            <?=$hinh?></div><br>
-                        
-                    
+                    <div class="col-lg-6 col-12 mb-30"> 
+                    <span class="title">Hình Ảnh Phim </span><br>
+                    <div class="col-lg-6 col-12 mb-10">
+                        <input type="file" name="anh">
+                        <?= $hinh ?>
+                    </div><br> </div>
+
+
                 </div>
 
                 <h4 class="title">Thao tác</h4>

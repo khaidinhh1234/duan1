@@ -72,15 +72,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if (isset($_GET['idsua'])) {
                 $loadone_phim = loadone_phim($_GET['idsua']);
             }
-            include "phim/sua.php";
+            include "./view/phim/sua.php";
             break;
         case "xoaphim":
             if (isset($_GET['idxoa'])) {
                 xoa_phim($_GET['idxoa']);
                 $loadphim = loadall_phim();
-                include "phim/QLphim.php";
+                include "./view/phim/QLphim.php";
             } else {
-                include "phim/QLphim.php";
+                include "./view/phim/QLphim.php";
             }
             break;
         case "updatephim":
