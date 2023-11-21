@@ -6,7 +6,7 @@
 <section class="container">
     <div class="col-sm-12">
         <h2 class="page-heading">Danh sách phim  /
-        <span ><?=$ten_loai?> </span></h2>
+        <span >Phim Sắp Chiếu </span></h2>
 
         <div class="tags-area">
             <div class="tags tags--unmarked">
@@ -24,6 +24,7 @@
 
 
         <!-- Movie preview item -->
+        <?php if ($dsp['id_lichchieu'] == 2 ) : ?>
         <?php foreach($dsp as $phim):{
              extract($phim);
              $hinhpath="imgavt/" . $img;
@@ -141,6 +142,7 @@
             <!-- end time table-->
         </div>
         <?php endforeach ?>
+        <?php  endif ?>
         <!-- end movie preview item -->
 
 

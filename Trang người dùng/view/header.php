@@ -36,6 +36,9 @@
     <!-- Custom -->
     <link href="css/style3860.css?v=1" rel="stylesheet" />
 
+    <!-- all.min -->
+    <link rel="stylesheet" href="../css/all.min.css">
+
 
     <!-- Modernizr -->
     <script src="js/external/modernizr.custom.js"></script>
@@ -79,17 +82,20 @@
                     <li>
                         <span class="sub-nav-toggle plus"></span>
                         <a href="index.php?act=dsphim">Phim</a>
-
+                        <ul>
+                        <li class="menu__nav-item"><a href="index.php?act=phimdangchieu" >Phim Đang Chiếu</a></li>
+                        <li class="menu__nav-item"><a href="index.php?act=phimsapchieu" >Phim Sắp Chiếu</a></li>
+                        </ul>
                     </li>
 
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="index.php?act=tintuc">Thể loại</a>
+                        <a href="index.php?act=theloai">Thể loại</a>
                         <ul>
-                            <?php foreach ($loadloai as $loai){
-                                extract($loai);
-                                $linkloai = 'index.php?act=loaiphim&id='.$id;
-                                echo '<li class="menu__nav-item"><a href="'.$linkloai.'" >'.$name.'</a></li>';
+                            <?php foreach ($loadloai as $loaip){
+                                extract($loaip);
+                                $linkloaip = 'index.php?act=theloai&id_loai='.$id;
+                                echo '<li class="menu__nav-item"><a href="'.$linkloaip.'" >'.$name.'</a></li>';
                             } ?>
 
                         </ul>

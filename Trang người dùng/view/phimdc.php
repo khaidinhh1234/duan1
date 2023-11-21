@@ -6,7 +6,7 @@
 <section class="container">
     <div class="col-sm-12">
         <h2 class="page-heading">Danh sách phim  /
-        <span ><?=$ten_loai?> </span></h2>
+        <span >Phim Đang Chiếu </span></h2>
 
         <div class="tags-area">
             <div class="tags tags--unmarked">

@@ -51,6 +51,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case "themphim":
             if (isset($_POST['gui'])) {
                 $tieu_de = $_POST['tieu_de'];
+                $daodien =$_POST['daodien'];
+                $dienvien =$_POST['dienvien'];
+                $quoc_gia =$_POST['quoc_gia'];
+                $gia_han_tuoi =$_POST['gia_han_tuoi'];
                 $thoiluong = $_POST['thoiluong'];
                 $date = $_POST['date'];
                 $id_loai = $_POST['id_loai'];
@@ -63,7 +67,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 }else{
                         echo "Upload ảnh không thành công";
                 }
-                them_phim($tieu_de,$img,$mo_ta,$thoiluong,$date,$id_loai);
+                them_phim($tieu_de,$daodien,$dienvien,$img,$mo_ta,$quoc_gia,$gia_han_tuoi,$thoiluong,$date,$id_loai);
             }
             $loadphim = loadall_phim();
             include "./view/phim/them.php";
@@ -88,6 +92,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if (isset($_POST['capnhat'])) {
                 $id = $_POST['id'];
                 $tieu_de = $_POST['tieu_de'];
+                $daodien =$_POST['daodien'];
+                $dienvien =$_POST['dienvien'];
+                $quoc_gia =$_POST['quoc_gia'];
+                $gia_han_tuoi =$_POST['gia_han_tuoi'];
                 $thoiluong = $_POST['thoiluong'];
                 $date = $_POST['date'];
                 $id_loai = $_POST['id_loai'];
@@ -100,7 +108,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 //                        echo "Upload ảnh không thành công";
                 }
                 $mo_ta = $_POST['mo_ta'];
-                sua_phim($id,$tieu_de,$img,$mo_ta,$thoiluong,$date,$id_loai);
+                sua_phim($id,$tieu_de,$daodien,$dienvien,$quoc_gia,$gia_han_tuoi,$img,$mo_ta,$thoiluong,$date,$id_loai);
             }
             $loadphim = loadall_phim();
 

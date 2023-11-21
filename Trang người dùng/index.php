@@ -3,38 +3,51 @@ session_start();
 include "model/pdo.php";
 include "model/loai_phim.php";
 include "model/phim.php";
+include "model/lichchieu.php";
 include "model/taikhoan.php";
 $loadloai = loadall_loaiphim();
-$loaip = loadall_loaip();
 $loadphim = loadall_phim();
 $loadphimhot = loadall_phim_hot();
 $loadphimhome = loadall_phim_home();
+
 include "view/header.php";
-if(isset($_GET['act']) && $_GET['act']!=""){
+if (isset($_GET['act']) && $_GET['act'] != "") {
     $act = $_GET['act'];
     switch ($act) {
         case "ctphim":
             include "view/ctphim.php";
             break;
-            case "dsphim":
-                if(isset($_POST['kys']) && $_POST['kys']!="") {
-                        
-                    $kys=$_POST['kys'];
-                }else{
-                    $kys="";
-                }
-                if(isset($_GET['idloai']) && $_GET['id_loai'] > 0) {
-                    $id_loai = $_GET['id_loai'];
-                   $tenloai=load_ten_loai($id_loai);
-                }else{
-                    $id_loai=0;
-                }
-                    $dsp=loadall_phim1($kys,$id_loai);
-                    
-                $nameth=phim_select_all();
-                // $dsp=loadall_phim();
-                include "view/dsphim.php";
-                break;
+        case "dsphim":
+            $dsp = loadall_phim();
+            include "view/dsphim.php";
+            break;
+        case "phimdangchieu":
+            $dsp = loadall_phim();
+            include "view/phimdc.php";
+            break;
+        case "phimsapchieu":
+            $dsp = loadall_phim();
+            include "view/phimsc.php";
+            break;
+        case "theloai":
+            if (isset($_POST['kys']) && $_POST['kys'] != "") {
+
+                $kys = $_POST['kys'];
+            } else {
+                $kys = "";
+            }
+            if (isset($_GET['id_loai']) && $_GET['id_loai'] > 0) {
+                $id_loai = $_GET['id_loai'];
+                $ten_loai = load_ten_loai($id_loai);
+            } else {
+                $id_loai = 0;
+            }
+            $dsp = loadall_phim1($kys, $id_loai);
+
+
+            // $dsp=loadall_phim();
+            include "view/dsphim.php";
+            break;
         case "lienhe":
             include "view/lienhe.php";
             break;
@@ -89,7 +102,6 @@ if(isset($_GET['act']) && $_GET['act']!=""){
                 } else {
                     echo "Vui lòng điền đầy đủ thông tin.";
                 }
-
             }
 
             include "view/login/dangky.php";
@@ -118,11 +130,11 @@ if(isset($_GET['act']) && $_GET['act']!=""){
             }
             break;
         case "dangxuat":
-                dang_xuat();
+            dang_xuat();
             include "view/login/dangnhap.php";
             break;
     }
-    }else{
+} else {
     include "view/home.php";
 }
 include "view/footer.php";

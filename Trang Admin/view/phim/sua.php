@@ -43,6 +43,18 @@ if (is_file($hinh)) {
                     <span class="title">Tên Phim </span><br>
                     <input class="form-control" type="text"  name="tieu_de" value="<?= $tieu_de ?>"></div><br>
                     <div class="col-lg-6 col-12 mb-30">
+                    <span class="title"> Đạo Diễn<noscript></noscript> </span><br>
+                    <input class="form-control" type="text"  name="daodien" value="<?= $daodien ?>"></div><br>
+                    <div class="col-lg-6 col-12 mb-30">
+                    <span class="title">Diễn Viên </span><br>
+                    <input class="form-control" type="text"  name="dienvien" value="<?= $dienvien ?>"></div><br>
+                    <div class="col-lg-6 col-12 mb-30">
+                    <span class="title">Quốc Gia</span><br>
+                    <input class="form-control" type="text"  name="quoc_gia" value="<?= $quoc_gia ?>"></div><br>
+                    <div class="col-lg-6 col-12 mb-30">
+                    <span class="title">Giới Hạn Tuổi </span><br>
+                    <input class="form-control" type="text"  name="gia_han_tuoi" value="<?= $gia_han_tuoi ?>"></div><br>
+                    <div class="col-lg-6 col-12 mb-30">
                     <span class="title">Ngày Phát Hành</span><br>
                     <input class="form-control" type="date"  name="date" value="<?= $date_phat_hanh ?>"></div><br>
                     <div class="col-lg-6 col-12 mb-30">
@@ -50,7 +62,7 @@ if (is_file($hinh)) {
                     <div class="col-lg-6 col-12 mb-30">
                     <span class="title">Thời lượng Phim </span><br><input class="form-control" type="number"  name="thoiluong" value="<?= $thoi_luong_phim ?>"></div><br>
                     <div class="col-lg-6 col-12 mb-10">
-                    <span class="title">Danh Mục Phim </span><br>
+                    <span class="title">Thể Loại Phim </span><br>
                         <select name="id_loai" class="form-control">
                             <!--                    <option value="0">chọn</option>-->
                             <?php foreach ($loadloai as $loai) {
@@ -62,10 +74,9 @@ if (is_file($hinh)) {
                     </div>
                     <div class="col-lg-6 col-12 mb-30"> 
                     <span class="title">Hình Ảnh Phim </span><br>
-                    <div class="col-lg-6 col-12 mb-10">
-                        <input type="file" name="anh">
+                        <input class="form-control" type="file" name="anh">
                         <?= $hinh ?>
-                    </div><br> </div>
+                  </div>
 
 
                 </div>

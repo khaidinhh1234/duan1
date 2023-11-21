@@ -2,7 +2,7 @@
 
 function loadall_phim()
 {
-    $sql = "select * from phim where 1 order by id asc";
+    $sql = "select * from phim where 1 order by id desc";
     $re = pdo_query($sql);
     return $re;
 }
