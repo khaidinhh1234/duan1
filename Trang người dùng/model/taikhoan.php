@@ -21,7 +21,7 @@ function insert_taikhoan($email,$user,$pass,$name,$sdt,$dc){
 }
 
 function sua_tk($id,$name,$user,$pass,$email,$sdt,$dc){
-    $sql = "update taikhoan set name ='".$name."', user ='".$user."',pass ='".$pass."',email ='".$email."',phone ='".$sdt."',dia_chi ='".$dc."' where id=".$id;
+    $sql = "update taikhoan set name ='".$name."', user ='".$user."',pass ='".$pass."',email ='".$email."',phone ='".$sdt."',diachi ='".$dc."' where id=".$id;
 
     pdo_execute($sql);
 }

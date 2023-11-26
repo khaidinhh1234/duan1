@@ -3,33 +3,28 @@ session_start();
 include "model/pdo.php";
 include "model/loai_phim.php";
 include "model/phim.php";
-include "model/lichchieu.php";
 include "model/taikhoan.php";
+include "model/lichchieu.php";
 $loadloai = loadall_loaiphim();
 $loadphim = loadall_phim();
 $loadphimhot = loadall_phim_hot();
 $loadphimhome = loadall_phim_home();
-
 include "view/header.php";
 if (isset($_GET['act']) && $_GET['act'] != "") {
     $act = $_GET['act'];
     switch ($act) {
         case "ctphim":
-            include "view/ctphim.php";
+
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $phim =  loadone_phim($_GET['id']);
+                include "view/ctphim.php";
+            } else {
+                //  include "view/home.php";
+                include "view/ctphim.php";
+            }
+            // include "view/ctphim.php";
             break;
         case "dsphim":
-            $dsp = loadall_phim();
-            include "view/dsphim.php";
-            break;
-        case "phimdangchieu":
-            $dsp = loadall_phim();
-            include "view/phimdc.php";
-            break;
-        case "phimsapchieu":
-            $dsp = loadall_phim();
-            include "view/phimsc.php";
-            break;
-        case "theloai":
             if (isset($_POST['kys']) && $_POST['kys'] != "") {
 
                 $kys = $_POST['kys'];
@@ -38,15 +33,36 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             }
             if (isset($_GET['id_loai']) && $_GET['id_loai'] > 0) {
                 $id_loai = $_GET['id_loai'];
-                $ten_loai = load_ten_loai($id_loai);
+                $tenloai = load_ten_loai($id_loai);
             } else {
                 $id_loai = 0;
             }
             $dsp = loadall_phim1($kys, $id_loai);
 
-
+            $nameth = phim_select_all();
             // $dsp=loadall_phim();
             include "view/dsphim.php";
+            break;
+        case "phimsapchieu":
+            $psc = load_phimsc();
+            include "view/phimsc.php";
+            break;
+        case "phimdangchieu":
+            $pdc = load_phimdc();
+            include "view/phimdc.php";
+            break;
+        case "ghe":
+
+            include "view/ghe.php";
+            break;
+            case "test":
+
+                include "view/test.php";
+                break;
+            
+        case "thanhtoan":
+
+            include "view/thanhtoan.php";
             break;
         case "lienhe":
             include "view/lienhe.php";
@@ -132,6 +148,47 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
         case "dangxuat":
             dang_xuat();
             include "view/login/dangnhap.php";
+            break;
+            case "doan":
+                
+                include "view/doan.php";
+                break;
+                    
+        case "datve":
+            if (isset($_POST['date']) && $_POST['date'] != "") {
+
+                $date = $_POST['date'];
+            } else {
+                $date = "";
+            }
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id_phim = $_GET['id'];
+                $phim = loadone_phim($id_phim);
+            } else {
+                $id_phim = 0;
+            }
+            $lc = loadall_lich($date, $id_phim);
+            include "view/datve.php";
+
+            break;
+        case "theloai":
+            if (isset($_POST['kys']) && $_POST['kys'] != "") {
+
+                $kys = $_POST['kys'];
+            } else {
+                $kys = "";
+            }
+            if (isset($_GET['id_loai']) && $_GET['id_loai'] > 0) {
+                $id_loai = $_GET['id_loai'];
+                $ten_loai = load_ten_loai($id_loai);
+            } else {
+                $id_loai = 0;
+            }
+            $dsp = loadall_phim1($kys, $id_loai);
+
+
+            // $dsp=loadall_phim();
+            include "view/theloaiphim.php";
             break;
     }
 } else {

@@ -87,6 +87,8 @@
 <script>window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
 <!-- Migrate -->
 <script src="js/external/jquery-migrate-1.2.1.min.js"></script>
+<!-- jQuery UI -->
+<script src="code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <!-- Bootstrap 3-->
 <script src="netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
@@ -122,7 +124,11 @@
         init_Home();
     });
 </script>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        init_BookingOne();
+    });
+</script>
 </body>
 
 </html>

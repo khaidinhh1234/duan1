@@ -16,7 +16,7 @@
 
     <!-- Fonts -->
     <!-- Font awesome - icon font -->
-    <link href="../netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Roboto -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
     <!-- Open Sans -->
@@ -35,10 +35,7 @@
 
     <!-- Custom -->
     <link href="css/style3860.css?v=1" rel="stylesheet" />
-
-    <!-- all.min -->
-    <link rel="stylesheet" href="../css/all.min.css">
-
+    <link rel="stylesheet" href="css/style12.css">
 
     <!-- Modernizr -->
     <script src="js/external/modernizr.custom.js"></script>
@@ -49,6 +46,8 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
     <![endif]-->
 </head>
+
+
 
 <body>
 <div class="wrapper">
@@ -83,14 +82,14 @@
                         <span class="sub-nav-toggle plus"></span>
                         <a href="index.php?act=dsphim">Phim</a>
                         <ul>
-                        <li class="menu__nav-item"><a href="index.php?act=phimdangchieu" >Phim Đang Chiếu</a></li>
-                        <li class="menu__nav-item"><a href="index.php?act=phimsapchieu" >Phim Sắp Chiếu</a></li>
+                            <li class="menu__nav-item"><a href="index.php?act=phimdangchieu" >Phim Đang Chiếu</a></li>
+                            <li class="menu__nav-item"><a href="index.php?act=phimsapchieu" >Phim Sắp Chiếu</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="index.php?act=theloai">Thể loại</a>
+                        <a href="">Thể loại</a>
                         <ul>
                             <?php foreach ($loadloai as $loaip){
                                 extract($loaip);

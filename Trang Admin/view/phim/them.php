@@ -28,29 +28,20 @@ include "./view/home/sideheader.php";
 
                     <div class="row">
                         <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Tên Phim" name="tieu_de"></div>
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Đạo Diễn" name="daodien"></div>
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Diễn Viên" name="dienvien"></div>
                         <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Mô Tả" name="mo_ta"></div>
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Quốc Gia" name="quoc_gia"></div>
-                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Giới Hạn Tuổi" name="gia_han_tuoi"></div>
                         <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="date" placeholder="Ngày Phát Hành" name="date"></div>
                         <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" placeholder="Thời Lượng" name="thoiluong"></div>
-                        
-                        <div class="col-lg-6 col-12 mb-30">
-                            <span class="title" for="">Thể Loại Phim</span><br>
-                            <select class="form-control" name="id_loai" id="">
-                                <!-- <option value="0">chọn</option> -->
+                        <div class="col-lg-6 col-12 mb-30"><input  type="file" placeholder="Hình Ảnh" name="anh"></div>
+                        <div class="row2 mb10 form_content_container">
+                            <label for="">Chọn Loại Phim</label><br>
+                            <select name="id_loai" id="">
+                                <option value="0">chọn</option>
                                 <?php foreach ($loadloai as $loai){
                                     extract($loai);
                                     echo "<option value='.$id.'>$name</option>";
                                 } ?>
                             </select>
-
                         </div>
-                        
-                        <div class="col-lg-6 col-12 mb-30">
-                            <span class="title" for="">Hình Ảnh Phim<br>
-                            <input class="form-control" type="file" placeholder="Hình Ảnh" name="anh"></div>
                     </div>
 
                     <h4 class="title">Thao tác</h4>

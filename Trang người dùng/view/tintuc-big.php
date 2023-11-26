@@ -9,8 +9,8 @@
 
             <!-- News post article-->
             <article class="post post--news">
-                <a href='../web3%20(1)/amovie.gozha.net/single-page-full.html' class="post__image-link">
-                    <img alt='' src="images/client-photo/single-post.jpg">
+                <a href='#' class="post__image-link">
+                    <img alt='' src="images/banners/11.jpg" width="1140">
                 </a>
 
                 <h1><a href="../web3%20(1)/amovie.gozha.net/single-page-full.html" class="post__title-link">Donec eu mollis augue, ut egestas leo</a></h1>
@@ -37,8 +37,8 @@
 
             <!-- News post article-->
             <article class="post post--news">
-                <a href='../web3%20(1)/amovie.gozha.net/single-page-full.html' class="post__image-link">
-                    <img alt='' src="images/new/news-1.jpg">
+                <a href='' class="post__image-link">
+                    <img alt='' src="images/banners/12.jpg" width="1140">
                 </a>
 
                 <h1><a href="../web3%20(1)/amovie.gozha.net/single-page-full.html" class="post__title-link">Donec eu mollis augue, ut egestas leo</a></h1>

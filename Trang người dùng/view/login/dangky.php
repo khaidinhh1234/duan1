@@ -12,15 +12,15 @@
 
                 </div>
                 <form class="login-form" method="post" action="index.php?act=dangky">
-                    <input type="text" class="auth-form-input" placeholder="Name" name="name">
-                    <input type="text" class="auth-form-input" placeholder="User" name="user">
+                    <input type="text" class="auth-form-input" placeholder="Name" name="name" required>
+                    <input type="text" class="auth-form-input" placeholder="User" name="user" required>
                     <div class="input-icon">
-                        <input type="password" class="auth-form-input" placeholder="Password" name="pass">
+                        <input type="password" class="auth-form-input" placeholder="Password" name="pass" required>
                         <i class="fa fa-eye show-password"></i>
                     </div>
-                    <input type="text" class="auth-form-input" placeholder="Phone" name="phone">
-                    <input type="email" class="auth-form-input" placeholder="Email" name="email">
-                    <input type="text" class="auth-form-input" placeholder="Địa chỉ" name="dia_chi">
+                    <input type="text" class="auth-form-input" placeholder="Phone" name="phone" required>
+                    <input type="email" class="auth-form-input" placeholder="Email" name="email" required>
+                    <input type="text" class="auth-form-input" placeholder="Địa chỉ" name="dia_chi" required>
                     <label class="btn active">
                         <input type="checkbox" name='email1' checked>
                         <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>

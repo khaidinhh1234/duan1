@@ -5292,10 +5292,10 @@ ul#navigation li.mega-menu__nav-item:hover:before {
   font-size: 13px;
 }
 .movie .movie__media {
-  padding: 20px 5px;
+  padding: 20px 100px;
   position: relative;
   width: 100%;
-  height: 162px;
+  height: 562px;
   background-image: url(../images/components/bg-movie.png);
   background-repeat: repeat-x;
 }
@@ -9231,6 +9231,7 @@ ul#navigation li.mega-menu__nav-item:hover:before {
     top: -40px;
     right: auto;
     left: 0;
+    
   }
   .movie--test .movie__images {
     max-width: 100%;

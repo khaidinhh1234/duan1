@@ -4,7 +4,7 @@ function pdo_get_connection(){
     $username = "root";
     $password = "";
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=cinepass", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=cinepass1", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch(PDOException $e) {
@@ -43,6 +43,7 @@ function pdo_query($sql){
     finally{
         unset($conn);
     }
+
 }
 // truy vấn  1 dữ liệu
 function pdo_query_one($sql){
@@ -63,4 +64,5 @@ function pdo_query_one($sql){
     }
 }
 pdo_get_connection();
-?>
+
+

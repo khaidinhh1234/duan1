@@ -5,13 +5,6 @@
      return $re;
  }
 
-function load_ten_loai($id_loai){
-        $sql="select * from loaiphim where id=".$id_loai;
-        $loai = pdo_query_one($sql);
-        extract($loai);
-        return $name;
-}   
-   
 function them_loaiphim($name){
     $sql = "insert into `loaiphim`(`name`) values ('$name')";
     pdo_execute($sql);
@@ -31,4 +24,11 @@ function xoa_loaiphim($id){
 function update_loaiphim($id,$name){
     $sql = "update loaiphim set `name`='{$name}' where `loaiphim`.`id`=". $id;
     pdo_execute($sql);
+}
+
+function load_ten_loai($id_loai){
+    $sql="select * from loaiphim where id=".$id_loai;
+    $loai = pdo_query_one($sql);
+    extract($loai);
+    return $name;
 }

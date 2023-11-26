@@ -19,9 +19,9 @@
 
 
                 <form class="login-form" method="post" action="index.php?act=dangnhap">
-                    <input type="text" class="auth-form-input" name="user"  placeholder="Tài khoản">
+                    <input type="text" class="auth-form-input" name="user"  placeholder="Tài khoản" required>
                     <div class="input-icon">
-                        <input type="password" class="auth-form-input" name="pass" placeholder="Mật khẩu">
+                        <input type="password" class="auth-form-input" name="pass" placeholder="Mật khẩu" required>
                         <i class="fa fa-eye show-password"></i>
                     </div>
                     <label class="btn active">

@@ -42,12 +42,8 @@
                                 <tr>
                                     <th>Mã Phim</th>
                                     <th>Tên Phim</th>
-                                    <th>Đạo Diễn</th>
-                                    <th>Diễn Viên</th>
                                     <th>Hình Ảnh</th>
                                     <th>Mô Tả</th>
-                                    <th>Quốc Gia</th>
-                                    <th>Giới Hạn Tuổi</th>
                                     <th>Thời gian</th>
                                     <th>Lịch Chiếu</th>
                                     <th>Loại Phim</th>
@@ -61,7 +57,7 @@
                             extract($phim);
                             $linksua = "index.php?act=suaphim&idsua=".$id;
                             $linkxoa = "index.php?act=xoaphim&idxoa=".$id;
-                            $hinhpath="../imgavt/".$img;
+                            $hinhpath="../Trang người dùng/imgavt/".$img;
                             if(is_file($hinhpath)){
                             $img="<img src='".$hinhpath."' height='100' >";
                             }else{
@@ -70,12 +66,8 @@
               
                             echo '<tr> <td>#'.$id.'</td>
                                        <td>'.$tieu_de.'</td>
-                                       <td>'.$daodien.'</td>
-                                       <td>'.$dienvien.'</td>
                                        <td>'.$img.'</td>
                                        <td>'.$mo_ta.'</td>
-                                       <td>'.$quoc_gia.'</td>
-                                       <td>'.$gia_han_tuoi.'</td>
                                        <td>'.$thoi_luong_phim.'</td>
                                        <td>'.$date_phat_hanh.'</td>
                                        <td>'.$id_loai.'</td>

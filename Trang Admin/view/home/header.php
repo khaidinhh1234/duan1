@@ -98,16 +98,9 @@
 
                                     <!--Language-->
                                     <li class="adomx-dropdown position-relative col-auto">
-                                        <a class="toggle" href="#"><img class="lang-flag" src="assets/images/flags/flag-6.jpg" alt=""><i class="zmdi zmdi-caret-down drop-arrow"></i></a>
+                                        <a class="toggle" href="#"><img class="lang-flag" src="assets/images/flags/flag-6.jpg" alt="" style="border-radius: 5px"></a>
 
                                         <!-- Dropdown -->
-                                        <ul class="adomx-dropdown-menu dropdown-menu-language">
-                                            <li><a href="#"><img src="assets/images/flags/flag-6.jpg" alt=""> Tiếng Việt</a></li>
-                                            <li><a href="#"><img src="assets/images/flags/flag-1.jpg" alt=""> Tiếng Anh</a></li>
-                                            <li><a href="#"><img src="assets/images/flags/flag-2.jpg" alt=""> Tiếng Nhật</a></li>
-                                            <li><a href="#"><img src="assets/images/flags/flag-3.jpg" alt=""> Spanish </a></li>
-                                            <li><a href="#"><img src="assets/images/flags/flag-4.jpg" alt=""> Tiếng Đức</a></li>
-                                        </ul>
 
                                     </li>
 
@@ -121,15 +114,17 @@
                                             <img src="assets/images/avatar/avatar-1.jpg" alt="">
                                             <span class="status"></span>
                                             </span>
-                                            <span class="name">Madison Howard</span>
                                             </span>
                                         </a>
 
                                         <!-- Dropdown -->
                                         <div class="adomx-dropdown-menu dropdown-menu-user">
-                                            <div class="head">
-                                                <h5 class="name"><a href="#">Madison Howard</a></h5>
-                                                <a class="mail" href="#">mailnam@mail.com</a>
+
+                                            <?php if (isset($_SESSION['vai_tro'])){
+                                                extract($_SESSION['vai_tro']);
+                                                echo '<div class="head">
+                                                <h5 class="name"><a href="#">'.$name.'</a></h5>
+                                                <a class="mail" href="#">'.$email.'</a>
                                             </div>
                                             <div class="body">
                                                 <ul>
@@ -146,7 +141,9 @@
                                                     <li><a href="#"><i class="zmdi zmdi-google-pages"></i>Invoice</a></li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div>';
+                                            }?>
+
 
                                     </li>
 

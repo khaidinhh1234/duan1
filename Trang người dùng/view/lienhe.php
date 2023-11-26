@@ -1,4 +1,5 @@
-<?php include "view/search.php"?>
+<?php include "view/search.php"
+?>
 
 
 <!-- Main content -->
