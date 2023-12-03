@@ -118,16 +118,20 @@
 
 <!-- Custom -->
 <script src="js/custom.js"></script>
+<script src="js/custom.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        init_BookingTwo();
+    });
+</script>
 <script src="login-ui2/login-ui2/js/common.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         init_Home();
     });
 </script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        init_BookingOne();
-    });
+
 </script>
 </body>
 

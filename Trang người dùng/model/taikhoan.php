@@ -80,3 +80,11 @@ function sendMailPass($email, $name, $pass) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
+
+
+function dat_ve($id_phim,$id_ngay_chieu,$id_thoi_gian_chieu,$gia_tien){
+    $sql = "INSERT INTO ve (id_phim, id_ngay_chieu, id_thoi_gian_chieu,  price)
+        VALUES ('$id_phim', '$id_ngay_chieu', '$id_thoi_gian_chieu',  '$gia_tien')";
+
+    pdo_execute($sql);
+}

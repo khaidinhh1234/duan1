@@ -1,16 +1,17 @@
 <?php
-function loadall_lich($date="",$id_phim=0){
-    $sql="SELECT l.id, l.id_phim, phongchieu.name, l.ngay_chieu, l.thoi_gian_chieu FROM lichchieu l 
-    left JOIN phongchieu ON phongchieu.id = l.id_phong_chieu";
-    if($date!=""){
-        $sql.=" and ngay_chieu = '".$date."'";
-    }
-    if($id_phim>0){
-        $sql.=" and id_phim ='".$id_phim."'";
-    }
-    $sql.=" order by ngay_chieu desc";
+
+function lichchieu_select_by_id_phim($id)
+{
+    $sql = "SELECT l.id, l.ngay_chieu, phim.tieu_de  FROM lichchieu l left JOIN phim ON phim.id = l.id_phim  WHERE l.id_phim= '$id'";
     $re=pdo_query($sql);
     return  $re;
 }
 
-
+function khunggiochieu_select_by_idxc($id_lc)
+{
+    $sql = "SELECT g.id, g.id_lich_chieu,g.thoi_gian_chieu,lichchieu.ngay_chieu,g.id_phong FROM khung_gio_chieu g 
+    INNER JOIN lichchieu ON lichchieu.id = g.id_lich_chieu 
+    INNER JOIN phongchieu ON phongchieu.id = g.id_phong WHERE lichchieu.id ='$id_lc'";
+    $re=pdo_query($sql);
+    return  $re;
+}

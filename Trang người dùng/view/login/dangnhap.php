@@ -6,19 +6,21 @@
             <div class="auth-form-outer">
                 <?php if(isset($_SESSION['user'])){
                     extract($_SESSION['user']);
-                    echo 'xin chào ' .$name ;
-                    echo '<br><a href="index.php?act=suatk">Cập nhật tài khoản</a>';
-                    echo '<br><a href="index.php?act=suatk">Vé đã mua</a>';
-                    echo '<br><a href="index.php?act=dangxuat">Đăng xuất</a>';
+                    $link_ve = "index.php?act=ve&id=".$id;
+                    echo ' <h2 >Xin chào : ' .$name .' </h2>';
+                    echo '<br><button class="btn btn-md btn--warning"><a href="index.php?act=suatk">Cập nhật tài khoản</a></button>';
+                    echo '<br><button class="btn btn-md btn--warning"><a href="'.$link_ve.'">Vé đã mua</a></button>';
+                    echo '<br><button class="btn btn-md btn--warning"><a href="index.php?act=dangxuat">Đăng xuất</a></button>';
                 }else{ ?>
-                <h2 class="auth-form-title">
-                    Đăng nhập
-                </h2>
-                <div class="auth-external-container">
+                <h2 class="auth-form-title" style="margin-bottom:10px;">
+                  <div class="dn">  Đăng nhập</div>
+               
+                <div class="auth-external-container" style="margin-top: 20px;">
                 </div>
 
 
                 <form class="login-form" method="post" action="index.php?act=dangnhap">
+                    <div class="loi" ><font  style="color: red; padding:100px;" ><?= $thongbao['dangnhap'] ?? "" ?></font></div>
                     <input type="text" class="auth-form-input" name="user"  placeholder="Tài khoản" required>
                     <div class="input-icon">
                         <input type="password" class="auth-form-input" name="pass" placeholder="Mật khẩu" required>

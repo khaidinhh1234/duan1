@@ -12,7 +12,7 @@ include "./view/home/sideheader.php";
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
-                <h3> Phim <span>/ Thêm Suất Chiếu</span></h3>
+                <h3> Suất Chiếu <span>/ Thêm Suất Chiếu</span></h3>
             </div>
         </div><!-- Page Heading End -->
 
@@ -26,41 +26,28 @@ include "./view/home/sideheader.php";
 
             <div class="add-edit-product-form">
 
-                <h4 class="title">Sửa Xuất Chiếu</h4>
+                <h4 class="title">Thêm  Xuất Chiếu</h4>
 
                 <div class="row">
-                    <input  type="hidden" name="id" >
-
                     <div class="col-lg-6 col-12 mb-30">
                         <span class="title">Tên Phim </span><br>
                         <div class="row2 mb10 form_content_container">
-                            <label for="">Chọn Loại Phim</label><br>
-                            <select name="id_phim" id="">
-                                <option value="0">chọn</option>
+                            <select name="id_phim" id="" class="form-control">
+                                <option value="0">Chọn Tên Phim</option>
                                 <?php foreach ($loadphim as $phim){
                                     extract($phim);
                                     echo "<option value='.$id.'>$tieu_de</option>";
                                 } ?>
                             </select>
-                        </div>
+                        </div>  </div>
+                   
                     <div class="col-lg-6 col-12 mb-30">
-                        <span class="title">Phòng Chiếu</span><br>
-                        <div class="row2 mb10 form_content_container">
-                            <label for="">Chọn Loại Phim</label><br>
-                            <select name="id_phong" id="">
-                                <option value="0">chọn</option>
-                                <?php foreach ($loadphong as $phong){
-                                    extract($phong);
-                                    echo "<option value='.$id.'>$name</option>";
-                                } ?>
-                            </select><br>
-                        </div>
-                    <div class="col-lg-6 col-12 mb-30">
-                        <span class="title">Ngày chiếu</span><br><input class="form-control" type="date"  name="nc""></div><br>
-                    <div class="col-lg-6 col-12 mb-10">
+                        <span class="title">Ngày chiếu</span><br>
+                        <input class="form-control" type="date"  name="nc"></div><br>
+                    <!-- <div class="col-lg-6 col-12 mb-10">
                         <span class="title">Thời gian chiếu</span><br>
-                        <input class="form-control" type="time"  name="tgc" ">
-                    </div>
+                        <input class="form-control" type="time"  name="tgc" >
+                    </div> -->
                 </div>
 
                 <h4 class="title">Thao tác</h4>
@@ -72,6 +59,7 @@ include "./view/home/sideheader.php";
                     <div class="row">
                         <div class="d-flex flex-wrap justify-content-end col mbn-10">
                             <button class="button button-outline button-primary mb-10 ml-10 mr-0" type="submit" name="them">Thêm</button>
+                            <button class="button button-outline button-primary mb-10 ml-10 mr-0" type="submit" ><a href="index.php?act=QLsuatchieu" style="color: black;">Danh sách</a></button>
                         </div>
                     </div><!-- Button Group End -->
 

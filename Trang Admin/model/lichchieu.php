@@ -1,8 +1,7 @@
 <?php
 function loadall_lichchieu(){
-    $sql = "select l.id,phim.tieu_de,phongchieu.name,l.ngay_chieu,l.thoi_gian_chieu from lichchieu l 
+    $sql = "select l.id,phim.tieu_de,l.ngay_chieu from lichchieu l 
             left join phim on phim.id= l.id_phim
-            left join phongchieu on phongchieu.id= l.id_phong_chieu
             where 1 order by id desc";
     $re = pdo_query($sql);
     return $re;
@@ -15,14 +14,14 @@ function loadone_lichchieu($id)
     return $re;
 }
 
-function them_lichchieu($id_phim,$id_phong_chieu,$thoi_gian_chieu,$ngay_chieu){
-    $sql = "insert into `lichchieu`(`id_phim`,`id_phong_chieu`,`thoi_gian_chieu`,`ngay_chieu`) values ('$id_phim','$id_phong_chieu','$thoi_gian_chieu','$ngay_chieu')";
+function them_lichchieu($id_phim,$ngay_chieu){
+    $sql = "insert into `lichchieu`(`id_phim`,`ngay_chieu`) values ('$id_phim','$ngay_chieu')";
     pdo_execute($sql);
 }
 
-function sua_lichchieu($id,$id_phim,$id_phong_chieu,$thoi_gian_chieu,$ngay_chieu)
+function sua_lichchieu($id,$id_phim,$ngay_chieu)
 {
-        $sql = "update lichchieu set `id_phim`='{$id_phim}',`id_phong_chieu`='{$id_phong_chieu}',`thoi_gian_chieu`='{$thoi_gian_chieu}',`ngay_chieu`='{$ngay_chieu}'where `lichchieu`.`id`=" . $id;
+        $sql = "update lichchieu set `id_phim`='{$id_phim}',`ngay_chieu`='{$ngay_chieu}'where `lichchieu`.`id`=" . $id;
 
     pdo_execute($sql);
 }

@@ -21,7 +21,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
     <!-- Open Sans -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="css/style.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="login-ui2/login-ui2/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
@@ -35,7 +35,6 @@
 
     <!-- Custom -->
     <link href="css/style3860.css?v=1" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style12.css">
 
     <!-- Modernizr -->
     <script src="js/external/modernizr.custom.js"></script>
@@ -44,10 +43,9 @@
     <!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <script src="js/custom.js"></script>
     <![endif]-->
 </head>
-
-
 
 <body>
 <div class="wrapper">

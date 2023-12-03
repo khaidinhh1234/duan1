@@ -25,7 +25,11 @@ function sua_tk($id,$name,$user,$pass,$email,$sdt,$dc){
 
     pdo_execute($sql);
 }
-
+function xoa_tk($id)
+{
+    $sql = "delete from taikhoan where id=" . $id;
+    pdo_execute($sql);
+}
 function loadone_taikhoan($id){
     $sql = "select * from taikhoan where id =".$id;
     $result = pdo_query_one($sql);

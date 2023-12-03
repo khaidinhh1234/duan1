@@ -42,9 +42,13 @@
                                 <tr>
                                     <th>Mã Phim</th>
                                     <th>Tên Phim</th>
+                                    <th>Đạo Diễn</th>
+                                    <th>Diễn Viên</th>
                                     <th>Hình Ảnh</th>
                                     <th>Mô Tả</th>
-                                    <th>Thời gian</th>
+                                    <th>Thời Gian Chiếu</th>
+                                    <th>Quốc Gia</th>
+                                    <th>Giới Hạn Tuổi</th>
                                     <th>Lịch Chiếu</th>
                                     <th>Loại Phim</th>
                                     <th>Quản Lý</th>
@@ -66,9 +70,13 @@
               
                             echo '<tr> <td>#'.$id.'</td>
                                        <td>'.$tieu_de.'</td>
+                                       <td>'.$daodien.'</td>
+                                       <td>'.$dienvien.'</td>
                                        <td>'.$img.'</td>
                                        <td>'.$mo_ta.'</td>
                                        <td>'.$thoi_luong_phim.'</td>
+                                       <td>'.$quoc_gia.'</td>
+                                       <td>'.$gia_han_tuoi.'</td>
                                        <td>'.$date_phat_hanh.'</td>
                                        <td>'.$id_loai.'</td>
                                        

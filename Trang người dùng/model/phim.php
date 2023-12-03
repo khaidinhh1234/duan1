@@ -92,3 +92,21 @@ function load_phimsc(){
     $re=pdo_query($sql);
     return  $re;
 }
+
+function load_lc_p($id, $id_lichchieu, $id_gio) {
+    $sql = "SELECT phim.id AS id_phim, phim.tieu_de, lichchieu.ngay_chieu, khung_gio_chieu.thoi_gian_chieu, lichchieu.id AS id_lichchieu, khung_gio_chieu.id AS id_gio
+            FROM phim 
+            INNER JOIN lichchieu ON phim.id = lichchieu.id_phim 
+            INNER JOIN khung_gio_chieu ON lichchieu.id = khung_gio_chieu.id_lich_chieu 
+            WHERE phim.id = '$id' AND lichchieu.id = '$id_lichchieu' AND khung_gio_chieu.id = '$id_gio'";
+
+
+    return pdo_query_one($sql);
+}
+
+
+function dat_phim($ten, $ngay, $gio, $gia,$tk)
+{
+    $sql = "insert into `ve` (`id_thoi_gian_chieu`,`id_ngay_chieu`,`id_phim`,`id_tk`,`ghe`,`price`) values ('$gio','$ngay','$ten','$gia','$tk','0','$gia')";
+    pdo_execute($sql);
+}

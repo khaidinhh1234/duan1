@@ -1,25 +1,24 @@
 <?php include "view/search.php";
-// extract($phim);
+extract($phim);
+
 ?>
 
+<div class="wrapper">
 
+    <!-- Main content -->
 
     <section class="container">
         <div class="order-container">
             <div class="order">
                 <img class="order__images" alt='' src="images/tickets.png">
-                <p class="order__title">Book a ticket <br><span class="order__descript">and have fun movie time</span></p>
-                <div class="order__control">
-                    <a href="#" class="order__control-btn active">Purchase</a>
-                    <a href="#" class="order__control-btn">Reserve</a>
-                </div>
+                <p class="order__title">Book a ticket <br><span class="order__descript">Tận Hưởng Thời Gian Xem Phim Vui Vẻ</span></p>
+
             </div>
         </div>
         <div class="order-step-area">
-            <div class="order-step first--step">1. What &amp; Where &amp; When</div>
+            <div class="order-step first--step">1  Chọn Lịch Chiếu &amp; Thời Gian</div>
         </div>
-
-        <h2 class="page-heading heading--outcontainer">Choose a movie</h2>
+        <h2 class="page-heading heading--outcontainer">Phim Bạn Chọn</h2>
     </section>
 
     <div class="choose-film">
@@ -33,73 +32,66 @@
     <section class="container">
         <div class="col-sm-12">
             <div class="choose-indector choose-indector--film">
-                <strong>Choosen: </strong><span class="choosen-area"><?=$tieu_de?></span>
+                <strong>Phim Đã Chọn </strong><span class="choosen-area"><?=$tieu_de?></span>
+
             </div>
 
-            <h2 class="page-heading">City &amp; Date</h2>
 
             <div class="choose-container choose-container--short">
 
-                <div class="datepicker">
-                    <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                    <input type="text" id="datepicker" value='03/10/2014' class="datepicker__input">
-                </div>
             </div>
-            <h2 class="page-heading">Pick time</h2>
+            <h2 class="page-heading">Chọn lịch chiếu</h2>
+            <div class="choose-container choose-container--short" class="col-sm-12">
+                <?php
+                if (empty($lc)) {
+                    echo 'Không có lịch chiếu.';
+                } else {
+                    foreach ($lc as $l) {
+                        extract($l);
 
-            <div class="time-select time-select--wide">
-                <div class="time-select__group group--first">
-                    <div class="col-sm-3">
-                        <p class="time-select__place">Cineworld</p>
+                        // Kiểm tra nếu ngày chiếu lớn hơn ngày hiện tại
+                        if ($l['ngay_chieu'] > $realtime) {
+                            ?>
+                            <a href="index.php?act=datve&id=<?= $phim['id'] ?>&id_lc=<?= $l['id'] ?>">
+                                <div class="col-sm-12" style="background-color:#ffd564;
+                                                                padding: 5px;
+                                                                max-width: 100px;
+                                                                margin: 10px;
+                                                                display: flex;
+                                                                justify-content: center;
+                                                                border-top-right-radius: 10px;
+                                                                border-bottom-left-radius: 10px;" >
+                                    <?= $l['ngay_chieu'] ?>
+                                </div>
+                            </a>
+                            <?php
+                        }
+
+                    }
+                ?></div>
+                <h2 class="page-heading" style="margin-top: 100px;">Chọn Thời gian chiếu</h2>
+                <div class="time-select time-select--wide">
+                    <div class="time-select__group group--first">
+                        <div class="col-sm-3">
+                            <p class="time-select__place">CINPASS</p>
+                        </div>
+                        <?php foreach ($khunggio as $g) { ?>
+                        <ul class="col-sm-1 items-wrap">
+                            <a href="index.php?act=datve2&id=<?= $phim['id'] ?>&id_lc=<?= $g['id_lich_chieu'] ?>&id_g=<?= $g['id'] ?>">
+                                <li class="time-select__item" data-time='<?= $g['thoi_gian_chieu'] ?>'><?= $g['thoi_gian_chieu'] ?></li>
+                                </a>
+
+                        </ul>
+                        <?php } } ?>
                     </div>
-                    <ul class="col-sm-6 items-wrap">
-                        <li class="time-select__item" data-time='09:40'>09:40</li>
-                        <li class="time-select__item" data-time='13:45'>13:45</li>
-                        <li class="time-select__item" data-time='15:45'>15:45</li>
-                        <li class="time-select__item" data-time='19:50'>19:50</li>
-                        <li class="time-select__item" data-time='21:50'>21:50</li>
-                    </ul>
-                </div>
 
-                <div class="time-select__group">
-                    <div class="col-sm-3">
-                        <p class="time-select__place">Empire</p>
-                    </div>
-                    <ul class="col-sm-6 items-wrap">
-                        <li class="time-select__item" data-time='10:45'>10:45</li>
-                        <li class="time-select__item" data-time='16:00'>16:00</li>
-                        <li class="time-select__item" data-time='19:00'>19:00</li>
-                        <li class="time-select__item" data-time='21:15'>21:15</li>
-                        <li class="time-select__item" data-time='23:00'>23:00</li>
-                    </ul>
-                </div>
-
-                <?php foreach($lc as $c){
-                    extract($c);
-                    echo '<div class="time-select time-select--wide">
-            <div class="time-select__group group--first">
-                <div class="col-sm-3">
-                    <p class="time-select__place">Phòng: '.$name.'</p>
-                </div>
-                <ul class="col-sm-2 items-wrap">
-                    <li class="time-select__item" data-time="'.$thoi_gian_chieu.'">'.$thoi_gian_chieu.'</li>
-                </ul>
-            </div>
-
-        </div>';
-                } ?>
-            </div>
-
-            <div class="choose-indector choose-indector--time">
-                <strong>Choosen: </strong><span class="choosen-area"></span>
-            </div>
         </div>
 
     </section>
 
     <div class="clearfix"></div>
 
-    <form id='film-and-time' class="booking-form" method='get' action='index.php?act?chonghe'>
+    <form id='film-and-time' class="booking-form" method='get' action='https://amovie.gozha.net/book2.html'>
         <input type='text' name='choosen-movie' class="choosen-movie">
 
         <input type='text' name='choosen-city' class="choosen-city">
@@ -108,17 +100,6 @@
         <input type='text' name='choosen-cinema' class="choosen-cinema">
         <input type='text' name='choosen-time' class="choosen-time">
 
-
-        <div class="booking-pagination">
-            <a href="#" class="booking-pagination__prev hide--arrow">
-                <span class="arrow__text arrow--prev"></span>
-                <span class="arrow__info"></span>
-            </a>
-            <a href="book2.html" class="booking-pagination__next">
-                <span class="arrow__text arrow--next">next step</span>
-                <span class="arrow__info">choose a sit</span>
-            </a>
-        </div>
 
     </form>
 
@@ -162,39 +143,3 @@
     </section>
 </div>
 
-<!-- JavaScript-->
-<!-- jQuery 1.9.1-->
-<script src="ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
-<!-- Migrate -->
-<script src="js/external/jquery-migrate-1.2.1.min.js"></script>
-<!-- jQuery UI -->
-<script src="code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<!-- Bootstrap 3-->
-<script src="netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-
-<!-- Mobile menu -->
-<script src="js/jquery.mobile.menu.js"></script>
-<!-- Select -->
-<script src="js/external/jquery.selectbox-0.2.min.js"></script>
-<!-- Swiper slider -->
-<script src="js/external/idangerous.swiper.min.js"></script>
-
-<!-- Form element -->
-<script src="js/external/form-element.js"></script>
-<!-- Form validation -->
-<script src="js/form.js"></script>
-
-<!-- Custom -->
-<script src="js/custom.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        init_BookingOne();
-    });
-</script>
-
-</body>
-
-<!-- Mirrored from amovie.gozha.net/book1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Nov 2023 13:39:39 GMT -->
-</html>

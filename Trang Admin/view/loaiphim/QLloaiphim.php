@@ -31,7 +31,9 @@ include "./view/home/sideheader.php";
 
         <!-- Invoice List Start -->
         <div class="col-12 mb-30">
-            <div class="categories"><a href="index.php?act=themloai" class="product">Thêm Loại Phim</a></div>
+        <div class="news-item">
+                <div class="content">
+            <div class="categories"><a href="index.php?act=themloai" class="product">Thêm Loại Phim</a></div></div></div>
             <div class="table-responsive">
                 <table class="table table-bordered mb-0">
 
@@ -52,7 +54,8 @@ include "./view/home/sideheader.php";
                             extract($loai);
                             $linksua = "index.php?act=sualoai&idsua=".$id;
                             $linkxoa = "index.php?act=xoaloai&idxoa=".$id;
-                            echo '<tr> <td>#'.$id.'</td>
+                            echo '<tr>
+                             <td>#'.$id.'</td>
                         <td>'.$name.'</td>
                         <td>
                             <div class="table-action-buttons">
@@ -71,7 +74,7 @@ include "./view/home/sideheader.php";
                 </table>
             </div>
         </div><!-- Invoice List End -->
-
+    </div>
     </div>
 
 </div><!-- Content Body End -->

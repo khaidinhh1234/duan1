@@ -4,8 +4,10 @@
     <div class="banner">
         <ul>
 
-            <li data-transition="fade" data-slotamount="7" class="slide" data-slide='Rush.'>
-                <img alt='' src="images/slides/first-slide.jpg">
+            <li data-transition="fade" data-slotamount="7" class="slide" data-slide='Người Vợ Cuối Cùng'>
+               
+                <img alt='' src="images/slides/first-slide.jpg" style="width:100%">
+
                 <div class="caption slide__name margin-slider"
                      data-x="right"
                      data-y="80"
@@ -44,10 +46,10 @@
                      data-end="8400"
                      data-endeasing="Back.easeIn"
                 >
-                    RUSH
+                Người Vợ Cuối Cùng
                 </div>
 
-                <div class="caption slide__time margin-slider sfr str"
+                <!-- <div class="caption slide__time margin-slider sfr str"
                      data-x="right"
                      data-hoffset='-243'
                      data-y="186"
@@ -58,8 +60,8 @@
                      data-end="8700"
                      data-endeasing="Back.easeIn"
                 >
-                    From
-                </div>
+                    Từ
+                </div> -->
                 <div class="caption slide__date margin-slider lfb ltb"
                      data-x="right"
                      data-hoffset='-149'
@@ -71,9 +73,9 @@
                      data-end="8200"
                      data-endeasing="Back.easeIn"
                 >
-                    October 18
+                    ngày 30 tháng 8 Này Cinpass
                 </div>
-                <div class="caption slide__time margin-slider sfr str"
+                <!-- <div class="caption slide__time margin-slider sfr str"
                      data-x="right"
                      data-hoffset='-113'
                      data-y="186"
@@ -84,20 +86,20 @@
                      data-end="8700"
                      data-endeasing="Back.easeIn"
                 >
-                    - till
-                </div>
-                <div class="caption slide__date margin-slider lfb ltb"
+                    Cinpass
+                </div> -->
+                <!-- <div class="caption slide__date margin-slider lfb ltb"
                      data-x="right"
                      data-y="186"
                      data-speed="500"
                      data-start="2800"
                      data-easing="Power4.easeOut"
-                     data-endspeed="400"
+                     data-endspeed="40"
                      data-end="8200"
                      data-endeasing="Back.easeIn"
                 >
-                    November 01
-                </div>
+                    Năm 2023
+                </div> -->
                 <div class="caption slide__text margin-slider customin customout"
                      data-x="right"
                      data-y="250"
@@ -108,7 +110,7 @@
                      data-endspeed="400"
                      data-end="8000"
                      data-endeasing="Back.easeIn">
-                    Two-time Academy Award winner Ron Howard, teams once again with fellow two-time Academy<br> Award nominee, writer Peter Morgan , on Rush, a spectacular big-screen re-creation of the merciless<br> 1970s rivalry between James Hunt and Niki Lauda.
+                     Người Vợ Cuối Cùng là dự án đánh dấu sự trở lại với màn ảnh rộng của ngòi bút vàng - đạo diễn Victor Vũ sau bộ phim thành công trước đó hơn một thập kỷ, <br>Thiên mệnh anh hùng (2012). Người Vợ Cuối Cùng được khơi gợi cảm hứng từ cuốn tiểu thuyết “Hồ oán hận” của nhà văn Hồng Thái.<br> Qua tác phẩm này, khán giả được hòa mình vào thời kỳ phong kiến cuối thế kỷ 19, khoảng thời gian mà thân phận, tiếng nói của người phụ nữ Việt Nam rất nhỏ bé.
                 </div>
                 <div class="caption margin-slider skewfromright customout "
                      data-x="right"
@@ -126,11 +128,11 @@
 
             <li data-transition="fade" data-slotamount="7" class="slide fading-slide" data-slide='Travel worldwide.
 Create trip film.'>
-                <img alt='' src="images/bg-video.jpg">
+                <img alt='' src="images/nguoivocuoicung.jpg">
                 <div class="caption slide__video" data-x="0" data-y="0" data-autoplay='true'>
-                    <video class="media-element"  autoplay="autoplay" preload='none' loop="loop" muted="" src="video/TravelIs.mp4" >
+                    <video class="media-element"  autoplay="autoplay" preload='none' style="width: 1900px; text-align: center;" muted="" src="video/nguoivocuoicung.mp4" >
                         <source type="video/webm" src="video/TravelIs.html">
-                        <source type="video/mp4" src="video/TravelIs.mp4">
+                        <source type="video/mp4" src="video/nguoivocuoicung.mp4">
                         <source type="video/ogg" src="video/TravelIs-2.html">
                     </video>
                 </div>

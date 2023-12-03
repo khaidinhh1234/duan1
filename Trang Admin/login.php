@@ -4,32 +4,123 @@ ob_start();
 include "model/pdo.php";
 include "model/taikhoan.php";
 
-    if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
-        $user = $_POST['user'];
-        $pass = $_POST['pass'];
-       $vai_tro =  check_tk($user,$pass);
-            $_SESSION['vai_tro'] = $vai_tro;
+if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
+    $vai_tro =  check_tk($user,$pass);
+    $_SESSION['vai_tro'] = $vai_tro;
 
-        header('location: index.php');
+    header('location: index.php');
 
-    }
+}
 ?>
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-</head>
-<body>
-<h1>Form đăng nhập</h1>
-<form action="<?= $_SERVER['PHP_SELF'];  ?>" method="post">
-    <input type="text" name="user">
-    <input type="password" name="pass">
-    <input type="submit" value="Đăng Nhập" name="dangnhap">
+<html class="no-js" lang="en">
 
-</form>
+
+<!-- Mirrored from demo.hasthemes.com/adomx-preview/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 02:47:53 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/vendor/cryptocurrency-icons.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/plugins.css">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="assets/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Custom Style CSS Only For Demo Purpose -->
+    <link id="cus-style" rel="stylesheet" href="assets/css/style-primary.css">
+
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+    <!-- Content Body Start -->
+    <div class="content-body m-0 p-0">
+
+        <div class="login-register-wrap">
+            <div class="row">
+
+                <div class="d-flex align-self-center justify-content-center order-2 order-lg-1 col-lg-5 col-12">
+                    <div class="login-register-form-wrap">
+
+                        <div class="content">
+                            <h1>Đăng nhập</h1>
+                        </div>
+
+                        <div class="login-register-form">
+                            <form action="<?= $_SERVER['PHP_SELF'];  ?>" method="post">
+                                <div class="row">
+                                    <div class="col-12 mb-20">
+                                        <input class="form-control" type="text" name="user" placeholder=" Tài khoản đăng nhập"></div>
+                                    <div class="col-12 mb-20">
+                                        <input class="form-control" name="pass" type="password" placeholder="Mật khẩu "></div>
+                                    <div class="col-12 mb-20">
+                                        <label for="remember" class="adomx-checkbox-2"><input id="remember" type="checkbox"><i class="icon"></i>Nhớ mật khẩu</label></div>
+                                    <div class="col-12">
+                                        <div class="row justify-content-between">
+                                            <div class="col-auto mb-15"><a href="#">Quên mật khẩu?</a></div>
+                                            <div class="col-auto mb-15">Chưa có tài khoản? <a href="#">Đăng ký ngay.</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-10">
+                                        <input  class="button button-primary button-outline" name="dangnhap" type="submit" value="Đăng Nhập"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="login-register-bg order-1 order-lg-2 col-lg-7 col-12">
+                    <div class="content">
+                        <h1>Đăng ký</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- Content Body End -->
+
+</div>
+
+<!-- JS
+============================================ -->
+
+<!-- Global Vendor, plugins & Activation JS -->
+<script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+<script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="assets/js/vendor/popper.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+<!--Plugins JS-->
+<script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="assets/js/plugins/tippy4.min.js.js"></script>
+<!--Main JS-->
+<script src="assets/js/main.js"></script>
+
 </body>
 </html>

@@ -11,8 +11,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <!-- Favicon -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
      <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- CSS
 ============================================ -->
 
