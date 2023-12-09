@@ -40,7 +40,7 @@ $sotrang = ceil($tong/5);
                             <tbody>
                                 <?php foreach ($loadkgc as $gio){
                                     extract($gio);
-                                    $linksua = "index.php?act=updatethoigian&idsua=".$id;
+                                    $linksua = "index.php?act=suathoigian&idsua=".$id;
                                     $linkxoa = "index.php?act=xoathoigian&idxoa=".$id;
                                     echo '<tr>
                                     <td>#'.$id.'</td>

@@ -17,6 +17,7 @@ if(isset($_SESSION['user'])) {
     $loadtk = loadall_taikhoan();
     $loadve =loadall_vephim();
     include "./view/home/header.php";
+    $tong = count($loadphim);
 
     if (isset($_GET['act']) && ($_GET['act'] != "")) {
         $act = $_GET['act'];
@@ -57,7 +58,7 @@ if(isset($_SESSION['user'])) {
                 break;
 
             case "QLphim":
-                $dem =loadall_phim2();
+              
                 include "./view/phim/QLphim.php";
                 break;
             case "themphim":
@@ -159,8 +160,8 @@ if(isset($_SESSION['user'])) {
                 break;
                 case "xoalichchieu":
                     if (isset($_GET['idxoa'])){
-                        xoa_lichchieu($_GET['idxoa']);}
-                      $loadlich = loadall_lichchieu();
+                        xoa_lichchieu($_GET['idxoa']);
+                      $loadlich = loadall_lichchieu();}
                 include "./view/suatchieu/QLsuatchieu.php";
                 break;
             case "QLcarou":
@@ -295,6 +296,12 @@ if(isset($_SESSION['user'])) {
                 $loadkgc = loadall_khunggiochieu();
                 include "./view/suatchieu/thoigian/them.php";
                 break;
+                case "suathoigian":
+                    if (isset($_GET['idsua'])) {
+                        $load_kgc = loadone_khung_gio_chieu($_GET['idsua']);
+                    }
+                    include "./view/suatchieu/thoigian/sua.php";
+                    break;
             case "updatethoigian":
                 $loadlc = loadall_lichchieu();
                 $loadphong = load_phong();

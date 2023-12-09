@@ -1,7 +1,7 @@
 
 <?php 
         include "./view/home/sideheader.php";
-        $tong = count($dem);
+       
         $sotrang = ceil($tong/3);
         ?>
 

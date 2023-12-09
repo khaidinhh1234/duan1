@@ -1,7 +1,7 @@
 <?php
 include "./view/home/sideheader.php";
-if (is_array($loadkgc)) {
-    extract($loadkgc);
+if (is_array($load_kgc)) {
+    extract($load_kgc);
 }
 ?>
 
@@ -36,29 +36,33 @@ if (is_array($loadkgc)) {
 
                         <div class="row2 mb10 form_content_container">
                             <select name="id_lc" id="" class="form-control">
-                                <option value="0">Chọn Lịch Chiếu</option>
+                             
                                 <?php foreach ($loadlc as $lc){
                                     extract($lc);
-                                    echo "<option value='.$id.'>$ngay_chieu.$tieu_de</option>";
+                                    echo "<option value='.$id.'>'.$ngay_chieu.$tieu_de.'</option>";
+                                   
                                 } ?>
                             </select>
                         </div>  </div>
+                        
                     <div class="col-lg-6 col-12 mb-30">
                         
                         <div class="row2 mb10 form_content_container">
                             <select name="id_phong" id="" class="form-control">
-                                
+                          
                                 <?php foreach ($loadphong as $phong):?>
                                     <?=extract($phong)?>
-                                <input class="form-control" type="text"   value="<?= $id ?>"><?=$tieu_de?></div><br>
+                                <option  type="text"   value="<?=$id ?>"><?php echo $name ?></option><br>
                                 <?php endforeach ?>
-                            </select>
-                        </div>  </div> <div class="col-lg-6 col-12 mb-30"> 
+                            </select></div>
+                        </div>   
+                        <div class="col-lg-6 col-12 mb-30"> 
+                        <div class="row2 mb10 form_content_container">
                     <span class="title">Thời gian chiếu</span><br>
-                    <input class="form-control" type="time"  name="tgc" value="<?= $thoi_gian_chieu ?>"></div><br>
+                    <input class="form-control" type="time"  name="tgc" value="<?=$thoi_gian_chieu ?>"></div></div><br>
                   
                   
-
+</div>
 
                 </div>
 

@@ -14,11 +14,7 @@ function loadall_phim()
     $re = pdo_query($sql);
     return $re;
 }
-function loadall_phim2(){
-    $sql="select * from phim where 1 order by id desc ";
-    $re = pdo_query($sql);
-    return $re ;
-}
+
 
 function them_phim($tieu_de, $daodien, $dienvien, $img, $mo_ta, $thoiluong, $quoc_gia, $gia_han_tuoi, $date, $id_loai,$link)
 {
