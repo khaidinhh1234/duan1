@@ -40,15 +40,14 @@ if (is_array($loadve)) {
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text"  value="<?=$combo?>"  name="combo" disabled></div>
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text"  value="<?=$name?>"  name="name" disabled></div>
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="time" value="<?=$thoi_gian_chieu?>"   name="thoi_gian_chieu" disabled></div>
-                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" value="<?= $id_hd ?>"   name="id_hd" disabled></div>
+                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" value="<?= $tenphong ?>"   name="id_hd" disabled></div>
                     <!--                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" value="--><?php //=$trang_thai?><!--"   name="trang_thai"></div>-->
                     <div class="col-lg-6 col-12 mb-30">
                         <select class="form-control" name="trang_thai" >
                             <option value="0" <?= ($trang_thai == 0) ? 'selected' : '' ?>>Chưa thanh toán</option>
                             <option value="1" <?= ($trang_thai == 1) ? 'selected' : '' ?>>Đã thanh toán</option>
-                            <option value="2" <?= ($trang_thai == 2) ? 'selected' : '' ?>>Hết hạn</option>
-                            <option value="3" <?= ($trang_thai == 3) ? 'selected' : '' ?>>Đã dùng</option>
-                            <option value="4" <?= ($trang_thai == 4) ? 'selected' : '' ?>>Hủy</option>
+                            <option value="2" <?= ($trang_thai == 2) ? 'selected' : '' ?>>Đã dùng</option>
+                            <option value="3" <?= ($trang_thai == 3) ? 'selected' : '' ?>>Hủy</option>
 
 
                         </select>

@@ -43,15 +43,14 @@
                                     extract($list);
 
                                     // Kiểm tra nếu số lượng vé đặt không phải là 0
-                                    if ($so_luong_ve_dat > 0) {
                                         echo '<tr>
                                                <td>'.$id.'</td>
                                          <td>'.$tieu_de.'</td>
                                          <td>'.$ten_loaiphim.'</td>
                                          <td>'.$so_luong_ve_dat.'</td>
-                                         <td>'.$sum_thanhtien.'</td>
+                                         <td>' . (isset($sum_thanhtien) ? number_format($sum_thanhtien) : 0) . ' VNĐ</td>
                                          </tr>';
-                                    }
+
                                 } ?>
 
 

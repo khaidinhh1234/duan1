@@ -73,18 +73,10 @@ function sendMailPass($email, $name, $pass) {
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'User forgot password';
-        $mail->Body    = 'Your password is ' .$pass;
+        $mail->Body    = 'Mật khẩu của bạn là' .$pass;
 
         $mail->send();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-}
-
-
-function dat_ve($id_phim,$id_ngay_chieu,$id_thoi_gian_chieu,$gia_tien){
-    $sql = "INSERT INTO ve (id_phim, id_ngay_chieu, id_thoi_gian_chieu,  price)
-        VALUES ('$id_phim', '$id_ngay_chieu', '$id_thoi_gian_chieu',  '$gia_tien')";
-
-    pdo_execute($sql);
 }

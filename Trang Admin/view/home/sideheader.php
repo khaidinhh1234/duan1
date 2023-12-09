@@ -12,18 +12,26 @@
                         <li><a href="index.php?act=QLphim"><i class="fa fa-film"></i> <span>Quản Lý Phim</span></a></li>
                         <li><a href="index.php?act=phong"><i class="zmdi zmdi-local-movies zmdi-hc-fw"></i> <span>Quản Lý Phòng</span></a></li>
                        
-                        <li><a href="index.php?act=QTvien"><i class="fa fa-user"></i> <span>Quản Lý Tài Khoản</span></a>
-
-                        </li>
-                       
-                        <li class="has-sub-menu"><a href="#"><i class="fa fa-line-chart" ></i> <span>Theo Dõi Danh Thu</span></a>
+                        <li><a href="#"><i class="fa fa-user"></i> <span>Quản Lý Tài Khoản</span></a>
                             <ul class="side-header-sub-menu">
-                                <li><a href="index.php?act=DTdh"><i class="fa fa-line-chart" ></i><span>Danh Thu Phim</span></a></li>
-                                <li><a href="index.php?act=DTthang"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Tháng</span></a></li>
-                                <li><a href="index.php?act=DTphim"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Phim</span></a></li>
-                                
+                                <?php if ($_SESSION['user']['vai_tro'] ==2){ ?>
+                                <li><a href="index.php?act=QTvien"><i class="ti-shopping-cart"></i> <span>Nhân Viên</span></a></li>
+                                <?php } ?>
+                                <li><a href="index.php?act=QTkh"><i class="ti-shopping-cart"></i> <span>Khách Hàng</span></a></li>
+
                             </ul>
                         </li>
+
+                        <?php if ($_SESSION['user']['vai_tro'] ==2){ ?>
+                            <li class="has-sub-menu"><a href="#"><i class="fa fa-line-chart" ></i> <span>Theo Dõi Danh Thu</span></a>
+                                <ul class="side-header-sub-menu">
+                                    <li><a href="index.php?act=DTdh"><i class="fa fa-line-chart" ></i><span>Danh Thu Phim</span></a></li>
+                                    <li><a href="index.php?act=DTngay"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Ngày</span></a></li>
+                                    <li><a href="index.php?act=DTtuan"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Tuần</span></a></li>
+                                    <li><a href="index.php?act=DTthang"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Tháng</span></a></li>
+                                </ul>
+                            </li>
+                        <?php } ?>
                        
                         <li class="has-sub-menu"><a href="#"><i class="ti-shopping-cart"></i> <span>Quản Lý Vé Xem Phim</span></a>
                             <ul class="side-header-sub-menu">

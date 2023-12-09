@@ -4,14 +4,19 @@ ob_start();
 include "model/pdo.php";
 include "model/taikhoan.php";
 
-if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
+if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-    $vai_tro =  check_tk($user,$pass);
-    $_SESSION['vai_tro'] = $vai_tro;
 
-    header('location: index.php');
+    $user_info = check_tk($user, $pass);
 
+    if ($user_info && ($user_info['vai_tro'] == 1 || $user_info['vai_tro'] == 2)) {
+        $_SESSION['user'] = $user_info;
+        header('location: index.php');
+        exit;
+    }
+
+    $loi = "sai mật khẩu hoặc tên đăng nhập";
 }
 ?>
 <!doctype html>
@@ -82,10 +87,9 @@ if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
                                     <div class="col-12 mb-20">
                                         <label for="remember" class="adomx-checkbox-2"><input id="remember" type="checkbox"><i class="icon"></i>Nhớ mật khẩu</label></div>
                                     <div class="col-12">
-                                        <div class="row justify-content-between">
-                                            <div class="col-auto mb-15"><a href="#">Quên mật khẩu?</a></div>
-                                            <div class="col-auto mb-15">Chưa có tài khoản? <a href="#">Đăng ký ngay.</a></div>
-                                        </div>
+                                        <?php if(isset($loi)&& ($loi)!=""){
+                                            echo "<h3 style='color:red'>$loi</h3>";
+                                        } ?>
                                     </div>
                                     <div class="col-12 mt-10">
                                         <input  class="button button-primary button-outline" name="dangnhap" type="submit" value="Đăng Nhập"></div>
@@ -95,12 +99,7 @@ if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
                     </div>
                 </div>
 
-                <div class="login-register-bg order-1 order-lg-2 col-lg-7 col-12">
-                    <div class="content">
-                        <h1>Đăng ký</h1>
 
-                    </div>
-                </div>
             </div>
         </div>
 

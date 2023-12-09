@@ -1,6 +1,8 @@
 
 <?php 
         include "./view/home/sideheader.php";
+        $tong = count($dem);
+        $sotrang = ceil($tong/3);
         ?>
 
         <!-- Content Body Start -->
@@ -71,9 +73,9 @@
                             echo '<tr> <td>#'.$id.'</td>
                                        <td>'.$tieu_de.'</td>
                                        <td>'.$daodien.'</td>
-                                       <td>'.$dienvien.'</td>
+                                       <td style="font-size: 4px">'.$dienvien.'</td>
                                        <td>'.$img.'</td>
-                                       <td>'.$mo_ta.'</td>
+                                       <td style="font-size: 4px">'.$mo_ta.'</td>
                                        <td>'.$thoi_luong_phim.'</td>
                                        <td>'.$quoc_gia.'</td>
                                        <td>'.$gia_han_tuoi.'</td>
@@ -93,6 +95,25 @@
                             </tbody><!-- Table Body End -->
 
                         </table>
+                        <nav aria-label="Page navigation example">
+  <ul class="pagination" style="padding-bottom: 20px;">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+     <?php for($i=1 ;$i<= $sotrang ;$i++ ):?>
+    <li class="page-item"><a class="page-link" href="index.php?act=QLphim&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
+    <?php endfor?>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
                     </div></form>
                 </div><!-- Invoice List End -->
 

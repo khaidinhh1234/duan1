@@ -47,14 +47,13 @@
 
                         <p class="movie__time"><?=$phim['thoi_luong_phim']?>phút</p>
                         <p class="movie__option"><strong>Quốc gia: </strong><a href="#"><?=$phim['quoc_gia']?></a></p>
-                        <p class="movie__option"><strong>Thể loại: </strong><a href="#"><?=$phim['id_loai']?></a></p>
+                        <p class="movie__option"><strong>Thể loại: </strong><a href="#"><?=$phim['name']?></a></p>
                         <p class="movie__option"><strong>Ngày phát hành: </strong><?=$phim['date_phat_hanh']?></p>
                         <p class="movie__option"><strong>Đạo diễn: </strong><a href="#"><?=$phim['daodien']?></a></p>
                         <p class="movie__option"><strong>Diễn viên: </strong><a href="#"><?=$phim['dienvien']?></a>, <a href="#">...</a></p>
                         <p class="movie__option"><strong>Giới hạn độ tuổi: </strong><a href="#"><?=$phim['gia_han_tuoi']?></a></p>
                         <div class="movie__btns">
                             <a href="<?=$book1?>" class="btn btn-md btn--warning">Đặt Vé <span class="hidden-sm">Xem Phim</span></a>
-                            <a href="#" class="watchlist">Thêm vào danh sách yêu thích</a>
                         </div>
 
                         <div class="preview-footer">

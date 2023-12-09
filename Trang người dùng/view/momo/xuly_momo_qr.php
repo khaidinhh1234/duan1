@@ -31,11 +31,11 @@ $partnerCode = "MOMOBKUN20180529";
 $accessKey = "klm05TvNBzhg7h7j";
 $serectKey = "at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa";
 
-$orderInfo = 'Thanh toán qua QR MoMo';
-$amount = $_SESSION['lc'][0];
+$orderInfo = 'Thanh toán qua QR MoMo'.$_SESSION['tong']['tieu_de'];
+$amount = $_SESSION['tong'][2];
 $orderId = time() . '';
-$redirectUrl =  'http://localhost/WD18318_PHP1/DA1/View/index.php?action=xac_nhan';
-$ipnUrl = 'http://localhost/WD18318_PHP1/DA1/View/index.php?action=xac_nhan';
+$redirectUrl =  'http://localhost/phpS/CinePass%20h%E1%BB%87%20th%E1%BB%91ng%20b%C3%A1n%20v%C3%A9%20s%E1%BB%91%201%20Vi%E1%BB%87t%20Nam/Trang%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/index.php?act=xacnhan';
+$ipnUrl = 'http://localhost/phpS/CinePass%20h%E1%BB%87%20th%E1%BB%91ng%20b%C3%A1n%20v%C3%A9%20s%E1%BB%91%201%20Vi%E1%BB%87t%20Nam/Trang%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/index.php?act=thanhtoan';
 $extraData = "";
 
 

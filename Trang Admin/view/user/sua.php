@@ -14,7 +14,7 @@ if (is_array($loadtk)) {
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
-                <h3> Quản Trị Viên<span>/ Sửa User<tg/span></h3>
+                <h3>Quản Lý Tài Khoản<span>/ Sửa User<tg/span></h3>
             </div>
         </div><!-- Page Heading End -->
 

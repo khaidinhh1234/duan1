@@ -35,7 +35,7 @@
 
     <!-- Custom -->
     <link href="css/style3860.css?v=1" rel="stylesheet" />
-
+    <link rel="stylesheet" href="css/dv.css">
     <!-- Modernizr -->
     <script src="js/external/modernizr.custom.js"></script>
 
@@ -55,7 +55,7 @@
         <div class="container">
             <!-- Logo link-->
             <a href='index.php' class="logo">
-                <img alt='logo' src="images/logo.png">
+                <img alt='logo' src="imgavt/logo2.png">
             </a>
 
             <!-- Main website navigation-->

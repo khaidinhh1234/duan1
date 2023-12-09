@@ -33,13 +33,13 @@ if (is_array($loadkgc)) {
                 <div class="row">
                     <input  type="hidden" name="id" value="<?= $id ?>">
                     <div class="col-lg-6 col-12 mb-30">
-                        
+
                         <div class="row2 mb10 form_content_container">
-                            <select name="id_phim" id="" class="form-control">
-                               
-                                <?php foreach ($loadphim as $phim){
-                                    extract($phim);
-                                    echo "<option value='.$id.'>$tieu_de</option>";
+                            <select name="id_lc" id="" class="form-control">
+                                <option value="0">Chọn Lịch Chiếu</option>
+                                <?php foreach ($loadlc as $lc){
+                                    extract($lc);
+                                    echo "<option value='.$id.'>$ngay_chieu.$tieu_de</option>";
                                 } ?>
                             </select>
                         </div>  </div>

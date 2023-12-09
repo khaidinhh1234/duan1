@@ -1,6 +1,7 @@
 <?php
 
 include 'view/search.php';
+$gia   = number_format($_SESSION['tong'][2]);
 
 ?>
 <!-- Main content -->
@@ -22,9 +23,12 @@ include 'view/search.php';
         <div class="checkout-wrapper">
             <h2 class="page-heading">Thông tin</h2>
             <ul class="book-result">
-                <li class="book-result__item">Phim:<span class="book-result__count booking-cost"><?php echo $_SESSION['tong']['tieu_de'] ?></span></li>
+                <li class="book-result__item">Phim: <span class="book-result__count booking-cost"><?php echo $_SESSION['tong']['tieu_de'] ?></span></li>
+
                 <li class="book-result__item">Ngày chiếu: <span class="book-result__count booking-cost"><?php echo $_SESSION['tong']['ngay_chieu'] ?></span></li>
                 <li class="book-result__item">Khung giờ chiếu: <span class="book-result__count booking-cost"><?php echo $_SESSION['tong']['thoi_gian_chieu'] ?></span></li>
+                <br>
+                <hr>
                 <li class="book-result__item">Số ghế: <span class="book-result__count booking-cost"><?php
                         if (isset($ten_ghe['ghe'])) {
                             $ghes = $ten_ghe['ghe'];
@@ -44,8 +48,9 @@ include 'view/search.php';
                                 }
                             } else {
                             } ?></span>
-</span></li>
-                <li class="book-result__item">Tổng tiền: <span class="book-result__count booking-cost"><span class="checked-result" ><?php echo $_SESSION['tong'][2] ?></span>VND</span></li>
+</span></li><br>
+                <hr>
+                <li class="book-result__item">Tổng tiền: <span class="book-result__count booking-cost"><span class="checked-result" ><?php echo $gia ?></span>VND</span></li>
             </ul>
 
             <h2 class="page-heading">Chọn hình thức thanh toán :</h2>
@@ -53,22 +58,11 @@ include 'view/search.php';
                 <ul >
                     <li>  <a href="view/momo/xuly_momo_atm.php" class="payment__item">
                     <img alt='' src="images/payment/momo.jpg" style="width: 70px; border-radius: 8px;";>
-                  <label for="" class="tt">MOMO</label> </li>
-                    <li>  <a href="view/momo/xuly_momo_atm.php" class="payment__item" >
-                    <img alt='' src="images/vib.jpeg"style="width: 70px; border-radius: 8px;">
-                  <label for="" class="tt">VIB</label> </li>
-                    <li>  <a href="view/momo/xuly_momo_atm.php" class="payment__item">
-                    <img alt='' src="images/vpbank.jpeg" style="width: 70px; border-radius: 8px;">
-                  <label for="" class="tt">VPBank</label> </li>
-                  <li>  <a href="view/momo/xuly_momo_atm.php" class="payment__item">
-                    <img alt='' src="images/vietinbank.jpeg" style="width: 70px; border-radius: 8px;">
-                  <label for="" class="tt">Vietinbank</label> </li>
-                    <li>  <a href="view/momo/xuly_momo_atm.php" class="payment__item">
-                    <img alt='' src="images/mb.jpeg" style="width: 70px;border-radius: 8px;">
-                  <label for="" class="tt">MB bank</label> </li>
-                    <li>  <a href="view/momo/xuly_momo_atm.php" class="payment__item">
-                    <img alt='' src="images/vietcom.jpeg"style="width: 70px;border-radius: 8px;">
-                  <label for="" class="tt">Vietcom</label> </li>
+                  <label for="" class="tt">MOMO ATM</label> </li>
+                    <li>  <a href="view/momo/xuly_momo_qr.php" class="payment__item" >
+                    <img alt='' src="images/payment/momo.jpg"style="width: 70px; border-radius: 8px;">
+                  <label for="" class="tt">MOMO QR</label> </li>
+
                 </a>
                 </ul>
             </div>
@@ -81,6 +75,7 @@ include 'view/search.php';
 
 </form>
 <div class="clearfix"></div>
+
 <!---->
 <!--<div class="booking-pagination">-->
 <!--    <a href="book2.html" class="booking-pagination__prev">-->

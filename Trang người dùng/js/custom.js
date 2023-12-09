@@ -732,7 +732,19 @@ function init_BookingTwo() {
                         middle += 1;
                         break;
                     case "3":
-                        tong += 249000;
+                        tong += 59000;
+                        expansive += 1;
+                        break;
+                    case "4":
+                        tong += 259000;
+                        expansive += 1;
+                        break;
+                    case "5":
+                        tong += 219000;
+                        expansive += 1;
+                        break;
+                    case "6":
+                        tong += 199000;
                         expansive += 1;
                         break;
                 }
@@ -755,7 +767,19 @@ function init_BookingTwo() {
                     middle -= 1;
                     break;
                 case "3":
-                    tong -= 249000;
+                    tong -= 59000;
+                    expansive -= 1;
+                    break;
+                case "4":
+                    tong -= 259000;
+                    expansive -= 1;
+                    break;
+                case "5":
+                    tong -= 219000;
+                    expansive -= 1;
+                    break;
+                case "6":
+                    tong -= 199000;
                     expansive -= 1;
                     break;
             }

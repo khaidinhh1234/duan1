@@ -1,5 +1,5 @@
 .auth-form-outer{
-    
+
     padding: 100px;
 }
 
@@ -29,17 +29,21 @@
 .tong{
     max-width: 90%;
     margin-top: 5px;
-    background-color: #ffd564;
+  background-color:  #ffd564;
     border-radius: 5px;
     padding: 0 40px;
+    color :black;
+    font-weight: 600;
 }
 .tong input{
     background-color: #ffd564;
- 
+
 }
 .phim{
     font-size: 2vw;
     padding-top: 20px;
+    font-weight: 800;
+    color:red;
 }
 .tongtien{
     padding-bottom: 20px;
@@ -54,7 +58,7 @@ a .tt{
 }
 .payment ul  {
   display: flex ;
-  
+
 }
 .payment ul li {
     padding: 0 20px;

@@ -1,6 +1,7 @@
 
 <?php 
         include "./view/home/sideheader.php";
+        $tong = count($loadall_kh);
         ?>
         <!-- Content Body Start -->
         <div class="content-body">
@@ -11,7 +12,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3>Quản Lý Người Dùng <span>/ Quản Trị Viên</span></h3>
+                        <h3>Quản Lý Tài Khoản <?php echo $tong?>/ <span>Tài Khoản Nhân Viên</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -23,20 +24,20 @@
                 <div class="col-12 mb-30">
                 <div class="news-item">
                 <div class="content">
-                <div class="categories"><a href="index.php?act=themuser" class="product">Thêm USER</a></div></div></div>
+                <div class="categories"><a href="index.php?act=themuser" class="product">Thêm Tài Khoản Nhân Viên</a></div></div></div>
                     <div class="table-responsive">
                         <table class="table table-vertical-middle">
                             <thead>
                                 <tr>
                                     <th># ID</th>
-                                    <th>Tên khách hàng </th>
+                                    <th>Tên Nhân Viên </th>
                                     <th>Tài Khoản </th>
                                     <th>Mật khẩu </th>
                                     <th>Email</th>
                                     <th>Số Điện Thoại</th>
                                     <th>Địa Chỉ</th>
-                                    <th>IsAdmin</th>
-                                    
+                                    <th>Vai Trò</th>
+                                    <th>Thao Tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,21 +54,26 @@
                                     <td><?=$kh['phone']?></td>
                                     <td><?=$kh['dia_chi']?></td>
                                     <td>
-                                        <?php if($vai_tro=='1'){
-                                echo'<span class="badge badge-danger">Admin</span>';
-                               }else{
-                                echo'<span class="badge badge-success">Khách Hàng</span>';
-                               }?></td>
+                                        <?php
+                                        if ($vai_tro == '1') {
+                                            echo '<span class="badge badge-danger">Nhân Viên</span>';
+                                        } elseif ($vai_tro == '2') {
+                                            echo '<span class="badge badge-primary">Chủ</span>';
+                                        } else {
+                                            echo '<span class="badge badge-success">Khách Hàng</span>';
+                                        }
+                                        ?>
+                                    </td>
+
                                     <td class="action h4">
                                         <div class="table-action-buttons">
-                                         
                                             <a class="edit button button-box button-xs button-info" href="<?=$linksua?>"><i class="zmdi zmdi-edit"></i></a>
                                             <a class="delete button button-box button-xs button-danger" href="<?=$linkxoa?>"><i class="zmdi zmdi-delete"></i></a>
                                         </div>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>
-                               
+
                             </tbody>
                         </table>
                     </div>

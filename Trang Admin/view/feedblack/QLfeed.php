@@ -1,5 +1,7 @@
 <?php 
         include "./view/home/sideheader.php";
+        $tong = count($dem);
+       $sotrang = ceil($tong/5);
         ?>
 
         <!-- Content Body Start -->
@@ -11,7 +13,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3 class="title">Quản Lý Feedblack  <span>/ Quản Lý Feedblack</span></h3>
+                        <h3 class="title">Quản Lý Tin Nhắn  </h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -24,9 +26,7 @@
                 <!--Edit Rows Start-->
                 <div class="col-12 mb-30">
                     <div class="box">
-                        <div class="box-head">
-                            <h3 class="title">Feedbalck Đã Duyệt</h3>
-                        </div>
+
                         <div class="box-body">
 
                             <table class="table footable-editing" data-paging="true" data-filtering="true" data-sorting="true" data-breakpoints='{ "xs": 480, "sm": 768, "md": 992, "lg": 1200, "xl": 1400 }'>
@@ -60,6 +60,27 @@
                                    
                                 </tbody>
                             </table>
+                            <nav aria-label="Page navigation example">
+  <ul class="pagination" style="padding-bottom: 20px;">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+   <?php for($i=1 ;$i<=$sotrang;$i++):?>
+    <li class="page-item"><a class="page-link" href="index.php?act=QLfeed&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
+ <?php endfor?>
+   
+    
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 
                            
            

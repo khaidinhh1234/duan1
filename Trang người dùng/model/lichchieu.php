@@ -2,7 +2,12 @@
 
 function lichchieu_select_by_id_phim($id)
 {
-    $sql = "SELECT l.id, l.ngay_chieu, phim.tieu_de  FROM lichchieu l left JOIN phim ON phim.id = l.id_phim  WHERE l.id_phim= '$id'";
+    $sql = "SELECT l.id, l.ngay_chieu, phim.tieu_de
+FROM lichchieu l
+LEFT JOIN phim ON phim.id = l.id_phim
+WHERE l.id_phim = '$id'
+ORDER BY l.ngay_chieu ASC;
+";
     $re=pdo_query($sql);
     return  $re;
 }

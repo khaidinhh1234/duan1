@@ -1,5 +1,7 @@
 <?php 
         include "./view/home/sideheader.php";
+        $tong = count($loadkgc);
+$sotrang = ceil($tong/5);
         ?>
         <!-- Content Body Start -->
         <div class="content-body">
@@ -30,6 +32,7 @@
                                     <th>ID</th>
                                     <th>Phim</th>
                                     <th>Phòng chiếu</th>
+                                    <th>Ngày Chiếu</th>
                                     <th>Giờ chiếu</th>
                                     <th>Thao tác</th>
                                 </tr>
@@ -37,12 +40,13 @@
                             <tbody>
                                 <?php foreach ($loadkgc as $gio){
                                     extract($gio);
-                                    $linksua = "index.php?act=suathoigian&idsua=".$id;
+                                    $linksua = "index.php?act=updatethoigian&idsua=".$id;
                                     $linkxoa = "index.php?act=xoathoigian&idxoa=".$id;
                                     echo '<tr>
                                     <td>#'.$id.'</td>
                                     <td>'.$gio['tieu_de'].'</td>
                                     <td>'.$gio['name'].'</td>
+                                    <td>'.$gio['ngay_chieu'].'</td>
                                     <td>'.$thoi_gian_chieu.'</td>
                                     <td class="action h4">
                                         <div class="table-action-buttons">
@@ -55,6 +59,27 @@
 
                             </tbody>
                         </table>
+                        <nav aria-label="Page navigation example">
+  <ul class="pagination" style="padding-bottom: 20px;">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+   <?php for($i=1 ;$i<=$sotrang;$i++):?>
+    <li class="page-item"><a class="page-link" href="index.php?act=thoigian&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
+ <?php endfor?>
+   
+    
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
                     </div>
                 </div>
                 <!--Order List End-->

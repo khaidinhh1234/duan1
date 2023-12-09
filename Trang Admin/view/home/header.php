@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Adomx - Responsive Bootstrap 4 Admin Template</title>
+    <title>ADMIN CINEPASS</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +38,7 @@
 
 <!-- Custom Style CSS Only For Demo Purpose -->
 <link id="cus-style" rel="stylesheet" href="assets/css/style-primary.css">
-
+<link rel="stylesheet" href="assets/css/ctve.css">
 </head>
 
 <body>
@@ -54,7 +54,7 @@
                     <!-- Header Logo (Header Left) Start -->
                     <div class="header-logo col-auto">
                         <a href="index.php">
-                            <h1>Quản Trị </h1>
+                            <h3>Quản Trị CINEPASS</h3>
                             <!-- <img src="assets/images/logo/logo.png" alt="">
                             <img src="assets/images/logo/logo-light.png" class="logo-light" alt=""> -->
                         </a>
@@ -70,24 +70,6 @@
 
                                     <!--Side Header Toggle-->
                                     <div class="col-auto"><button class="side-header-toggle"><i class="zmdi zmdi-menu"></i></button></div>
-
-                                    <!--Header Search-->
-                                    <div class="col-auto">
-
-                                        <div class="header-search">
-
-                                            <button class="header-search-open d-block d-xl-none"><i class="zmdi zmdi-search"></i></button>
-
-                                            <div class="header-search-form">
-                                                <form action="#">
-                                                    <input type="text" placeholder="Tìm kiếm ở đây ">
-                                                    <button><i class="zmdi zmdi-search"></i></button>
-                                                </form>
-                                                <button class="header-search-close d-block d-xl-none"><i class="zmdi zmdi-close"></i></button>
-                                            </div>
-
-                                        </div>
-                                    </div>
 
                                 </div>
                             </div><!-- Side Header Toggle & Search End -->
@@ -112,7 +94,7 @@
                                         <a class="toggle" href="#">
                                             <span class="user">
                                         <span class="avatar">
-                                            <img src="assets/images/avatar/avatar-1.jpg" alt="">
+                                            <img src="assets/images/avatar/avatar-2.jpg" alt="">
                                             <span class="status"></span>
                                             </span>
                                             </span>
@@ -121,29 +103,36 @@
                                         <!-- Dropdown -->
                                         <div class="adomx-dropdown-menu dropdown-menu-user">
 
-                                            <?php if (isset($_SESSION['vai_tro'])){
-                                                extract($_SESSION['vai_tro']);
+                                            <?php
+                                            if (isset($_SESSION['user'])) {
+                                                extract($_SESSION['user']);
+                                                $roleLabel = '';
+                                                if ($vai_tro == 1) {
+                                                    $roleLabel = 'Nhân viên';
+                                                } elseif ($vai_tro == 2) {
+                                                    $roleLabel = 'Chủ';
+                                                }
                                                 echo '<div class="head">
-                                                <h5 class="name"><a href="#">'.$name.'</a></h5>
-                                                <a class="mail" href="#">'.$email.'</a>
-                                            </div>
-                                            <div class="body">
-                                                <ul>
-                                                    <li><a href="#"><i class="zmdi zmdi-account"></i>Profile</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-email-open"></i>Inbox</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-wallpaper"></i>Activity</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li><a href="#"><i class="zmdi zmdi-settings"></i>Setting</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-lock-open"></i>Sing out</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li><a href="#"><i class="zmdi zmdi-paypal"></i>Payment</a></li>
-                                                    <li><a href="#"><i class="zmdi zmdi-google-pages"></i>Invoice</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>';
-                                            }?>
+                                                      <h5 class="name"><a href="#">' . $roleLabel . '-' . $name . ' </a></h5>
+                                                      <a class="mail" href="#">' . $email . '</a>
+                                                       </div>
+                                                         <div class="body">
+                                                             <ul>';
+
+                                                if ($vai_tro == 1) {
+                                                    // Nếu vai_tro là 1 (nhân viên), hiển thị các tùy chọn cho nhân viên
+                                                    echo '<li><a href="index.php?act=dangxuat"><i class="zmdi zmdi-lock-open"></i>Sing out</a></li>';
+                                                    // Thêm các tùy chọn khác cho nhân viên nếu cần
+                                                } elseif ($vai_tro == 2) {
+                                                    // Nếu vai_tro là 2 (chủ shop), hiển thị các tùy chọn cho chủ shop
+                                                    // ...
+                                                    echo '<li><a href="index.php?act=dangxuat"><i class="zmdi zmdi-lock-open"></i>Sing out</a></li>';
+                                                }
+
+                                                echo '</ul></div></div>';
+                                            }
+                                            ?>
+
 
 
                                     </li>

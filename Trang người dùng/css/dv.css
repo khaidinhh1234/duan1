@@ -175,8 +175,9 @@
 .tongtien {
     display: flex;
     justify-content: space-around;
-    font-size: 20px;
+    font-size: 30px;
     padding-top: 10px;
+    color: red;
 }
 
 .tongtien .mau {
@@ -226,4 +227,146 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+/* Reset default button styles */
+input[type="submit"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Style for the submit button */
+.booking-pagination__button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:red;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.quaylai{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:rgb(119, 113, 113);
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.booking-pagination__button:hover {
+    color:#ffd564;
+}
+.quaylai:hover{
+    color:#ffd564;
+}
+
+.check_do_an{
+    color: white;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    /* max-width: 800px; */
+    margin: 0 auto;
+    /* padding: 20px; */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.prodoan {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.prodo {
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+}
+
+.prodo img {
+    width: 100%;
+    height: auto;
+}
+
+.prodo h3 {
+    margin-top: 10px;
+}
+
+.sliders {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sliders img {
+    width: 400px;
+    height: 200px;
+    object-fit: cover;
+    margin: 0 10px;
+}
+
+.reservation-form12 {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.reservation-form12 h2 {
+    margin-bottom: 20px;
+}
+
+.reservation-form12 form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.reservation-form12 label {
+    margin-top: 10px;
+}
+.reservation-form12 input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.reservation-form12 input[type="submit"]:hover {
+    background-color: #45a049;
+}
+h1{
+    font-weight:bold;
+    color: #ffa200;
+    font-size: 40px;
+}
+h2{
+    color:rgb(233, 179, 3);
+}
+p{
+    font-size: 1.2vw;
+}
+.booking-pagination__next{
+    font-size: 1.2vw;
+}
+.tien{
+    color: #4c4145;
 }

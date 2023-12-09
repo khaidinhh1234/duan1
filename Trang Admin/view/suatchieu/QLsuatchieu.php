@@ -1,5 +1,7 @@
 <?php 
         include "./view/home/sideheader.php";
+        $tong = count($loadlich);
+$sotrang = ceil($tong/5);
         ?>
         <!-- Content Body Start -->
         <div class="content-body">
@@ -10,7 +12,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3 class="title">Quản Lý Suất Chiếu<span>/ Suất Chiếu</span></h3>
+                        <h3 class="title">Quản Lý Suất Chiếu <span>/ Suất Chiếu</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -35,7 +37,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($loadlich as $lich){
+                                <?php foreach($loadlich as $lich){
                                     extract($lich);
                                     $linksua = "index.php?act=sualichchieu&idsua=".$id;
                                     $linkxoa= "index.php?act=xoalichchieu&idxoa=".$id;
@@ -56,6 +58,27 @@
 
                             </tbody>
                         </table>
+                        <nav aria-label="Page navigation example">
+  <ul class="pagination" style="padding-bottom: 20px;">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+   <?php for($i=1 ;$i<=$sotrang;$i++):?>
+    <li class="page-item"><a class="page-link" href="index.php?act=QLsuatchieu&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
+ <?php endfor?>
+   
+    
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
                     </div>
                 </div>
                 <!--Order List End-->

@@ -3,7 +3,7 @@ include "./view/home/sideheader.php";
 if (is_array($loadone_phim)) {
     extract($loadone_phim);
 }
-$hinh = "../imgavt/" . $img;
+$hinh = "../Trang người dùng/imgavt/" . $img;
 if (is_file($hinh)) {
     $hinh = '<img src="' . $hinh . '" alt="">';
 } else {
@@ -61,7 +61,9 @@ if (is_file($hinh)) {
                      <div class="col-lg-6 col-12 mb-30">
                     <span class="title">Thời lượng Phim </span><br>
                     <input class="form-control" type="number_format"  name="thoiluong" value="<?= $thoi_luong_phim ?>"></div><br>
-                    
+                    <div class="col-lg-6 col-12 mb-30">
+                        <span class="title">Link trailer</span><br>
+                        <input class="form-control" type="text"  name="link" value="<?= $link_trailer ?>"></div><br>
                    
                     <div class="col-lg-6 col-12 mb-10">
                     <span class="title">Danh Mục Phim </span><br>

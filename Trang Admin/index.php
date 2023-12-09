@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['vai_tro'])) {
+if(isset($_SESSION['user'])) {
 
     include "./model/pdo.php";
     include "./model/loai_phim.php";
@@ -15,6 +15,7 @@ if(isset($_SESSION['vai_tro'])) {
     $loadphim = loadall_phim();
     $loadloai = loadall_loaiphim();
     $loadtk = loadall_taikhoan();
+    $loadve =loadall_vephim();
     include "./view/home/header.php";
 
     if (isset($_GET['act']) && ($_GET['act'] != "")) {
@@ -56,7 +57,7 @@ if(isset($_SESSION['vai_tro'])) {
                 break;
 
             case "QLphim":
-                // $listphim = loadall_phim( keyw:"",idloai0);
+                $dem =loadall_phim2();
                 include "./view/phim/QLphim.php";
                 break;
             case "themphim":
@@ -68,6 +69,7 @@ if(isset($_SESSION['vai_tro'])) {
                     $gia_han_tuoi = $_POST['gia_han_tuoi'];
                     $thoiluong = $_POST['thoiluong'];
                     $date = $_POST['date'];
+                    $link = $_POST['link'];
                     $id_loai = $_POST['id_loai'];
                     $mo_ta = $_POST['mo_ta'];
                     $img = $_FILES['anh']['name'];
@@ -78,7 +80,7 @@ if(isset($_SESSION['vai_tro'])) {
                     } else {
                         echo "Upload ảnh không thành công";
                     }
-                    them_phim($tieu_de, $daodien, $dienvien, $img, $mo_ta, $thoiluong, $quoc_gia, $gia_han_tuoi, $date, $id_loai);
+                    them_phim($tieu_de, $daodien, $dienvien, $img, $mo_ta, $thoiluong, $quoc_gia, $gia_han_tuoi, $date, $id_loai,$link);
                 }
                 $loadphim = loadall_phim();
                 include "./view/phim/them.php";
@@ -100,8 +102,6 @@ if(isset($_SESSION['vai_tro'])) {
                     xoa_phim($_GET['idxoa']);
                     $loadphim = loadall_phim();
                     include "./view/phim/QLphim.php";
-                } else {
-                    include "./view/phim/QLphim.php";
                 }
                 break;
             case "updatephim":
@@ -115,9 +115,10 @@ if(isset($_SESSION['vai_tro'])) {
                     $gia_han_tuoi = $_POST['gia_han_tuoi'];
                     $thoiluong = $_POST['thoiluong'];
                     $date = $_POST['date'];
+                    $link = $_POST['link'];
                     $id_loai = $_POST['id_loai'];
                     $img = $_FILES['anh']['name'];
-                    $target_dir = "imgavt/";
+                    $target_dir = "../Trang người dùng/imgavt/";
                     $target_file = $target_dir . basename($_FILES['anh']['name']);
                     if (move_uploaded_file($_FILES['anh']['tmp_name'], $target_file)) {
 //                        echo "Bạn đã upload ảnh thành công";
@@ -125,7 +126,7 @@ if(isset($_SESSION['vai_tro'])) {
 //                        echo "Upload ảnh không thành công";
                     }
                     $mo_ta = $_POST['mo_ta'];
-                    sua_phim($id, $tieu_de, $daodien, $dienvien, $quoc_gia, $gia_han_tuoi, $img, $mo_ta, $thoiluong, $date, $id_loai);
+                    sua_phim($id, $tieu_de, $daodien, $dienvien, $quoc_gia, $gia_han_tuoi, $img, $mo_ta, $thoiluong, $date, $id_loai,$link);
                 }
                 $loadphim = loadall_phim();
 
@@ -137,10 +138,8 @@ if(isset($_SESSION['vai_tro'])) {
                 $loadphong = load_phong();
                 if (isset($_POST['them'])) {
                     $id_phim = $_POST['id_phim'];
-                    $id_phong_chieu = $_POST['id_phong'];
-                    $thoi_gian_chieu = $_POST['tgc'];
                     $ngay_chieu = $_POST['nc'];
-                    them_lichchieu($id_phim, $id_phong_chieu, $thoi_gian_chieu, $ngay_chieu);
+                    them_lichchieu($id_phim,$ngay_chieu);
                 }
                 $loadlich = loadall_lichchieu();
                 include "./view/suatchieu/them.php";
@@ -151,13 +150,18 @@ if(isset($_SESSION['vai_tro'])) {
                 if (isset($_POST['capnhat'])) {
                     $id = $_POST['id'];
                     $id_phim = $_POST['id_phim'];
-                    $id_phong_chieu = $_POST['id_phong'];
-                    $thoi_gian_chieu = $_POST['tgc'];
+
                     $ngay_chieu = $_POST['nc'];
-                    sua_lichchieu($id, $id_phim, $id_phong_chieu, $thoi_gian_chieu, $ngay_chieu);
+                    sua_lichchieu($id, $id_phim, $ngay_chieu);
                 }
                 $loadlich = loadall_lichchieu();
-                include "./view/suatchieu/sua.php";
+                include "./view/suatchieu/QLsuatchieu.php";
+                break;
+                case "xoalichchieu":
+                    if (isset($_GET['idxoa'])){
+                        xoa_lichchieu($_GET['idxoa']);}
+                      $loadlich = loadall_lichchieu();
+                include "./view/suatchieu/QLsuatchieu.php";
                 break;
             case "QLcarou":
                 include "./view/phim/sua.php";
@@ -172,7 +176,16 @@ if(isset($_SESSION['vai_tro'])) {
                 include "./view/danhthu/DTdh.php";
                 break;
             case "DTthang":
+                $dtt =  load_doanhthu_thang();
                 include "./view/danhthu/DTthang.php";
+                break;
+            case "DTtuan":
+                $dtt =  load_doanhthu_tuan();
+                include "./view/danhthu/DTtuan.php";
+                break;
+            case "DTngay":
+                $dtt =  load_doanhthu_ngay();
+                include "./view/danhthu/DTngay.php";
                 break;
             case "DTphim":
                 include "./view/danhthu/DTphim.php";
@@ -183,14 +196,15 @@ if(isset($_SESSION['vai_tro'])) {
             case "chitiethoadon":
                 include "./view/vephim/chitiethoadon.php";
                 break;
-          
-                case "QLfeed":
+
+            case "QLfeed":
+                    $dem = loadall_bl1();
                     $listbl =  loadall_bl();
                     $loadtk = loadall_taikhoan();
                     $loadloai = loadall_loaiphim();
                     include "./view/feedblack/QLfeed.php";
                          break;
-                     case "xoabl":
+            case "xoabl":
                          if(isset($_GET['id'])){
                             $id = $_GET['id'];
                             delete_binhluan($id);
@@ -207,7 +221,14 @@ if(isset($_SESSION['vai_tro'])) {
                 include "./view/suatchieu/QLsuatchieu.php";
                 break;
             case "ve":
-                $loadvephim = loadall_vephim();
+                if(isset($_POST['tk'])&&($_POST['tk'])){
+                    $searchName = $_POST['ten'];
+                    $searchTieuDe = $_POST['tieude'];
+                }else{
+                    $searchName ="";
+                    $searchTieuDe="";
+                }
+                $loadvephim =loadall_vephim1($searchName, $searchTieuDe);
                 include "./view/vephim/ve.php";
                 break;
             case "suavephim":
@@ -223,7 +244,7 @@ if(isset($_SESSION['vai_tro'])) {
                     update_vephim($id,$trang_thai);
                 }    $loadvephim =loadall_vephim();
                 include "view/vephim/ve.php";
-
+             break;
             case "phong":
                 $loadphong = load_phong();
                 include "./view/phong/phong.php";
@@ -233,13 +254,11 @@ if(isset($_SESSION['vai_tro'])) {
                     xoa_phong($_GET['idxoa']);
                     $loadphong = load_phong();
                     include "./view/phong/phong.php";
-                } else {
-                    include "./view/phong/phong.php";
                 }
                 break;
             case "suaphong":
                 if (isset($_GET['ids'])) {
-                    $loadphong = load_phong($_GET['ids']);
+                    $loadphong1 = loadone_phong($_GET['ids']);
                 }
                 include "./view/phong/sua.php";
                 break;
@@ -257,36 +276,34 @@ if(isset($_SESSION['vai_tro'])) {
 
             case "themphong":
 
-                // $loadphong = load_phong();
                 if (isset($_POST['len'])) {
-                    // $id = $_POST['id'];
                     $name = $_POST['name'];
-                    them_phong( $name);
+                    them_phong($name);
                 }
-                // $loadphong = load_phong();
+                 $loadphong = load_phong();
                 include "./view/phong/them.php";
                 break;
             case "themthoigian":
-                $loadphim = loadall_phim();
+                $loadlc = loadall_lichchieu();
                 $loadphong = load_phong();
                 if (isset($_POST['them'])) {
-                    $id_phim = $_POST['id_phim'];
+                    $id_lc= $_POST['id_lc'];
                     $id_phong = $_POST['id_phong'];
                     $thoi_gian_chieu = $_POST['tgc'];
-                    them_kgc($id_phim, $id_phong, $thoi_gian_chieu);
+                    them_kgc($id_lc, $id_phong, $thoi_gian_chieu);
                 }
                 $loadkgc = loadall_khunggiochieu();
                 include "./view/suatchieu/thoigian/them.php";
                 break;
             case "updatethoigian":
-                $loadphim = loadall_phim();
+                $loadlc = loadall_lichchieu();
                 $loadphong = load_phong();
                 if (isset($_POST['capnhat'])) {
                     $id = $_POST['id'];
-                    $id_phim = $_POST['id_phim'];
+                    $id_lc = $_POST['id_lc'];
                     $id_phong = $_POST['id_phong'];
                     $thoi_gian_chieu = $_POST['tgc'];
-                    sua_kgc($id, $id_phim, $id_phong, $thoi_gian_chieu);
+                    sua_kgc($id, $id_lc, $id_phong, $thoi_gian_chieu);
                 }
                 $loadkgc = loadall_khunggiochieu();
                 include "./view/suatchieu/thoigian/thoigian.php";
@@ -297,14 +314,20 @@ if(isset($_SESSION['vai_tro'])) {
                 }
                 $loadkgc = loadall_khunggiochieu();
                 include "./view/suatchieu/thoigian/thoigian.php";
+            case "QTkh":
+                
+                $loadall_kh1 = loadall_taikhoan();
+                include "./view/user/khachhang.php";
+                break;
             case "QTvien":
-                $loadall_kh = loadall_taikhoan();
+                $loadall_kh = loadall_taikhoan_nv();
                 include "./view/user/QTvien.php";
                 break;
                 case "themuser":
                     if(isset($_POST['them'])){
                       $name =$_POST['name'];
                       $user =$_POST['user'];
+                      $pass = $_POST['pass'];
                       $email =$_POST['email'];
                       $phone =$_POST['phone'];
                       $dia_chi =$_POST['dia_chi'];
@@ -342,15 +365,33 @@ if(isset($_SESSION['vai_tro'])) {
                 } else{include "./view/user/QTvien.php";}  
                 break;
             case "dangxuat":
-                unset($_SESSION['vai_tro']);
+                unset($_SESSION['user']);
                 header('location: login.php');
                 break;
             case "home":
+                $best_combo = best_combo();
+                $tong_tuan = tong_week();
+                $tong_thang = tong_thang();
+                $tong_day = tong_day();
+                $tpdc = tong_phimdc();
+                $tpsc = tong_phimsc();
                 $tong = tong();
                 include "./view/home.php";
                 break;
+            case "ctve":
+                if (isset($_GET['id']) && ($_GET['id'] > 0)){
+                    $loadone_ve =  loadone_vephim($_GET['id']);
+                }
+                include "view/vephim/ct_ve.php";
+                break;
         }
     } else {
+        $best_combo = best_combo();
+        $tong_tuan = tong_week();
+        $tong_thang = tong_thang();
+        $tong_day = tong_day();
+        $tpdc = tong_phimdc();
+        $tpsc = tong_phimsc();
         $tong = tong();
         include "./view/home.php";
     }

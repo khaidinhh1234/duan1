@@ -49,7 +49,6 @@ extract($phim);
                     foreach ($lc as $l) {
                         extract($l);
 
-                        // Kiểm tra nếu ngày chiếu lớn hơn ngày hiện tại
                         if ($l['ngay_chieu'] > $realtime) {
                             ?>
                             <a href="index.php?act=datve&id=<?= $phim['id'] ?>&id_lc=<?= $l['id'] ?>">
@@ -73,7 +72,7 @@ extract($phim);
                 <div class="time-select time-select--wide">
                     <div class="time-select__group group--first">
                         <div class="col-sm-3">
-                            <p class="time-select__place">CINPASS</p>
+                            <p class="time-select__place">RẠP CINEPASS HÀ ĐÔNG </p>
                         </div>
                         <?php foreach ($khunggio as $g) { ?>
                         <ul class="col-sm-1 items-wrap">
@@ -91,55 +90,10 @@ extract($phim);
 
     <div class="clearfix"></div>
 
-    <form id='film-and-time' class="booking-form" method='get' action='https://amovie.gozha.net/book2.html'>
-        <input type='text' name='choosen-movie' class="choosen-movie">
-
-        <input type='text' name='choosen-city' class="choosen-city">
-        <input type='text' name='choosen-date' class="choosen-date">
-
-        <input type='text' name='choosen-cinema' class="choosen-cinema">
-        <input type='text' name='choosen-time' class="choosen-time">
-
-
-    </form>
 
     <div class="clearfix"></div>
 
 </div>
 
 <!-- open/close -->
-<div class="overlay overlay-hugeinc">
-
-    <section class="container">
-
-        <div class="col-sm-4 col-sm-offset-4">
-            <button type="button" class="overlay-close">Close</button>
-            <form id="login-form" class="login" method='get' novalidate=''>
-                <p class="login__title">sign in <br><span class="login-edition">welcome to A.Movie</span></p>
-
-                <div class="social social--colored">
-                    <a href='#' class="social__variant fa fa-facebook"></a>
-                    <a href='#' class="social__variant fa fa-twitter"></a>
-                    <a href='#' class="social__variant fa fa-tumblr"></a>
-                </div>
-
-                <p class="login__tracker">or</p>
-
-                <div class="field-wrap">
-                    <input type='email' placeholder='Email' name='user-email' class="login__input">
-                    <input type='password' placeholder='Password' name='user-password' class="login__input">
-
-                    <input type='checkbox' id='#informed' class='login__check styled'>
-                    <label for='#informed' class='login__check-info'>remember me</label>
-                </div>
-
-                <div class="login__control">
-                    <button type='submit' class="btn btn-md btn--warning btn--wider">sign in</button>
-                    <a href="#" class="login__tracker form__tracker">Forgot password?</a>
-                </div>
-            </form>
-        </div>
-
-    </section>
-</div>
 

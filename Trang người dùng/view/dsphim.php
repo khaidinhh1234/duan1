@@ -34,16 +34,15 @@
                 <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
                     <a href="<?=$linkp?>" class="movie__title link--huge"><?= $phim['tieu_de']?></a>
 
-                    <p class="movie__time"><?= $phim['thoi_luong_phim']?><?=$thoi_luong_phim?></p>
+                    <p class="movie__time"><?= $phim['thoi_luong_phim']?> Phút</p>
                     <p class="movie__option"><strong>Quốc gia: </strong><a href="#"><?=$quoc_gia?></a></p>
-                    <p class="movie__option"><strong>Thể loại: </strong><a href="#"><?=$id_loai?></a></p>
+                    <p class="movie__option"><strong>Thể loại: </strong><a href="#"><?=$name?></a></p>
                     <p class="movie__option"><strong>Ngày phát hành: </strong><?=$phim['date_phat_hanh']?></p>
                     <p class="movie__option"><strong>Đạo diễn: </strong><a href="#"><?=$daodien?></a></p>
                     <p class="movie__option"><strong>Diễn viên: </strong><a href="#"><?=$dienvien?></a>,  <a href="#">...</a></p>
                     <p class="movie__option"><strong>Giới hạn độ tuổi: </strong><a href="#"><?=$gia_han_tuoi?></a></p>
                     <div class="movie__btns">
                         <a href="<?=$book1?>" class="btn btn-md btn--warning">Đặt vé <span class="hidden-sm">ngay</span></a>
-                        <a href="#" class="watchlist">Thêm phim yêu thích</a>
                     </div>
 
                    

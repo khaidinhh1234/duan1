@@ -1,7 +1,7 @@
 <?php
 include "./view/home/sideheader.php";
-if (is_array($loadphong)) {
-    extract($loadphong);
+if (is_array($loadphong1)) {
+    extract($loadphong1);
 }
 ?>
 
@@ -35,7 +35,7 @@ if (is_array($loadphong)) {
 
                     <div class="col-lg-6 col-12 mb-30">
                         <span class="title">Tên phòng</span><br>
-                        <input class="form-control" type="text"  name="name" value="<?= $name ?>"></div><br>
+                        <input class="form-control" type="text"  name="name" value="<?= $loadphong1['name'] ?>"></div><br>
                
                 </div> 
 

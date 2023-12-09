@@ -46,6 +46,7 @@ include "./view/home/sideheader.php";
                                 } ?>
                             </select>
                         </div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Link trailer" name="link"></div>
                     </div>
 
                     <h4 class="title">Thao tác</h4>

@@ -5,7 +5,12 @@ function load_phong(){
     return $re;
 
 }
+function loadone_phong($id){
+    $sql = "select * from phongchieu where id=".$id;
+    $re = pdo_query_one($sql);
+    return $re;
 
+}
 function xoa_phong($id)
 {
     $sql = "delete from phongchieu where id=" . $id;
@@ -16,7 +21,7 @@ function update_phong($id,$name){
     $sql = "update phongchieu set `name`='{$name}' where `id`=". $id;
     pdo_execute($sql);
 }
-function them_phong( $name){
+function them_phong($name){
     $sql = "insert into `phongchieu`(`name`) values ('$name')";
     pdo_execute($sql);
 }
