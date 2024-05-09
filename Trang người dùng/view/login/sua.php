@@ -1,6 +1,6 @@
-<?php if($_SESSION['user'] && (is_array($_SESSION['user']))){
-    extract($_SESSION['user']);
-} ?>
+<?php 
+    extract($loadtk);
+ ?>
 <body>
 <!-- Form without bootstrap -->
 <div class="auth-wrapper" >
@@ -14,13 +14,8 @@
                 <div class="auth-external-container">
 
                 </div>
-                <form class="login-form" method="post" action="index.php?act=suatk">
-                    <input type="text" class="auth-form-input" placeholder="Name" name="name" value="<?=$name?>">
+                <form class="login-form" method="post" action="index.php?act=updatetk">
                     <input type="text" class="auth-form-input" placeholder="User" name="user" value="<?=$user?>">
-                    <div class="input-icon">
-                        <input type="password" class="auth-form-input" placeholder="Password" name="pass" value="<?=$pass?>">
-                        <i class="fa fa-eye show-password"></i>
-                    </div>
                     <input type="text" class="auth-form-input" placeholder="Phone" name="phone" value="<?=$phone?>">
                     <input type="email" class="auth-form-input" placeholder="Email" name="email" value="<?=$email?>">
                     <input type="text" class="auth-form-input" placeholder="Địa chỉ" name="dia_chi" value="<?=$dia_chi?>">
@@ -29,6 +24,10 @@
                         <input type="submit" value="Cập Nhật" class="auth-submit" name="capnhat">
                     </div>
                 </form>
+                <?php if(isset($thongbao)&&$thongbao !=""){
+                echo '<p  style="color: red; "
+                > '.$thongbao.' </p>';
+            } ?>
             </div>
         </div>
         <div class="auth-action-right">

@@ -2,6 +2,7 @@
 include "./view/home/sideheader.php";
 if (is_array($loadve)) {
     extract($loadve);
+
 }
 ?>
 
@@ -14,7 +15,7 @@ if (is_array($loadve)) {
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
-                <h3> Quản Trị Vé Xem Phim<span>/ Sửa Vé Xem Phim<tg/span></h3>
+                <h3> Quản Trị Vé Xem Phim<span>/ Sửa Vé Xem Phim</span></h3>
             </div>
         </div><!-- Page Heading End -->
 
@@ -28,20 +29,18 @@ if (is_array($loadve)) {
 
             <div class="add-edit-product-form">
 
-                <h4 class="title">Sửa Vé</h4>
 
                 <div class="row">
                     <input  type="hidden" name="id" value="<?=$id?>">
                     <div class="col-lg-6 col-12 mb-30">
                         <input class="form-control" type="text" value="<?=$tieu_de?>" name="id_phim" disabled></div>
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number_format"   value="<?=$price?>"  name="gia_ve" disabled></div>
-                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="date" value="<?=$ngay_dat?>" name="ngay_dat" disabled></div>
+                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="date" value="<?=$ngay_chieu?>" name="ngay_dat" disabled></div>
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number_format"  value="<?=$ghe?>"  name="ghe" disabled></div>
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text"  value="<?=$combo?>"  name="combo" disabled></div>
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text"  value="<?=$name?>"  name="name" disabled></div>
                     <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="time" value="<?=$thoi_gian_chieu?>"   name="thoi_gian_chieu" disabled></div>
-                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" value="<?= $tenphong ?>"   name="id_hd" disabled></div>
-                    <!--                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" value="--><?php //=$trang_thai?><!--"   name="trang_thai"></div>-->
+                    <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" value="<?= $tenphong ?>"  disabled></div>
                     <div class="col-lg-6 col-12 mb-30">
                         <select class="form-control" name="trang_thai" >
                             <option value="0" <?= ($trang_thai == 0) ? 'selected' : '' ?>>Chưa thanh toán</option>

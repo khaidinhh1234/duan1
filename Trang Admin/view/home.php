@@ -7,7 +7,7 @@
 
     <!-- Page Headings Start -->
     <div class="row justify-content-between align-items-center mb-10">
-        <?php if ($_SESSION['user']['vai_tro'] ==2){ ?>
+        <?php if ($_SESSION['user1']['vai_tro'] ==2){ ?>
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
@@ -204,7 +204,7 @@
         </div><!-- Top Report End -->
 
         <?php }else{
-            echo '<h1>Chào mừng '.$_SESSION['user']['name'].' đến với trang làm việc của CinePass</h1>';
+            echo '<h1>Chào mừng '.$_SESSION['user1']['name'].' đến với trang làm việc của CinePass</h1>';
         } ?>
     </div><!-- Top Report Wrap End -->
 

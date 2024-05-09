@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/vendor/themify-icons.css">
 <link rel="stylesheet" href="assets/css/vendor/cryptocurrency-icons.css">
-
+    <link rel="stylesheet" href="assets/css/ctve.css">
 
 <!-- Plugins CSS -->
 <link rel="stylesheet" href="assets/css/plugins/plugins.css">
@@ -38,7 +38,7 @@
 
 <!-- Custom Style CSS Only For Demo Purpose -->
 <link id="cus-style" rel="stylesheet" href="assets/css/style-primary.css">
-<link rel="stylesheet" href="assets/css/ctve.css">
+
 </head>
 
 <body>
@@ -104,8 +104,8 @@
                                         <div class="adomx-dropdown-menu dropdown-menu-user">
 
                                             <?php
-                                            if (isset($_SESSION['user'])) {
-                                                extract($_SESSION['user']);
+                                            if (isset($_SESSION['user1'])) {
+                                                extract($_SESSION['user1']);
                                                 $roleLabel = '';
                                                 if ($vai_tro == 1) {
                                                     $roleLabel = 'Nhân viên';

@@ -20,12 +20,21 @@ function insert_taikhoan($email,$user,$pass,$name,$sdt,$dc){
     pdo_execute($sql);
 }
 
-function sua_tk($id,$name,$user,$pass,$email,$sdt,$dc){
-    $sql = "update taikhoan set name ='".$name."', user ='".$user."',pass ='".$pass."',email ='".$email."',phone ='".$sdt."',diachi ='".$dc."' where id=".$id;
+function sua_tk($id,$user,$email,$sdt,$dc){
+    $sql = "update taikhoan set  user ='".$user."',email ='".$email."',phone ='".$sdt."',dia_chi ='".$dc."' where id=".$id;
 
     pdo_execute($sql);
 }
+function mkcu($id){
+    $sql = "select pass from taikhoan where id = $id"; 
+    $result = pdo_query_one($sql);
+    return $result['pass']; 
+}
+function doi_tk($id,$passmoi){
+    $sql = "UPDATE taikhoan SET pass ='".$passmoi."' WHERE id=".$id;
 
+    pdo_execute($sql);
+}
 function loadone_taikhoan($id){
     $sql = "select * from taikhoan where id =".$id;
     $result = pdo_query_one($sql);
@@ -79,4 +88,10 @@ function sendMailPass($email, $name, $pass) {
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
+}
+function check_email($email)
+{
+    $sql = "SELECT email FROM taikhoan WHERE email ='" . $email . "'";
+    $user = pdo_query_one($sql);
+    return $user;
 }

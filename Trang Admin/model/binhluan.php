@@ -11,29 +11,17 @@
  }
  function loadall_bl(){
     if(isset($_GET['sotrang'])){
-        $sotrang = $_GET['sotrang'];
-
+        $sotrang =$_GET['sotrang'];
     }else{
-        $sotrang=1;
+        $sotrang= 1;
     }
-    $bghi=5;
-    $vitri=($sotrang - 1 )*3;
-    
+    $bghi = 5;
+    $vitri = ($sotrang-1 )*$bghi ;
     $sql = "
         SELECT binhluan.id, binhluan.noidung, taikhoan.name, phim.tieu_de,  binhluan.ngaybinhluan FROM `binhluan` 
         LEFT JOIN taikhoan ON  taikhoan.id=binhluan.id_user
         LEFT JOIN phim ON  phim.id=binhluan.id_phim 
-        WHERE phim.id LIMIT $vitri,$bghi;
-    ";
-    $result =  pdo_query($sql);
-    return $result;
- }
- function loadall_bl1(){
-    $sql = "
-        SELECT binhluan.id, binhluan.noidung, taikhoan.name, phim.tieu_de,  binhluan.ngaybinhluan FROM `binhluan` 
-        LEFT JOIN taikhoan ON  taikhoan.id=binhluan.id_user
-        LEFT JOIN phim ON  phim.id=binhluan.id_phim 
-        WHERE phim.id  ;
+        WHERE phim.id limit $vitri,$bghi;
     ";
     $result =  pdo_query($sql);
     return $result;

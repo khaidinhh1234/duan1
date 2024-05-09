@@ -60,7 +60,10 @@ if (is_array($loadtk)) {
 
                 </div>
 
-            </div><!-- Add or Edit Product End -->
+            </div><!-- Add or Edit Product End -->   <?php if(isset($error)&&$error !=""){
+                echo '<p  style="color: red; text-align: center;"
+                > '.$error.' </p>';
+            } ?>
  </div>
     </form>
 </div><!-- Content Body End -->

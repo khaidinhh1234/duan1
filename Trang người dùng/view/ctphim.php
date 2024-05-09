@@ -18,14 +18,13 @@
                 <div class="col-sm-4 col-md-3 movie-mobile">
                     <div class="movie__images">
                         <span class="movie__rating">5.0</span>
-                        <img alt='' src="<?php echo $hinh?>"  style="width: 260.3px;height: 295px">
+                        <img alt='' src="<?php echo $hinh?>"  style="width: 260.3px;height: 350px">
 
                     </div>
-                    <div class="movie__rate">Lượt xem: <?=$luotxem?> <div id='score' class="score"></div></div>
                 </div>
                 <div class="col-sm-8 col-md-9">
                     <p class="movie__option"> <a href="#"class="heading" style="font-size: 1.5vw ;"><?php echo $tieu_de?></a></p>
-                    <p class="movie__time"><?php echo $thoi_luong_phim?></p>
+                    <p class="movie__time"><?php echo $thoi_luong_phim?> Phút</p>
                     <p class="movie__option"><strong>Quốc Gia: </strong><a href="#"></a> <a href="#"><?php echo $quoc_gia?></a></p>
                     <p class="movie__option"><strong>Năm: </strong><a href="#">2023</a></p>
                     <p class="movie__option"><strong>Thể Loại: </strong><a href="#"><?php echo $name?></a></p>
@@ -57,8 +56,8 @@
 
             </div>
 
-          
 
+            <div class="binhluannew" id="binhluannew" > </div>
             </div>
 
 
@@ -71,7 +70,7 @@
                 });
             });
         </script>
-        <div class="binhluannew" id="binhluannew"> </div>
+
         </div>
     </div>
 

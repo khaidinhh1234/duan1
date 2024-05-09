@@ -11,6 +11,11 @@ include "./view/home/sideheader.php";
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
                 <h3>Loại Phim <span>/ Thêm</span></h3>
+       
+                <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
             </div>
         </div><!-- Page Heading End -->
 
@@ -39,7 +44,7 @@ include "./view/home/sideheader.php";
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
                                 <button class="button button-outline button-primary mb-10 ml-10 mr-0" name="gui">Thêm</button>
-                                <button class="button button-outline button-info mb-10 ml-10 mr-0"><a href="index.php?act=QLloaiphim"></a></button>
+                                <button class="button button-outline button-primary mb-10 ml-10 mr-0" ><a href="index.php?act=QLloaiphim">Danh sách</a></button>
                             </div>
                         </div><!-- Button Group End -->
 
@@ -48,4 +53,8 @@ include "./view/home/sideheader.php";
         </div><!-- Add or Edit Product End -->
 
     </form>
+    <?php if(isset($error)&&$error !=""){
+                echo '<p  style="color: red; text-align: center;"
+                > '.$error.' </p>';
+            } ?>
 </div><!-- Content Body End -->

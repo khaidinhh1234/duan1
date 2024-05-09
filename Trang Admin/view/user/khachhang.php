@@ -1,8 +1,6 @@
 
 <?php
 include "./view/home/sideheader.php";
-$tong = count($loadtk);
-$sotrang = ceil($tong/5);
 ?>
 <!-- Content Body Start -->
 <div class="content-body">
@@ -13,12 +11,15 @@ $sotrang = ceil($tong/5);
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
-                <h3>Quản Lý Tài Khoản <?php echo $tong?>/ <span>Tài Khoản Khách Hàng</span></h3>
+                <h3>Quản Lý Tài Khoản / <span>Tài Khoản Khách Hàng</span></h3>
             </div>
         </div><!-- Page Heading End -->
 
     </div><!-- Page Headings End -->
-
+    <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?>
     <div class="row">
 
         <!--Order List Start-->
@@ -78,27 +79,6 @@ $sotrang = ceil($tong/5);
 
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
-  <ul class="pagination" style="padding-bottom: 20px;">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-   <?php for($i=1 ;$i<=$sotrang;$i++):?>
-    <li class="page-item"><a class="page-link" href="index.php?act=khachhang&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
- <?php endfor?>
-   
-    
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
             </div>
         </div>
         <!--Order List End-->

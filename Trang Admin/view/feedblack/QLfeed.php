@@ -1,9 +1,9 @@
 <?php 
         include "./view/home/sideheader.php";
-        $tong = count($dem);
-       $sotrang = ceil($tong/5);
+        $bghi= 2;
+        $sotrang = ceil($tong/$bghi) 
         ?>
-
+           
         <!-- Content Body Start -->
         <div class="content-body">
 
@@ -13,7 +13,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3 class="title">Quản Lý Tin Nhắn  </h3>
+                        <h3 class="title">Quản Lý Tin Nhắn </h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -60,28 +60,21 @@
                                    
                                 </tbody>
                             </table>
-                            <nav aria-label="Page navigation example">
-  <ul class="pagination" style="padding-bottom: 20px;">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-   <?php for($i=1 ;$i<=$sotrang;$i++):?>
-    <li class="page-item"><a class="page-link" href="index.php?act=QLfeed&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
- <?php endfor?>
-   
-    
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
+                            <nav aria-label="...">
+  <ul class="pagination">
+
+    <?php for($i=1 ; $i<=$sotrang ; $i++):?>
+        <?php if($_GET['sotrang'] == $i){
+             echo'<li class="page-item active" >
+             <a class="page-link" href="index.php?act=QLfeed&&sotrang='.$i.'">'.$i.'</a>
+           </li>';
+        }else{
+            echo' <li class="page-item"><a class="page-link" href="index.php?act=QLfeed&&sotrang='.$i.'">'.$i.'</a></li>';}
+            ?>
+   <?php endfor?>
+  
   </ul>
 </nav>
-
                            
            
 

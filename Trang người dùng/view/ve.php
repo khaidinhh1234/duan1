@@ -5,7 +5,6 @@
     <div class="order-container">
         <?php
         // Kiểm tra xem biến $load_ve có tồn tại hay không
-        if (isset($load_ve)) {
             // Nếu tồn tại, hiển thị danh sách vé đã mua
             echo "<h2>DANH SÁCH VÉ ĐÃ MUA</h2>";
             foreach ($load_ve as $ve) {
@@ -47,10 +46,8 @@
                                     <span class="ticket__item">Thời gian đặt: <span class="ticket__hall">' . $ngay_dat . '</span></span>
                                     <span class="ticket__item ticket__price" style="margin-top: 5px">Giá: <strong class="ticket__cost">' . number_format($price) . ' vnđ</strong></span>
                                 </div>
-
                                 <div class="ticket-primery">
-                                    <span class="ticket__item ticket__item--primery ticket__film" style="display:flex">Phim : <strong class="ticket__movie" >' . $tieu_de . '</strong></span>
-                                    <span class="ticket__item ticket__item--primery">Ghế: <span class="ticket__place">' . $ghe . '</span></span>
+<span class="ticket__item ticket__item--primery ticket__film" style="display:flex;"> <strong class="ticket__movie" >PHIM : ' . $tieu_de . '</strong></span>                                    <span class="ticket__item ticket__item--primery">Ghế: <span class="ticket__place">' . $ghe . '</span></span>
                                     <span class="ticket__item ticket__item--primery">Combo: <span class="ticket__place">' . $combo . '</span></span>
                                 </div>
                             </div>
@@ -63,10 +60,7 @@
                     </div>';
             }
             echo '<h1>(*) Khi hủy vé bạn liên hệ với đội ngũ cskh của CinePass để được hoàn tiền</h1>';
-        } else {
-            // Nếu không tồn tại, hiển thị thông báo "Bạn thanh toán không thành công"
-            echo "<p>Bạn thanh toán không thành công.</p>";
-        }
+
         ?>
     </div>
 </section>

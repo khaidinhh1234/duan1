@@ -34,6 +34,11 @@ include "./view/home/sideheader.php";
         <div class="news-item">
                 <div class="content">
             <div class="categories"><a href="index.php?act=themloai" class="product">Thêm Loại Phim</a></div></div></div>
+            
+         <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
             <div class="table-responsive">
                 <table class="table table-bordered mb-0">
 

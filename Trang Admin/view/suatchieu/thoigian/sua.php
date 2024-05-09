@@ -1,7 +1,7 @@
 <?php
 include "./view/home/sideheader.php";
-if (is_array($load_kgc)) {
-    extract($load_kgc);
+if (is_array($load1kgc)) {
+    extract($load1kgc);
 }
 ?>
 
@@ -31,40 +31,34 @@ if (is_array($load_kgc)) {
                 <h4 class="title">Sửa Khung Giờ Chiếu </h4>
 
                 <div class="row">
-                    <input  type="hidden" name="id" value="<?= $id ?>">
+                    <input type="hidden" name="id" value="<?= $id ?>">
                     <div class="col-lg-6 col-12 mb-30">
-
                         <div class="row2 mb10 form_content_container">
-                            <select name="id_lc" id="" class="form-control">
-                             
-                                <?php foreach ($loadlc as $lc){
-                                    extract($lc);
-                                    echo "<option value='.$id.'>'.$ngay_chieu.$tieu_de.'</option>";
-                                   
-                                } ?>
+                            <select name="id_lc" class="form-control">
+                                <?php foreach ($loadlich as $lc) {
+                                    extract($lc); ?>
+                                    <option value="<?=$lc['id']?>" <?=$lc['id'] == $id_lich_chieu ? 'selected' : '' ?>><?=$ngay_chieu?>--<?=$tieu_de?></option>
+                              <?php  } ?>
                             </select>
-                        </div>  </div>
-                        
-                    <div class="col-lg-6 col-12 mb-30">
-                        
-                        <div class="row2 mb10 form_content_container">
-                            <select name="id_phong" id="" class="form-control">
-                          
-                                <?php foreach ($loadphong as $phong):?>
-                                    <?=extract($phong)?>
-                                <option  type="text"   value="<?=$id ?>"><?php echo $name ?></option><br>
-                                <?php endforeach ?>
-                            </select></div>
-                        </div>   
-                        <div class="col-lg-6 col-12 mb-30"> 
-                        <div class="row2 mb10 form_content_container">
-                    <span class="title">Thời gian chiếu</span><br>
-                    <input class="form-control" type="time"  name="tgc" value="<?=$thoi_gian_chieu ?>"></div></div><br>
-                  
-                  
-</div>
+                        </div>
+                    </div>
 
+                    <div class="col-lg-6 col-12 mb-30">
+                        <div class="row2 mb10 form_content_container">
+                            <select name="id_phong" class="form-control">
+                                <?php foreach ($loadphong as $phong): ?>
+                                    <option value="<?= $phong['id'] ?>" <?= $phong['id'] == $id_phong ? 'selected' : '' ?>><?= $phong['name'] ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12 mb-30">
+                        <span class="title">Thời gian chiếu</span><br>
+                        <input class="form-control" type="time" name="tgc" value="<?= $thoi_gian_chieu ?>">
+                    </div>
                 </div>
+
 
                 <h4 class="title">Thao tác</h4>
 
@@ -82,6 +76,8 @@ if (is_array($load_kgc)) {
                 </div>
 
             </div><!-- Add or Edit Product End -->
+        
  </div>
-    </form>
+ </form>
+
 </div><!-- Content Body End -->

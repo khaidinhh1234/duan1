@@ -23,6 +23,11 @@ if(isset($_GET['act']) && $_GET['act']!=""){
             unset($_SESSION['mv']);
             include "view/ctphim.php";
             break;
+            case "dsphim1":
+                $dsp = loadall_phim();
+                // $dsp=loadall_phim();
+                include "view/dsphim1.php";
+                break;
         case "dsphim":
             if (isset($_POST['kys']) && $_POST['kys'] != "") {
 
@@ -59,103 +64,142 @@ if(isset($_GET['act']) && $_GET['act']!=""){
         case "rapchieu":
             include "view/rapchieu.php";
             break;
-        case "dangnhap":
-            if (isset($_POST['login'])) {
-            $user = $_POST['user'];
-            $pass = $_POST['pass'];
-            $check_tk = check_tk($user, $pass);
-            if (is_array($check_tk) && $check_tk['vai_tro'] == 0) {
-                $_SESSION['user'] = $check_tk;
-            } else {
-                echo "Đăng nhập không thành công. Vui lòng kiểm tra tài khoản của bạn.";
-            }
-    }
-
-    include "view/login/dangnhap.php";
-            break;
-        case "dangky":
-            $min_password_length = 4;
-
-            if (isset($_POST['dangky']) && $_POST['dangky'] != "") {
-                if (
-                    !empty($_POST['name']) && !empty($_POST['phone']) &&
-                    !empty($_POST['dia_chi']) && !empty($_POST['user']) &&
-                    !empty($_POST['pass']) && !empty($_POST['email'])
-                ) {
-                    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                        if (strlen($_POST['pass']) >= $min_password_length) {
-                            if (preg_match('/^[a-zA-Z0-9_]+$/', $_POST['user'])) {
-                                $name = $_POST['name'];
-                                $sdt = $_POST['phone'];
-                                $dc = $_POST['dia_chi'];
-                                $user = $_POST['user'];
-                                $pass = $_POST['pass'];
-                                $email = $_POST['email'];
-
-                                insert_taikhoan($email, $user, $pass, $name, $sdt, $dc);
-                                echo "Đăng ký thành công xin mời đăng nhập!";
-                            } else {
-                                echo "Tên người dùng không hợp lệ. Tên người dùng không được chứa khoảng trắng và dấu.";
-                            }
+            case "dangnhap":
+                if (isset($_POST['login'])) {
+                    $user = htmlspecialchars($_POST['user'], ENT_QUOTES, 'UTF-8');
+                    $pass = htmlspecialchars($_POST['pass'], ENT_QUOTES, 'UTF-8');
+                    $check_tk = check_tk($user, $pass);
+                
+                    if ($user == '' || $pass == '') {
+                        $error = "Vui lòng không để trống";
+                        include "view/login/dangnhap.php";
+                        break;
+                    } else {
+                        if (is_array($check_tk) && $check_tk['vai_tro'] == 0) {
+                            $_SESSION['user'] = $check_tk;
                         } else {
-                            echo "Mật khẩu phải chứa ít nhất $min_password_length ký tự.";
+                            $thongbao = "Đăng nhập không thành công. Vui lòng kiểm tra tài khoản của bạn.";
+                        }
+                    }
+                }
+                
+        include "view/login/dangnhap.php";
+                break;
+  
+            case "dangky":
+                $min_password_length = 6;
+
+                if (isset($_POST['dangky']) && $_POST['dangky'] != "") {
+                    $name = $_POST['name'];
+                    $sdt = $_POST['phone'];
+                    $dc = $_POST['dia_chi'];
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $email = $_POST['email'];
+
+                    if (
+                        !empty($name) && !empty($sdt) &&
+                        !empty($dc) && !empty($user) &&
+                        !empty($pass) && !empty($email)
+                    ) {
+                        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                            $thongbao = "Vui lòng nhập một địa chỉ email hợp lệ.";
+                        } else if (strlen($pass) < $min_password_length) {
+                            $thongbao = "Mật khẩu phải chứa ít nhất $min_password_length ký tự.";
+                        } else if (!preg_match('/^[a-zA-Z0-9_]+$/', $user)) {
+                            $thongbao = "Tên người dùng không hợp lệ. Tên người dùng không được chứa khoảng trắng và dấu.";
+                        } else {
+                            // Kiểm tra email đã tồn tại
+                            $email_check = check_email($email);
+                            if ($email_check && $email_check['email'] == $email) {
+                                $thongbao = "Email đã tồn tại!";
+                            } else {
+                                // Thêm tài khoản mới
+                                insert_taikhoan($email, $user, $pass, $name, $sdt, $dc);
+                                $thongbao = "Đăng ký thành công xin mời đăng nhập!";
+                            }
                         }
                     } else {
-                        echo "Vui lòng nhập một địa chỉ email hợp lệ.";
+                        $thongbao = "Vui lòng điền đầy đủ thông tin.";
                     }
-                } else {
-                    echo "Vui lòng điền đầy đủ thông tin.";
                 }
-            }
 
+                include "view/login/dangky.php";
+                break;
 
-            include "view/login/dangky.php";
-            break;
-        case "quenmk":
-            if (isset($_POST['guiemail'])) {
-                $email = $_POST['email'];
-                $sendMailMess = sendMail($email);
-            }
-            include "view/login/quenmk.php";
-            break;
-        case "suatk":
-            if (isset($_POST['capnhat']) && $_POST['capnhat'] != "") {
-                $id = $_POST['id'];
-                $pass = $_POST['pass'];
-                $user = $_POST['user'];
-                $email = $_POST['email'];
-                $name = $_POST['name'];
-                $sdt = $_POST['phone'];
-                $dc = $_POST['dia_chi'];
-                sua_tk($id, $name, $user, $pass, $email, $sdt, $dc);
-                $_SESSION['user'] = check_tk($user, $pass);
-                include "view/login/sua.php";
+                case "quenmk":
+                    if (isset($_POST['guiemail'])) {
+                        $email = $_POST['email'];
+                        if($email =='') {
+                            $error = "vui lòng không để trống";
+                            include "view/login/quenmk.php";
+                            break;
+                           }else{
+                        $sendMailMess = sendMail($email);
+                        // $error ="gửi thành công";
+                    }}
+                    include "view/login/quenmk.php";
+                    break;
+                    
+                    case "suatk":
+                        if (isset($_GET['idsua'])) {
+                            $loadtk = loadone_taikhoan($_GET['idsua']);
+                        }
+                        include "view/login/sua.php";
+                        break;
+                        case "updatetk":
+                            if (isset($_GET['idsua'])) {
+                                $loadtk = loadone_taikhoan($_GET['idsua']);
+                            }
+                        if (isset($_POST['capnhat']) && $_POST['capnhat'] != "") {
+                            if (
+                                 !empty($_POST['phone']) &&
+                                !empty($_POST['dia_chi']) && !empty($_POST['user']) && !empty($_POST['email'])
+                            ) {
+                                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                                    
+                                        if (preg_match('/^[a-zA-Z0-9_]+$/', $_POST['user'])) {
+                            $id = $_POST['id'];
+                            $user = $_POST['user'];
+                            $email = $_POST['email'];
+                            $sdt = $_POST['phone'];
+                            $dc = $_POST['dia_chi'];
+                            sua_tk($id, $user, $email, $sdt, $dc);
+                            $thongbao= "Sửa thành công ";
+                        } else {
+                            $thongbao= "Tên người dùng không hợp lệ. Tên người dùng không được chứa khoảng trắng và dấu.";
+                        }
+                    
+                    }
+                 
             } else {
-                include "view/login/sua.php";
+                $thongbao= "Vui lòng điền đầy đủ thông tin.";
             }
-            break;
-        case "dangxuat":
-            dang_xuat();
-            include "view/login/dangnhap.php";
-            break;
-        case "datve":
-            $khunggio = array();
-            $realtime = date('Y-m-d H:i:s');
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $id_phim = $_GET['id'];
-                $phim = loadone_phim($id_phim);
-            } else {
-                $id_phim = 0;
             }
-            if ((isset($_GET['id_lc'])) && ($_GET['id_lc'])) {
-                $id_lc = $_GET['id_lc'];
-                $khunggio = khunggiochieu_select_by_idxc($id_lc);
-            }
-            $lc = lichchieu_select_by_id_phim($id_phim);
-            unset($_SESSION['mv']);
-            include "view/dv.php";
-
-            break;
+            $loadtk = loadone_taikhoan($id);
+                            include "view/login/sua.php";
+                        // } else {
+                        //     include "view/login/sua.php";
+                        // }
+                        break;
+                        case "datve":
+                            $khunggio = array();
+                            $realtime = date('Y-m-d H:i:s');
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                                $id_phim = $_GET['id'];
+                                $phim = loadone_phim($id_phim);
+                            } else {
+                                $id_phim = 0;
+                            }
+                            if ((isset($_GET['id_lc'])) && ($_GET['id_lc'])) {
+                                $id_lc = $_GET['id_lc'];
+                                $khunggio = khunggiochieu_select_by_idxc($id_lc);
+                            }
+                            $lc = lichchieu_select_by_id_phim($id_phim);
+                            unset($_SESSION['mv']);
+                            include "view/dv.php";
+                
+                            break;
 
         case "datve2":
 
@@ -174,12 +218,51 @@ if(isset($_GET['act']) && $_GET['act']!=""){
 
                 include "view/dv2.php";
             } else {
+                $error = "";
+                $thongbao1= "";
                 $thongbao['dangnhap'] = 'đăng nhập đi để đặt vé!';
                 include 'view/login/dangnhap.php';
             }
 
             break;
-
+            case "dangxuat":
+                dang_xuat();
+                include "view/login/dangnhap.php";
+                break;
+            case "doimk":
+                if (isset($_POST['capnhat']) && $_POST['capnhat'] != "") {
+                    $id = $_POST['id'];
+                    $pass = $_POST['pass'];
+                    $passmoi = $_POST['passmoi'];
+                    $passmoi1 = $_POST['passmoi1'];
+                    $old_pass = mkcu($id);
+                    if($pass==''||$passmoi==''||$passmoi1==''){
+                        $error = "vui lòng không để trống";
+                    }
+                    if($pass != $old_pass){
+                        $error = "Mật khẩu cũ không đúng";
+                    }
+                    
+                    // Kiểm tra mật khẩu mới có trùng mật khẩu cũ không
+                    if($passmoi != $passmoi1){
+                       $error = "Mật khẩu mới không trùng nhau"; 
+                    }
+            
+                    if(!isset($error)){
+                        doi_tk($id,$passmoi); 
+                        $error = "đổi mật khẩu thành công";
+                        // $_SESSION['user'] = check_tk($user, $pass);
+                        include "view/login/doimk.php";  
+                    }
+                    else{
+                        // Hiển thị lỗi ra view
+                        include "view/login/doimk.php"; 
+                    }
+                } else {
+                    include "view/login/doimk.php";
+                }
+    
+                break;
         case "dv3":
             if (isset($_POST['tiep_tuc']) && ($_POST['tiep_tuc'])) {
                 $ten_ghe = array();
@@ -191,6 +274,13 @@ if(isset($_GET['act']) && $_GET['act']!=""){
 
                 $gia_ghe = $_POST['giaghe'];
                 array_push($_SESSION['tong'], $gia_ghe, $ten_ghe);
+                if (isset($ten_ghe['ghe']) && ($ten_ghe['ghe'])) {
+                    $thongbaoghe = "";
+                }else{
+                    $thongbaoghe = "Phải chọn ghế";
+                    include "view/dv2.php";
+                    break;
+                }
             }
             include 'view/doan.php';
             break;
@@ -230,7 +320,7 @@ if(isset($_GET['act']) && $_GET['act']!=""){
                         echo "Đã xảy ra lỗi khi đặt vé. Vui lòng thử lại.";
                     }
                 } else {
-                    echo "Đãid_bill xảy ra lỗi khi tạo hóa đơn. Vui lòng thử lại.";
+                    echo " xảy ra lỗi khi tạo hóa đơn. Vui lòng thử lại.";
                 }
 
             }
@@ -267,7 +357,6 @@ if(isset($_GET['act']) && $_GET['act']!=""){
             if (isset($_GET['message']) && ($_GET['message'] == 'Successful.')) {
                 trangthai_hd($_SESSION['id_hd']);
                 trangthai_ve($_SESSION['id_hd']);
-                 var_dump($_SESSION['id_hd']);
                 $load_ve_tt =  load_ve_tt($_SESSION['id_hd']);
                 gui_mail_ve($load_ve_tt);
                 require_once "view/ve_tt.php";
@@ -299,3 +388,8 @@ if(isset($_GET['act']) && $_GET['act']!=""){
     include "view/home.php";
 }
 include "view/footer.php";
+
+
+
+?>
+

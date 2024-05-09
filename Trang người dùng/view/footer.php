@@ -83,7 +83,7 @@
 
 <!-- JavaScript-->
 <!-- jQuery 1.9.1-->
-<script src="ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>  
 <script>window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
 <!-- Migrate -->
 <script src="js/external/jquery-migrate-1.2.1.min.js"></script>
@@ -114,7 +114,7 @@
 <script src="js/form.js"></script>
 
 <!-- Twitter feed -->
-<script src="js/external/twitterfeed.js"></script>
+<script src="js/external/twitterfeed.js"></script> -->
 
 <!-- Custom -->
 <script src="js/custom.js"></script>

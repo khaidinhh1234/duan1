@@ -31,26 +31,24 @@ if (is_array($loadone_lc)) {
                 <h4 class="title">Sửa Xuất Chiếu</h4>
 
                 <div class="row">
-                    <input  type="hidden" name="id" value="<?= $id ?>">
+                    <input type="hidden" name="id" value="<?= $id ?>">
 
                     <div class="col-lg-6 col-12 mb-30">
-                       
                         <div class="row2 mb10 form_content_container">
                             <select name="id_phim" class="form-control">
-                            
-                                <?php foreach ($loadphim as $phim){
+                                <?php foreach ($loadphim as $phim) {
                                     extract($phim);
-                                    echo " 
-                                   <option value=".$id.">$tieu_de</option>";
+                                    echo '<option value="' . $id . '" ' . ($id == $id_phim ? 'selected' : '') . '>' . $tieu_de . '</option>';
                                 } ?>
                             </select>
-                        </div>  </div>
-                      
-                  
+                        </div>
+                    </div>
+
                     <div class="col-lg-6 col-12 mb-30">
-                       <input class="form-control" type="date"  name="nc" value="<?= $ngay_chieu ?>"></div><br>
-             
+                        <input class="form-control" type="date" name="nc" value="<?= $ngay_chieu ?>">
+                    </div>
                 </div>
+
 
                 <h4 class="title">Thao tác</h4>
 
@@ -68,6 +66,11 @@ if (is_array($loadone_lc)) {
                 </div>
 
             </div><!-- Add or Edit Product End -->
+            <?php if(isset($error)&&$error !=""){
+                echo '<p   style="color: red; text-align: center;"
+                > '.$error.' </p>';
+            } ?>
         </div>
     </form>
+  
 </div><!-- Content Body End -->

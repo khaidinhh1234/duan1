@@ -1,7 +1,6 @@
 
 <?php 
         include "./view/home/sideheader.php";
-        $tong = count($loadall_kh);
         ?>
         <!-- Content Body Start -->
         <div class="content-body">
@@ -12,19 +11,22 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3>Quản Lý Tài Khoản <?php echo $tong?>/ <span>Tài Khoản Nhân Viên</span></h3>
+                        <h3>Quản Lý Tài Khoản / <span>Tài Khoản Nhân Viên</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
             </div><!-- Page Headings End -->
-
+            <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
             <div class="row">
 
                 <!--Order List Start-->
                 <div class="col-12 mb-30">
                 <div class="news-item">
                 <div class="content">
-                <div class="categories"><a href="index.php?act=themuser" class="product">Thêm Tài Khoản Nhân Viên</a></div></div></div>
+                <div class="categories"><a href="index.php?act=themuser" class="product" >Thêm Tài Khoản Nhân Viên</a></div></div></div>
                     <div class="table-responsive">
                         <table class="table table-vertical-middle">
                             <thead>
@@ -41,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($loadall_kh as $kh):?>
+                                <?php foreach($loadalltk as $kh):?>
                                     <?= extract($kh);
                                     $linksua= "index.php?act=suatk&idsua=".$id;
                                     $linkxoa= "index.php?act=xoatk&idxoa=".$id;?>
@@ -67,7 +69,7 @@
 
                                     <td class="action h4">
                                         <div class="table-action-buttons">
-                                            <a class="edit button button-box button-xs button-info" href="<?=$linksua?>"><i class="zmdi zmdi-edit"></i></a>
+                                            <a class="edit button button-box button-xs button-info " href="<?=$linksua?>"><i class="zmdi zmdi-edit"></i></a>
                                             <a class="delete button button-box button-xs button-danger" href="<?=$linkxoa?>"><i class="zmdi zmdi-delete"></i></a>
                                         </div>
                                     </td>

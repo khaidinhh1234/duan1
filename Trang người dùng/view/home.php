@@ -4,7 +4,7 @@
 <!-- Main content -->
 <section class="container">
     <div class="movie-best">
-        <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Phim hay nhất</div>
+        <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Phim hot nhất</div>
         <div class="col-sm-12 change--col">
             <?php foreach ($loadphimhot as $hot){
                 extract($hot);
@@ -15,9 +15,9 @@
                 <span class="best-rate">5.0</span>
 
                 <ul class="movie-beta__info">
-                    <li><span class="best-voted">Đã có '.$luotxem.' lượt xem</span></li>
+                    <li><span class="best-voted">Đã có '.$tong_so_ve.' vé đã đặt</span></li>
                     <li>
-                        <p class="movie__time">'.$thoi_luong_phim.'</p>
+                        <p class="movie__time">'.$thoi_luong_phim.' phút</p>
                         <p>'.$name.'</p>
                     </li>
                     <li class="last-block">
@@ -45,7 +45,7 @@
                     $hinh ="imgavt/".$img;
                     $linkp="index.php?act=ctphim&id=".$id;
                     echo '<!-- Movie variant with time -->
-                <div class="movie movie--test movie--test--dark movie--test--left" style="height: 350px;">
+                <div class="movie movie--test movie--test--dark movie--test--left" style="height: 350px;background-color: rgba(255, 213, 100, 0.8);">
                     <div class="movie__images">
                         <a href="'.$linkp.'" class="movie-beta__link">
                             <img alt="lỗi cmnr" src="'.$hinh.'"  style="width: 300px;height: 350px">

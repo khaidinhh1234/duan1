@@ -3,9 +3,7 @@
 <form action="index.php?act=huy_ve" method="post">
     <section class="container">
         <div class="order-container">
-            <?php
-            // Kiểm tra xem biến $load_ve có tồn tại hay không
-                // Nếu tồn tại, hiển thị danh sách vé đã mua
+            <?php if (isset($loadone_ve)) {
                 echo "<h2>CHI TIẾT VÉ</h2>";
                     extract($loadone_ve);
                     switch ($trang_thai) {
@@ -46,8 +44,7 @@
                                 </div>
 
                                 <div class="ticket-primery">
-                                    <span class="ticket__item ticket__item--primery ticket__film" style="display:flex">Phim : <strong class="ticket__movie" >' . $tieu_de . '</strong></span>
-                                    <span class="ticket__item ticket__item--primery">Ghế: <span class="ticket__place">' . $ghe . '</span></span>
+<span class="ticket__item ticket__item--primery ticket__film" style="display:flex;> <strong class="ticket__movie" >PHIM : ' . $tieu_de . '</strong></span>                                    <span class="ticket__item ticket__item--primery">Ghế: <span class="ticket__place">' . $ghe . '</span></span>
                                     <span class="ticket__item ticket__item--primery">Combo: <span class="ticket__place">' . $combo . '</span></span>
                                 </div>
                             </div>
@@ -61,13 +58,18 @@
                         </div>
                     </div>
                      ';
-
-
             ?>
-            <div class="ticket-control">
-                <a href="#" class="watchlist list--print"><button onclick="printTicket()">In Vé</button></a>
-            </div>
         </div>
     </section>
 </form>
 
+<?php
+} else {
+    // Nếu không tồn tại, in ra thông báo "Bạn chưa thanh toán"
+    ?>
+    <section class="container">
+        <p>Bạn chưa thanh toán vé.</p>
+    </section>
+    <?php
+}
+?>

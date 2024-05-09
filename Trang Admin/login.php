@@ -1,6 +1,5 @@
 <?php
 session_start();
-ob_start();
 include "model/pdo.php";
 include "model/taikhoan.php";
 
@@ -11,7 +10,7 @@ if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
     $user_info = check_tk($user, $pass);
 
     if ($user_info && ($user_info['vai_tro'] == 1 || $user_info['vai_tro'] == 2)) {
-        $_SESSION['user'] = $user_info;
+        $_SESSION['user1'] = $user_info;
         header('location: index.php');
         exit;
     }
@@ -57,54 +56,57 @@ if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
 
     <!-- Custom Style CSS Only For Demo Purpose -->
     <link id="cus-style" rel="stylesheet" href="assets/css/style-primary.css">
+    <style>
 
+    </style>
 </head>
 
 <body>
-
+<div class="tong" style="margin-left:550px;margin-top:100px">
+    
 <div class="main-wrapper">
 
-    <!-- Content Body Start -->
-    <div class="content-body m-0 p-0">
+<!-- Content Body Start -->
+<div class="content-body m-0 p-0">
 
-        <div class="login-register-wrap">
-            <div class="row">
+    <div class="login-register-wrap">
+        <div class="row">
 
-                <div class="d-flex align-self-center justify-content-center order-2 order-lg-1 col-lg-5 col-12">
-                    <div class="login-register-form-wrap">
+            <div class="d-flex align-self-center justify-content-center order-2 order-lg-1 col-lg-5 col-12">
+                <div class="login-register-form-wrap">
 
-                        <div class="content">
-                            <h1>Đăng nhập</h1>
-                        </div>
+                    <div class="content">
+                        <h1>Đăng nhập</h1>
+                    </div>
 
-                        <div class="login-register-form">
-                            <form action="<?= $_SERVER['PHP_SELF'];  ?>" method="post">
-                                <div class="row">
-                                    <div class="col-12 mb-20">
-                                        <input class="form-control" type="text" name="user" placeholder=" Tài khoản đăng nhập"></div>
-                                    <div class="col-12 mb-20">
-                                        <input class="form-control" name="pass" type="password" placeholder="Mật khẩu "></div>
-                                    <div class="col-12 mb-20">
-                                        <label for="remember" class="adomx-checkbox-2"><input id="remember" type="checkbox"><i class="icon"></i>Nhớ mật khẩu</label></div>
-                                    <div class="col-12">
-                                        <?php if(isset($loi)&& ($loi)!=""){
-                                            echo "<h3 style='color:red'>$loi</h3>";
-                                        } ?>
-                                    </div>
-                                    <div class="col-12 mt-10">
-                                        <input  class="button button-primary button-outline" name="dangnhap" type="submit" value="Đăng Nhập"></div>
+                    <div class="login-register-form">
+                        <form action="<?= $_SERVER['PHP_SELF'];  ?>" method="post">
+                            <div class="row">
+                                <div class="col-12 mb-20">
+                                    <input class="form-control" type="text" name="user" placeholder=" Tài khoản đăng nhập"></div>
+                                <div class="col-12 mb-20">
+                                    <input class="form-control" name="pass" type="password" placeholder="Mật khẩu "></div>
+                                <div class="col-12 mb-20">
+                                <div class="col-12">
+                                    <?php if(isset($loi)&& ($loi)!=""){
+                                        echo "<h3 style='color:red'>$loi</h3>";
+                                    } ?>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col-12 mt-10">
+                                    <input  class="button button-primary button-outline" name="dangnhap" type="submit" value="Đăng Nhập"></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-
             </div>
+
+
         </div>
+    </div>
 
-    </div><!-- Content Body End -->
+</div><!-- Content Body End -->
 
+</div>
 </div>
 
 <!-- JS

@@ -17,7 +17,10 @@
                 </div><!-- Page Heading End -->
 
             </div><!-- Page Headings End -->
-
+            <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
             <div class="row">
  <div class="col-12 mb-30">
                 <div class="news-item">

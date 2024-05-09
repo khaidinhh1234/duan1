@@ -19,6 +19,10 @@
                     <?php if (isset($sendMailMess) && $sendMailMess != '') {
                         echo $sendMailMess;
                     } ?>
+                    <?php if(isset($error)&&$error !=""){
+                echo '<p  style="color: red; "
+                > '.$error.' </p>';
+            } ?>
                 </form>
             </div>
         </div>

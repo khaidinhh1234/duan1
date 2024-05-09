@@ -19,7 +19,10 @@ include "./view/home/sideheader.php";
         <!-- Page Button Group Start -->
 
     </div><!-- Page Headings End -->
-
+    <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
     <!-- Add or Edit Product Start -->
     <form action="index.php?act=themuser" method="POST">
         <div class="add-edit-product-wrap col-12">
@@ -53,6 +56,10 @@ include "./view/home/sideheader.php";
 
                 </div>
                     </div><!-- Add or Edit Product End -->
+                    <?php if(isset($error)&&$error !=""){
+                echo '<p  style="color: red; text-align: center;"
+                > '.$error.' </p>';
+            } ?>
                         </div>
     </form>
 </div><!-- Content Body End -->

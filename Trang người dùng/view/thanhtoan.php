@@ -1,7 +1,11 @@
 <?php
 
 include 'view/search.php';
-$gia   = number_format($_SESSION['tong'][2]);
+if (isset($_SESSION['tong'][4]) && is_numeric($_SESSION['tong'][4])) {
+    $gia = number_format($_SESSION['tong'][4]);
+} else {
+    $gia = number_format($_SESSION['tong'][2]);
+}
 
 ?>
 <!-- Main content -->
@@ -32,7 +36,7 @@ $gia   = number_format($_SESSION['tong'][2]);
                 <li class="book-result__item">Số ghế: <span class="book-result__count booking-cost"><?php
                         if (isset($ten_ghe['ghe'])) {
                             $ghes = $ten_ghe['ghe'];
-                            echo '<span class="choosen-place">' . implode(', ', $ghes) . '</span>';
+                            echo '<span class="choosen-plac">' . implode(', ', $ghes) . '</span>';
 
                             foreach ($ghes as $ghe) {
                                 echo '<input type="hidden" name="ten_ghe[]" value="' . $ghe . '">';
@@ -59,10 +63,6 @@ $gia   = number_format($_SESSION['tong'][2]);
                     <li>  <a href="view/momo/xuly_momo_atm.php" class="payment__item">
                     <img alt='' src="images/payment/momo.jpg" style="width: 70px; border-radius: 8px;";>
                   <label for="" class="tt">MOMO ATM</label> </li>
-                    <li>  <a href="view/momo/xuly_momo_qr.php" class="payment__item" >
-                    <img alt='' src="images/payment/momo.jpg"style="width: 70px; border-radius: 8px;">
-                  <label for="" class="tt">MOMO QR</label> </li>
-
                 </a>
                 </ul>
             </div>
@@ -75,13 +75,6 @@ $gia   = number_format($_SESSION['tong'][2]);
 
 </form>
 <div class="clearfix"></div>
-
-<!---->
-<!--<div class="booking-pagination">-->
-<!--    <a href="book2.html" class="booking-pagination__prev">-->
-<!--        <p class="arrow__text arrow--prev">prev step</p>-->
-<!--        <span class="arrow__info">choose a sit</span>-->
-<!--    </a>-->
 
 
 <div class="clearfix"></div>

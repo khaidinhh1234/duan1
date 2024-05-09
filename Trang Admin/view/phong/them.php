@@ -19,13 +19,16 @@ include "./view/home/sideheader.php";
     </div><!-- Page Headings End -->
 
     <!-- Add or Edit Product Start -->
+    <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }?>
     <form action="index.php?act=themphong" method="post"  enctype="multipart/form-data">
         <div class="add-edit-product-wrap col-12">
-
             <div class="add-edit-product-form">
 
                     <h4 class="title">Thêm  phong</h4>
 
+    
                     <div class="row">
                         <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="TÊN PHÒNG" name="name"></div>
                         <!-- <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Mô Tả" name="mo_ta"></div> -->
@@ -52,4 +55,8 @@ include "./view/home/sideheader.php";
         </div><!-- Add or Edit Product End -->
 
     </form>
+    <?php if(isset($error)&&$error !=""){
+                echo '<p   style="color: red; text-align: center;"
+                > '.$error.' </p>';
+            } ?>
 </div><!-- Content Body End -->

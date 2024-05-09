@@ -25,7 +25,7 @@ LEFT JOIN taikhoan ON taikhoan.id = v.id_tk
 LEFT JOIN phim ON phim.id = v.id_phim
 LEFT JOIN lichchieu ON lichchieu.id = v.id_ngay_chieu
 LEFT JOIN phongchieu ON phongchieu.id = khung_gio_chieu.id_phong
-WHERE v.trang_thai IN (1, 2, 3)  -- Lấy cả trạng thái 1, 2, và 3
+WHERE v.trang_thai IN (1, 2, 3,4)  -- Lấy cả trạng thái 1, 2, và 3
 AND id_tk = ".$id."
 ORDER BY v.id DESC;";
     $re = pdo_query($sql);

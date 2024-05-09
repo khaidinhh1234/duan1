@@ -1,7 +1,5 @@
 <?php 
         include "./view/home/sideheader.php";
-        $tong = count($loadkgc);
-$sotrang = ceil($tong/5);
         ?>
         <!-- Content Body Start -->
         <div class="content-body">
@@ -17,7 +15,10 @@ $sotrang = ceil($tong/5);
                 </div><!-- Page Heading End -->
 
             </div><!-- Page Headings End -->
-
+            <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
             <div class="col-12 mb-30">
             <div class="news-item">
                 <div class="content">
@@ -40,7 +41,7 @@ $sotrang = ceil($tong/5);
                             <tbody>
                                 <?php foreach ($loadkgc as $gio){
                                     extract($gio);
-                                    $linksua = "index.php?act=suathoigian&idsua=".$id;
+                                    $linksua = "index.php?act=suathoigian&ids=".$id;
                                     $linkxoa = "index.php?act=xoathoigian&idxoa=".$id;
                                     echo '<tr>
                                     <td>#'.$id.'</td>
@@ -59,33 +60,12 @@ $sotrang = ceil($tong/5);
 
                             </tbody>
                         </table>
-                        <nav aria-label="Page navigation example">
-  <ul class="pagination" style="padding-bottom: 20px;">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-   <?php for($i=1 ;$i<=$sotrang;$i++):?>
-    <li class="page-item"><a class="page-link" href="index.php?act=thoigian&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
- <?php endfor?>
-   
-    
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
                     </div>
                 </div>
                 <!--Order List End-->
 
             </div>
-
+     
         </div><!-- Content Body End -->
 
         

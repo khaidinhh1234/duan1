@@ -1,9 +1,48 @@
+<style>
 
+
+    .tki,
+    .tki1,
+    .tki2,
+    .tkim {
+        padding: 10px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+    }
+
+    .tkim {
+        padding: 10px 20px;
+        background-color: #555; /* Màu nền của nút tìm kiếm */
+        color: #fff; /* Màu chữ trắng của nút tìm kiếm */
+        cursor: pointer;
+    }
+
+    .tkim:hover {
+        background-color: #777; /* Màu nền khi di chuột qua nút tìm kiếm */
+    }
+
+    ::placeholder {
+        color: #999; /* Màu chữ mờ khi chưa nhập vào input */
+    }
+    .cap {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50; /* Màu nền xanh lá cây */
+        color: #fff; /* Màu chữ trắng */
+        cursor: pointer;
+    }
+
+    .cap:hover {
+        background-color: #45a049; /* Màu nền xanh lá cây khi di chuột qua */
+    }
+
+</style>
 <?php
 include "./view/home/sideheader.php";
-
- $tong = count($loadve); //tổng ve 
- $pase = ceil($tong / 10);
 ?>
 <!-- Content Body Start -->
 <div class="content-body" xmlns="http://www.w3.org/1999/html">
@@ -18,11 +57,13 @@ include "./view/home/sideheader.php";
             </div>
         </div><!-- Page Heading End -->
         <form action="index.php?act=ve" method="post">
-            <input type="text" name="ten" placeholder="tìm kiếm người dùng">
-            <input type="text" name="tieude" placeholder="tìm kiếm phim">
-            <input type="submit" name="seach" value="Tìm Kiếm">
+            <div class="otk"><input type="text" class="tki" name="ten" placeholder="tìm kiếm người dùng">
+                <input type="text" class="tki1" name="tieude" placeholder="tìm kiếm phim">
+                <input type="text" class="tki2" name="id_ve" placeholder="tìm kiếm id vé">
+                <input type="submit" class="tkim" name="tk" value="Tìm Kiếm"></div>
     </div><!-- Page Headings End -->
-
+    <form action="index.php?act=capnhat_tt_ve" method="post">
+        <input type="submit" class="cap" value="Cập nhật vé hết hạn" name="capnhat">
     <div class="row">
 
         <!--Order List Start-->
@@ -35,17 +76,15 @@ include "./view/home/sideheader.php";
                         <th>Phim</th>
                         <th>Giá Vé</th>
                         <th>Ngày Đặt </th>
-                        <th>Ghế</th>
-                        <th>Combo Đồ Ăn</th>
                         <th>Tên Khách Hàng</th>
                         <th>Ngày Chiếu</th>
                         <th>Khung Giờ Chiếu</th>
-                        <th>Phòng</th>
                         <th>Trạng Thái Vé</th>
                         <th>Quản Lý</th>
                     </tr>
                     </thead>
                     <tbody>
+
                     <?php foreach($loadvephim as $ve):?>
                         <?php extract($ve)?>
                         <?php $linksua="index.php?act=suavephim&idsua=".$id;
@@ -55,12 +94,9 @@ include "./view/home/sideheader.php";
                             <td><?=$ve['tieu_de']?></td>
                             <td><?=number_format($price)?> VNĐ</td>
                             <td><?=$ve['ngay_dat']?></td>
-                            <td><?=$ve['ghe']?></td>
-                            <td><?=$ve['combo']?></td>
                             <td><?=$ve['name']?></td>
                             <td><?=$ve['ngay_chieu']?></td>
                             <td><?=$ve['thoi_gian_chieu']?></td>
-                            <td><?=$ve['tenphong']?></td>
                             <td>
                                 <?php
                                 switch ($ve['trang_thai']) {
@@ -99,35 +135,9 @@ include "./view/home/sideheader.php";
                             </td>
                         </tr
                     <?php endforeach?>
-                   
-                    </tbody> 
-                </table><nav aria-label="Page navigation example">
-  <ul class="pagination" style="padding-bottom: 20px;">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <?php for ($i=1 ; $i <= $pase; $i++):?>
-        
-        <li class="page-item"><a class="page-link" href="index.php?act=ve&&pase=<?php echo $i?>"><?php echo $i ?></a></li>
-
-    
-    
-   <?php endfor ?>
-    <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">4</a></li>
-    <li class="page-item"><a class="page-link" href="#">5</a></li> -->
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+                    </form>
+                    </tbody>
+                </table>
             </div>
         </div>
         <!--Order List End-->

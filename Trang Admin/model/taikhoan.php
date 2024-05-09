@@ -1,18 +1,26 @@
 <?php
 function loadall_taikhoan() {
-    if(isset($_GET['sotrang'])){
-        $sotrang=$_GET['sotrang'];
-    }else{
-    $sotrang=1;
-    }
-    $bghi =5;
-    $vitri=($sotrang-1)*$bghi;
-    $sql = "SELECT t.id, t.name, COUNT(ve.id) as so_ve, t.user, t.pass, t.email, t.phone, t.dia_chi, t.vai_tro
-FROM taikhoan t
-LEFT JOIN ve ON ve.id_tk = t.id
-WHERE t.vai_tro = 0
-GROUP BY t.id
-ORDER BY t.id DESC LIMIT $vitri,$bghi;
+    $sql = "SELECT 
+    t.id, 
+    t.name, 
+    IFNULL(COUNT(ve.id), 0) AS so_ve, 
+    t.user, 
+    t.pass, 
+    t.email, 
+    t.phone, 
+    t.dia_chi, 
+    t.vai_tro
+FROM 
+    taikhoan t
+LEFT JOIN 
+    ve ON ve.id_tk = t.id AND ve.trang_thai IN (1, 2, 4)
+WHERE 
+    t.vai_tro = 0
+GROUP BY 
+    t.id, t.name, t.user, t.pass, t.email, t.phone, t.dia_chi, t.vai_tro
+ORDER BY 
+    t.id DESC;
+
 ;
 ";
 
@@ -53,13 +61,12 @@ function loadone_taikhoan($id){
 }
 
 function loadall_taikhoan_nv() {
-   
     $sql = "SELECT t.id, t.name, t.user, t.pass, t.email, t.phone, t.dia_chi, t.vai_tro
 FROM taikhoan t
 LEFT JOIN ve ON ve.id_tk = t.id
 WHERE t.vai_tro = 1
 GROUP BY t.id
-ORDER BY t.id DESC ;
+ORDER BY t.id DESC;
 ";
 
     $re = pdo_query($sql);

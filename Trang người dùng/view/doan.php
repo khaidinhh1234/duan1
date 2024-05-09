@@ -1,4 +1,5 @@
-<?php include "view/search.php"
+<?php include "view/search.php";
+
 ?>
 <style>
     .container {
@@ -45,7 +46,7 @@
 
                 <p>Giá: 59.000đ</p>
                 <div class="combo-doan-right">
-                    <span class="check_do_an , btn btn-md btn--danger" check-price='3' check-place = ' Combo-Coca '>CHỌN NGAY</span>
+                    <span class="check_do_an , btn btn-md btn--danger" check-price='3' check-place = 'Combo-Coca '>CHỌN NGAY</span>
                 </div>
 
 
@@ -57,7 +58,7 @@
 
                 <p>Giá: 259.000đ</p>
                 <div class="combo-doan-right">
-                    <span class="check_do_an , btn btn-md btn--danger" check-price='4' check-place = ' Combo-Halo '>CHỌN NGAY</span>
+                    <span class="check_do_an , btn btn-md btn--danger" check-price='4' check-place = 'Combo-Halo '>CHỌN NGAY</span>
                 </div>
 
 
@@ -69,7 +70,7 @@
 
                 <p>Giá: 125.000đ</p>
                 <div class="combo-doan-right">
-                    <span class="check_do_an , btn btn-md btn--danger" check-price='1' check-place = ' Combo-Wish-C1 '>CHỌN NGAY</span>
+                    <span class="check_do_an , btn btn-md btn--danger" check-price='1' check-place = 'Combo-Wish-C1 '>CHỌN NGAY</span>
                 </div>
 
 
@@ -91,7 +92,7 @@
                 <p>07 ly nước ngọt size L + 02 Hộp bắp + FREE Up Vị bất kỳ </p>
                 <p>Giá: 199.000đ</p>
                 <div class="combo-doan-right">
-                    <span class="check_do_an , btn btn-md btn--danger" check-price='6' check-place = ' Combo-Hủy-Diệt '>CHỌN NGAY </span>
+                    <span class="check_do_an , btn btn-md btn--danger" check-price='6' check-place = 'Combo-Hủy-Diệt '>CHỌN NGAY </span>
                 </div>
 
             </div>
@@ -101,7 +102,7 @@
                 <p>8 ly nước ngọt size L + 02 Hộp bắp + FREE Up Vị bất kỳ </p>
                 <p>Giá: 219.000đ</p>
                 <div class="combo-doan-right">
-                    <span class="check_do_an , btn btn-md btn--danger" check-price='5' check-place = ' Combo-Halo-2 '>CHỌN NGAY </span>
+                    <span class="check_do_an , btn btn-md btn--danger" check-price='5' check-place = 'Combo-Halo-2 '>CHỌN NGAY </span>
                 </div>
 
             </div>
@@ -114,9 +115,12 @@
 <div class="col-lg-offset-1">
     <div class="tong">
         <h2 class="phim">Phim bạn chọn  : <?= $_SESSION['tong']['tieu_de'] ?></h2>
-        <span>Suất : <?= $_SESSION['tong']['thoi_gian_chieu'] ?> ------ <?= $_SESSION['tong']['ngay_chieu'] ?></span> <br>
-        <div style="display: flex">
-            <span>Ghế đã chọn :</span>
+        <div class="win">
+            <span>📅Ngày chiếu : <?= $_SESSION['tong']['ngay_chieu'] ?></span> <br>          
+
+            <span>⏱Giờ chiếu : <?= $_SESSION['tong']['thoi_gian_chieu'] ?></span> <br>
+            </div>        <div style="display: flex">
+            <span>🪑Ghế đã chọn :</span>
             <div class="checked-place">
                 <?php
                 if (isset($ten_ghe['ghe'])) {
@@ -149,7 +153,15 @@
             <div class="checked-result">
                 <span>Tổng cộng :</span>
                 <input name="giaghe" style="width: 80px; font-size: 20px; border: none;" type="text" id="gia_ghe"
-                       value="<?php echo isset($_SESSION['tong'][0]) ? $_SESSION['tong'][0] : 0; ?>"> VND
+                       value="<?php if (isset($_SESSION['tong'][0])) {
+                           // Kiểm tra nếu $_SESSION['tong'][0] bằng 0
+                           $displayValue = ($_SESSION['tong'][0] == 0) ? $_SESSION['tong'][2] : $_SESSION['tong'][0];
+                       } else {
+                           // Nếu không có giá trị trong $_SESSION['tong'][0], hiển thị 0
+                           $displayValue = 0;
+                       }
+
+                       echo $displayValue; ?>"> VND
             </div>
         </div>
     </div>
@@ -171,3 +183,19 @@
 
 <div class="clearfix"></div>
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Sử dụng .on() để xử lý sự kiện cho cả trường hợp click và touchstart (di động)
+        $('.check_do_an').on('click touchstart', function () {
+            // Kiểm tra xem nút có class 'btn--danger' hay không
+            if ($(this).hasClass('btn--danger')) {
+                // Nếu có, thì đổi class và text
+                $(this).removeClass('btn--danger').addClass('btn--success').text('BỎ CHỌN');
+            } else {
+                // Nếu không, thì đổi class và text
+                $(this).removeClass('btn--success').addClass('btn--danger').text('CHỌN NGAY');
+            }
+        });
+    });
+</script>

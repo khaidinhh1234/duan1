@@ -1,7 +1,5 @@
 <?php 
         include "./view/home/sideheader.php";
-        $tong = count($loadlich);
-$sotrang = ceil($tong/5);
         ?>
         <!-- Content Body Start -->
         <div class="content-body">
@@ -12,12 +10,16 @@ $sotrang = ceil($tong/5);
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3 class="title">Quản Lý Suất Chiếu <span>/ Suất Chiếu</span></h3>
+                        <h3 class="title">Quản Lý Suất Chiếu<span>/ Suất Chiếu</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
             </div><!-- Page Headings End -->
-
+           
+            <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
             <div class="col-12 mb-30"><div class="news-item">
                 <div class="content">
                 <div class="categories"><a href="index.php?act=themlichchieu" class="product">Thêm Suất Chiếu</a></div></div></div>
@@ -37,7 +39,7 @@ $sotrang = ceil($tong/5);
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($loadlich as $lich){
+                                <?php foreach ($loadlich as $lich){
                                     extract($lich);
                                     $linksua = "index.php?act=sualichchieu&idsua=".$id;
                                     $linkxoa= "index.php?act=xoalichchieu&idxoa=".$id;
@@ -58,27 +60,6 @@ $sotrang = ceil($tong/5);
 
                             </tbody>
                         </table>
-                        <nav aria-label="Page navigation example">
-  <ul class="pagination" style="padding-bottom: 20px;">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-   <?php for($i=1 ;$i<=$sotrang;$i++):?>
-    <li class="page-item"><a class="page-link" href="index.php?act=QLsuatchieu&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
- <?php endfor?>
-   
-    
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
                     </div>
                 </div>
                 <!--Order List End-->

@@ -7,6 +7,7 @@
 
                 <nav class="side-header-menu" id="side-header-menu">
                     <ul>
+
                         <li><a href="index.php?act=home"><i class="fa fa-institution"></i> <span>Trang chủ</span></a></li>
                         <li><a href="index.php?act=QLloaiphim"><i class="fa fa-window-restore" ></i> <span>Quản Lý Loại Phim</span></a></li>
                         <li><a href="index.php?act=QLphim"><i class="fa fa-film"></i> <span>Quản Lý Phim</span></a></li>
@@ -14,7 +15,7 @@
                        
                         <li><a href="#"><i class="fa fa-user"></i> <span>Quản Lý Tài Khoản</span></a>
                             <ul class="side-header-sub-menu">
-                                <?php if ($_SESSION['user']['vai_tro'] ==2){ ?>
+                                <?php if ($_SESSION['user1']['vai_tro'] ==2){ ?>
                                 <li><a href="index.php?act=QTvien"><i class="ti-shopping-cart"></i> <span>Nhân Viên</span></a></li>
                                 <?php } ?>
                                 <li><a href="index.php?act=QTkh"><i class="ti-shopping-cart"></i> <span>Khách Hàng</span></a></li>
@@ -22,13 +23,13 @@
                             </ul>
                         </li>
 
-                        <?php if ($_SESSION['user']['vai_tro'] ==2){ ?>
+                        <?php if ($_SESSION['user1']['vai_tro'] ==2){ ?>
                             <li class="has-sub-menu"><a href="#"><i class="fa fa-line-chart" ></i> <span>Theo Dõi Danh Thu</span></a>
                                 <ul class="side-header-sub-menu">
-                                    <li><a href="index.php?act=DTdh"><i class="fa fa-line-chart" ></i><span>Danh Thu Phim</span></a></li>
-                                    <li><a href="index.php?act=DTngay"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Ngày</span></a></li>
-                                    <li><a href="index.php?act=DTtuan"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Tuần</span></a></li>
-                                    <li><a href="index.php?act=DTthang"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Tháng</span></a></li>
+                                    <li><a href="index.php?act=DTdh&&trang=1"><i class="fa fa-line-chart" ></i><span>Danh Thu Phim</span></a></li>
+                                    <li><a href="index.php?act=DTngay&&trang=1"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Ngày</span></a></li>
+                                    <li><a href="index.php?act=DTtuan&&trang=1"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Tuần</span></a></li>
+                                    <li><a href="index.php?act=DTthang&&trang=1"><i class="fa fa-line-chart" ></i><span>Danh Thu Theo Tháng</span></a></li>
                                 </ul>
                             </li>
                         <?php } ?>
@@ -49,7 +50,7 @@
 
                             </ul>
                         </li>
-                         <li ><a href="index.php?act=QLfeed"><i class="fa fa-comments" ></i> <span>Quản Lý Feedback</span></a>
+                         <li ><a href="index.php?act=QLfeed&&sotrang=1"><i class="fa fa-comments" ></i> <span>Quản Lý Feedback</span></a>
                            
                         </li>
                         

@@ -1,19 +1,49 @@
 <?php
 
 function loadall_phim()
-{
-    $sql = "select * from phim where 1 order by id asc";
+{if(isset($_GET['sotrang'])){
+    $sotrang=$_GET['sotrang'];
+   }else{
+       $sotrang=1;
+   }
+   $bghi=5;
+   $vitri=($sotrang-1)*$bghi;
+    $sql = "SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.link_trailer
+    FROM phim p
+    INNER JOIN loaiphim ON loaiphim.id = p.id_loai where 1 order by id asc limit $vitri,$bghi";
     $re = pdo_query($sql);
     return $re;
 }
 function loadall_phim_hot()
 {
-    $sql = "SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.luotxem
-FROM phim p
-INNER JOIN loaiphim ON loaiphim.id = p.id_loai
-WHERE 1
-ORDER BY p.luotxem DESC
-LIMIT 0,6;";
+    $sql = "SELECT
+    p.id,
+    p.tieu_de,
+    p.daodien,
+    p.dienvien,
+    p.img,
+    p.mo_ta,
+    p.date_phat_hanh,
+    p.thoi_luong_phim,
+    loaiphim.name,
+    p.quoc_gia,
+    p.gia_han_tuoi,
+    COUNT(v.id) AS tong_so_ve
+FROM
+    phim p
+INNER JOIN
+    loaiphim ON loaiphim.id = p.id_loai
+LEFT JOIN
+    ve v ON v.id_phim = p.id
+WHERE
+    v.trang_thai IN (1, 2, 4)
+GROUP BY
+    p.id
+ORDER BY
+    tong_so_ve DESC
+LIMIT
+    0, 6;
+";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
@@ -21,7 +51,7 @@ LIMIT 0,6;";
 
 function loadall_phim_home()
 {
-    $sql = "SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.luotxem
+    $sql = "SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi
 FROM phim p
 INNER JOIN loaiphim ON loaiphim.id = p.id_loai
 WHERE 1
@@ -33,7 +63,7 @@ LIMIT 0,8;";
 
 function loadone_phim($id)
 {
-    $sql = "SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.luotxem,p.link_trailer
+    $sql = "SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.link_trailer
 FROM phim p
 INNER JOIN loaiphim ON loaiphim.id = p.id_loai
 WHERE 1  and p.id =" . $id;
@@ -62,7 +92,8 @@ function phim_select_all()
 }
 
 function loadall_phim1($kys="",$id_loai=0){
-    $sql="SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.luotxem,p.link_trailer
+    
+    $sql="SELECT p.id, p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.link_trailer
 FROM phim p
 INNER JOIN loaiphim ON loaiphim.id = p.id_loai";
     if($kys!=""){
@@ -71,13 +102,13 @@ INNER JOIN loaiphim ON loaiphim.id = p.id_loai";
     if($id_loai>0){
         $sql.=" and id_loai ='".$id_loai."'";
     }
-    $sql.=" order by id desc";
+    $sql.=" order by id desc  ";
     $re=pdo_query($sql);
     return  $re;
 }
 
 function load_phimdc(){
-    $sql = "SELECT p.id,p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.luotxem
+    $sql = "SELECT p.id,p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi
 FROM phim p
 INNER JOIN loaiphim ON loaiphim.id = p.id_loai
 WHERE p.date_phat_hanh < CURDATE();
@@ -87,7 +118,7 @@ WHERE p.date_phat_hanh < CURDATE();
 }
 
 function load_phimsc(){
-    $sql = "SELECT p.id,p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi, p.luotxem
+    $sql = "SELECT p.id,p.tieu_de, p.daodien, p.dienvien, p.img, p.mo_ta, p.date_phat_hanh, p.thoi_luong_phim, loaiphim.name, p.quoc_gia, p.gia_han_tuoi
 FROM phim p
 INNER JOIN loaiphim ON loaiphim.id = p.id_loai
 WHERE p.date_phat_hanh > CURDATE()

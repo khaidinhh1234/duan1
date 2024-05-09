@@ -1,6 +1,7 @@
 <?php
 include "./view/home/sideheader.php";
-
+$tong =count($dtt1);
+$trang = ceil($tong/3);
 ?>
 
 <!-- Content Body Start -->
@@ -66,7 +67,20 @@ include "./view/home/sideheader.php";
                         </tr>
                         </tfoot>
                     </table>
+                    <ul class="pagination">
 
+<?php for($i=1 ; $i<=$trang ; $i++):?>
+     <?php if($_GET['trang']==$i){
+ echo'<li class="page-item active" >
+ <a class="page-link" href="index.php?act=DTngay&&trang='.$i.'">'.$i.'</a>
+</li>';
+}else{
+echo' <li class="page-item"><a class="page-link" href="index.php?act=DTngay&&trang='.$i.'">'.$i.'</a></li>';}
+?>
+<?php endfor?>
+
+</ul>
+</nav>
                 </div>
             </div>
         </div>

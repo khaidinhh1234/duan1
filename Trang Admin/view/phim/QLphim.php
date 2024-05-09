@@ -1,8 +1,48 @@
+<style>
 
+
+    .tki,
+    .tki1,
+    .tki2,
+    .tkim {
+        padding: 10px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+    }
+
+    .tkim {
+        padding: 10px 20px;
+        background-color: #555; /* Màu nền của nút tìm kiếm */
+        color: #fff; /* Màu chữ trắng của nút tìm kiếm */
+        cursor: pointer;
+    }
+
+    .tkim:hover {
+        background-color: #777; /* Màu nền khi di chuột qua nút tìm kiếm */
+    }
+
+    ::placeholder {
+        color: #999; /* Màu chữ mờ khi chưa nhập vào input */
+    }
+    .cap {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50; /* Màu nền xanh lá cây */
+        color: #fff; /* Màu chữ trắng */
+        cursor: pointer;
+    }
+
+    .cap:hover {
+        background-color: #45a049; /* Màu nền xanh lá cây khi di chuột qua */
+    }
+
+</style>
 <?php 
         include "./view/home/sideheader.php";
-       
-        $sotrang = ceil($tong/3);
         ?>
 
         <!-- Content Body Start -->
@@ -17,18 +57,19 @@
                         <h3>Quản Lý Phim  <span>/ Danh Sách Phim</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
-
+                <form action="index.php?act=QLphim" method="post">
+            <div class="otk"><input type="text" class="tki" name="ten" placeholder="tìm kiếm tên phim">
+                <input type="text" class="tki1" name="loai" placeholder="tìm kiếm loại phim">
+                <input type="submit" class="tkim" name="tk1" value="Tìm Kiếm"></div>
             </div><!-- Page Headings End -->
-
+            <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
             <div class="row mbn-30">
                 <form action="" method="post"  enctype="multipart/form-data">
                 <!--Alert Start-->
-                <div class="col-12 mb-30">
-                    <div class="alert alert-primary">
-                        <button class="close" data-dismiss="alert"><i class="zmdi zmdi-close"></i></button>
-                        <i class="zmdi zmdi-alert-polygon"></i> Trang này đã được cải tiến để tải xuống. Bấm vào nút in ở cuối hoá đơn để <a href="#" class="alert-link">  Tải xuống.</a>
-                    </div>
-                </div>
+
                 <!--Alert End-->
 
                 <!-- Invoice List Start -->
@@ -44,14 +85,9 @@
                                 <tr>
                                     <th>Mã Phim</th>
                                     <th>Tên Phim</th>
-                                    <th>Đạo Diễn</th>
-                                    <th>Diễn Viên</th>
                                     <th>Hình Ảnh</th>
-                                    <th>Mô Tả</th>
                                     <th>Thời Gian Chiếu</th>
-                                    <th>Quốc Gia</th>
-                                    <th>Giới Hạn Tuổi</th>
-                                    <th>Lịch Chiếu</th>
+                                    <th>Ngày Phát Hành</th>
                                     <th>Loại Phim</th>
                                     <th>Quản Lý</th>
                                 </tr>
@@ -72,15 +108,10 @@
               
                             echo '<tr> <td>#'.$id.'</td>
                                        <td>'.$tieu_de.'</td>
-                                       <td>'.$daodien.'</td>
-                                       <td style="font-size: 4px">'.$dienvien.'</td>
                                        <td>'.$img.'</td>
-                                       <td style="font-size: 4px">'.$mo_ta.'</td>
                                        <td>'.$thoi_luong_phim.'</td>
-                                       <td>'.$quoc_gia.'</td>
-                                       <td>'.$gia_han_tuoi.'</td>
                                        <td>'.$date_phat_hanh.'</td>
-                                       <td>'.$id_loai.'</td>
+                                       <td>'.$phim['name'].'</td>
                                        
                         <td>
                             <div class="table-action-buttons">
@@ -95,26 +126,8 @@
                             </tbody><!-- Table Body End -->
 
                         </table>
-                        <nav aria-label="Page navigation example">
-  <ul class="pagination" style="padding-bottom: 20px;">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-     <?php for($i=1 ;$i<= $sotrang ;$i++ ):?>
-    <li class="page-item"><a class="page-link" href="index.php?act=QLphim&sotrang=<?php echo $i?>"><?php echo $i?></a></li> 
-    <?php endfor?>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
                     </div></form>
+                    </form>
                 </div><!-- Invoice List End -->
 
             </div>

@@ -10,14 +10,17 @@ include "./view/home/sideheader.php";
         <!-- Page Heading Start -->
         <div class="col-12 col-lg-auto mb-20">
             <div class="page-heading">
-                <h3>Loại Phim <span>/ Thêm Phim</span></h3>
+                <h3>Phim <span>/ Thêm Phim</span></h3>
             </div>
         </div><!-- Page Heading End -->
 
         <!-- Page Button Group Start -->
 
     </div><!-- Page Headings End -->
-
+    <?php if(isset($suatc)&&($suatc)!= ""){
+        echo'<p  style="color: red; text-align: center;">' .$suatc. '</p>';
+    }
+    ?> 
     <!-- Add or Edit Product Start -->
     <form action="index.php?act=themphim" method="post"  enctype="multipart/form-data">
         <div class="add-edit-product-wrap col-12">
@@ -65,6 +68,10 @@ include "./view/home/sideheader.php";
             </div>
 
         </div><!-- Add or Edit Product End -->
+        <?php if(isset($error)&&$error !=""){
+                echo '<p  style="color: red; text-align: center;"
+                > '.$error.' </p>';
+            } ?>
         </div>
     </form>
 </div><!-- Content Body End -->

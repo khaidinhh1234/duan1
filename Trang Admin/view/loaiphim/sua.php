@@ -53,4 +53,8 @@ if(is_array($loadone_loai)){
             </div><!-- Add or Edit Product End -->
 
     </form>
+    <?php if(isset($error)&&$error !=""){
+                echo '<p  style="color: red; text-align: center;"
+                > '.$error.' </p>';
+            } ?>
 </div><!-- Content Body End -->

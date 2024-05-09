@@ -20,13 +20,9 @@
                 <div class="movie movie--preview movie--full comments">
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="movie__images">
-                            <img src="<?=$hinhpath?>" alt="lỗi">
+                            <img src="<?=$hinhpath?>" alt="lỗi" style="width: 260.3px;height: 250px">
                         </div>
-                        <div class="movie__feature">
-                            <a href="#" class="movie__feature-item movie__feature--comment">23</a>
-                            <a href="#" class="movie__feature-item movie__feature--video">2</a>
-                            <a href="#" class="movie__feature-item movie__feature--photo">85</a>
-                        </div>
+
                     </div>
 
                     <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
@@ -51,7 +47,6 @@
                                     <i class="fa-solid fa-star" style="color: #fbff00;"></i></div><span class="movie__rate-number">30 LIKE</span> <span class="movie__rating">5.0</span></div>
 
 
-                            <a href="#" class="movie__show-btn">Lịch Chiếu</a>
                         </div>
                     </div>
 
@@ -62,12 +57,6 @@
         <!-- end movie preview item -->
 
 
-        <div class="coloum-wrapper">
-            <div class="pagination paginatioon--full">
-                <a href='#' class="pagination__prev">prev</a>
-                <a href='#' class="pagination__next">next</a>
-            </div>
-        </div>
 
     </div>
 

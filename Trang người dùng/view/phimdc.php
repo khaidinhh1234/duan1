@@ -8,18 +8,7 @@
         <h2 class="page-heading">Danh sách phim  /
             <span >Phim Đang chiếu </span></h2>
 
-        <div class="tags-area">
-            <div class="tags tags--unmarked">
-                <span class="tags__label">Sắp xếp theo:</span>
-                <ul>
-                    <li class="item-wrap"><a href="#" class="tags__item item-active" data-filter='all'>Tất cả</a></li>
-                    <li class="item-wrap"><a href="#" class="tags__item" data-filter='release'>Ngày phát hành</a></li>
-                    <li class="item-wrap"><a href="#" class="tags__item" data-filter='popularity'>Phổ biến</a></li>
-                    <li class="item-wrap"><a href="#" class="tags__item" data-filter='comments'>Bình luận</a></li>
-                    <li class="item-wrap"><a href="#" class="tags__item" data-filter='ending'>Sắp kết thúc</a></li>
-                </ul>
-            </div>
-        </div>
+
 
 
 
@@ -33,13 +22,9 @@
                 <div class="movie movie--preview movie--full comments">
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="movie__images">
-                            <img src="<?=$hinhpath?>" alt="lỗi">
+                            <img src="<?=$hinhpath?>" alt="lỗi" style="width: 260.3px;height: 250px">
                         </div>
-                        <div class="movie__feature">
-                            <a href="#" class="movie__feature-item movie__feature--comment">23</a>
-                            <a href="#" class="movie__feature-item movie__feature--video">2</a>
-                            <a href="#" class="movie__feature-item movie__feature--photo">85</a>
-                        </div>
+
                     </div>
 
                     <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
@@ -56,16 +41,7 @@
                             <a href="<?=$book1?>" class="btn btn-md btn--warning">Đặt Vé <span class="hidden-sm">Xem Phim</span></a>
                         </div>
 
-                        <div class="preview-footer">
-                            <div class="movie__rate"><div ><i class="fa-solid fa-star" style="color: #fbff00;"></i>
-                                    <i class="fa-solid fa-star" style="color: #fbff00;"></i>
-                                    <i class="fa-solid fa-star" style="color: #fbff00;"></i>
-                                    <i class="fa-solid fa-star" style="color: #fbff00;"></i>
-                                    <i class="fa-solid fa-star" style="color: #fbff00;"></i></div><span class="movie__rate-number">30 LIKE</span> <span class="movie__rating">5.0</span></div>
 
-
-                            <a href="#" class="movie__show-btn">Lịch Chiếu</a>
-                        </div>
                     </div>
 
                     <div class="clearfix"></div>
@@ -145,12 +121,6 @@
         <!-- end movie preview item -->
 
 
-        <div class="coloum-wrapper">
-            <div class="pagination paginatioon--full">
-                <a href='#' class="pagination__prev">prev</a>
-                <a href='#' class="pagination__next">next</a>
-            </div>
-        </div>
 
     </div>
 

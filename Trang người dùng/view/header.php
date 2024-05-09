@@ -68,8 +68,6 @@
                             </span>
                         </span>
                 </a>
-
-                <!-- Link navigation -->
                 <ul id="navigation">
                     <li>
                         <span class="sub-nav-toggle plus"></span>
@@ -78,7 +76,7 @@
                     </li>
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="index.php?act=dsphim">Phim</a>
+                        <a href="index.php?act=dsphim1&sotrang=1">Phim</a>
                         <ul>
                             <li class="menu__nav-item"><a href="index.php?act=phimdangchieu" >Phim Đang Chiếu</a></li>
                             <li class="menu__nav-item"><a href="index.php?act=phimsapchieu" >Phim Sắp Chiếu</a></li>
@@ -114,20 +112,7 @@
                     </li>
                 </ul>
             </nav>
-
-            <!-- Additional header buttons / Auth and direct link to booking-->
             <div class="control-panel">
-<!--                <div class="auth auth--home">-->
-<!--                    <div class="auth__show">-->
-<!--                        <span class="auth__image">-->
-<!--                          <img alt="" src="../web_cine_pass/images/client-photo/auth.png">-->
-<!--                        </span>-->
-<!--                    </div>-->
-<!--                    <a href="#" class="btn btn--sign btn--singin">-->
-<!--                        me-->
-<!--                    </a>-->
-<!---->
-<!--                </div>-->
                            <?php if (isset($_SESSION['user'])){
                                   extract($_SESSION['user']);
                                   echo '<a href="index.php?act=dangnhap" class="btn btn-md btn--warning btn--book ">'.$name.'</a>';
